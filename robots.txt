@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://istack.cc
+Sitemap: https://istack.cc/sitemap.xml
