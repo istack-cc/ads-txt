@@ -94,7 +94,7 @@ function getCategoryFaqs(category: CategoryData, apps: App[]) {
     },
     {
       question: `Are all iStack ${catName} apps really free?`,
-      answer: `Yes. All iStack apps are free to download and use forever. They are ad-supported, never subscription-based. There are no trial periods, no premium tiers, and no hidden fees.`,
+      answer: `All iStack apps are free to download. On Android, apps are ad-supported with no subscriptions or in-app purchases. On iOS, apps are free to install and may offer optional premium features through in-app purchase or subscription.`,
     },
     {
       question: `Do iStack ${catName} apps work offline?`,
@@ -119,7 +119,7 @@ function getCategoryFaqs(category: CategoryData, apps: App[]) {
     },
     {
       question: `Who makes these ${catName} apps?`,
-      answer: `iStack apps are built by Mohamed Haizoun, an indie developer who has published 45 free Android and iOS apps with 419K+ total installs. Every app is maintained and updated regularly.`,
+      answer: `iStack is an independent app publisher that has shipped 45 apps on Android and iOS with 419K+ total installs. Every app is maintained and updated regularly.`,
     },
     {
       question: `How often are iStack ${catName} apps updated?`,

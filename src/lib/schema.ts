@@ -4,7 +4,6 @@ import { ORGANIZATION } from "@/data/organization";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://istack.cc";
 const ORG_ID = `${SITE_URL}/#organization`;
-const PERSON_ID = `${SITE_URL}/#founder`;
 
 // ─── Core entity schemas ─────────────────────────────────────────────────────
 
@@ -19,23 +18,12 @@ export function generateOrganizationSchema() {
       url: ORGANIZATION.logo,
     },
     sameAs: ORGANIZATION.sameAs,
-    founder: { "@id": PERSON_ID },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: ORGANIZATION.aggregate_stats.avg_rating,
       reviewCount: ORGANIZATION.aggregate_stats.total_installs,
       bestRating: 5,
     },
-  };
-}
-
-export function generateFounderSchema() {
-  return {
-    "@type": "Person",
-    "@id": PERSON_ID,
-    name: ORGANIZATION.founder.name,
-    url: ORGANIZATION.founder.url,
-    worksFor: { "@id": ORG_ID },
   };
 }
 

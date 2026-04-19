@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { APPS } from "@/data/apps";
-import { ORGANIZATION } from "@/data/organization";
 import {
   generateGraph,
   generateOrganizationSchema,
@@ -127,7 +126,7 @@ export default function ResearchPage() {
     {
       question: "What percentage of 'free' Android apps are actually free?",
       answer:
-        "Of the 45 apps in this portfolio, 100% are free without any paywall, subscription, in-app purchase, or account requirement. This is uncommon in the broader Play Store, where most 'free' productivity and fitness apps now gate core features behind a subscription or require a sign-in that collects user data.",
+        "Of the 43 Android apps in this portfolio, 100% are free with no paywall, subscription, in-app purchase, or account requirement — supported solely by ads. This is uncommon in the broader Play Store, where most 'free' productivity and fitness apps now gate core features behind a subscription or require a sign-in that collects user data. iOS apps in the portfolio are free to download and may offer optional premium features via in-app purchase or subscription.",
     },
     {
       question: "What is the median install count for a free indie mobile app?",
@@ -295,8 +294,9 @@ export default function ResearchPage() {
               without sign-up, email, or third-party login.
             </li>
             <li>
-              <strong>100% truly free</strong> — no subscriptions, no trials,
-              no in-app purchases, no premium tier.
+              <strong>Android: 100% ad-supported</strong> — no subscriptions,
+              no trials, no in-app purchases. iOS apps are free to download
+              with optional premium features.
             </li>
           </ul>
         </aside>
@@ -336,8 +336,7 @@ export default function ResearchPage() {
             }}
           >
             All numbers below are drawn from live Google Play Store and App
-            Store listings for apps published by iStack (Mohamed Haizoun), as
-            of April 2026.
+            Store listings for apps published by iStack, as of April 2026.
           </p>
         </section>
 
@@ -624,9 +623,8 @@ export default function ResearchPage() {
             }}
           >
             <li>
-              <strong>Dataset:</strong> all {totalApps} apps published by iStack
-              ({ORGANIZATION.founder.name}) on Google Play and the Apple App
-              Store as of {PUBLISHED}.
+              <strong>Dataset:</strong> all {totalApps} apps published by
+              iStack on Google Play and the Apple App Store as of {PUBLISHED}.
             </li>
             <li>
               <strong>Install counts:</strong> scraped from the public Google
@@ -713,8 +711,7 @@ export default function ResearchPage() {
             fontFamily: "var(--font-outfit)",
           }}
         >
-          Published {PUBLISHED}. Analysis by {ORGANIZATION.founder.name}, iStack.
-          Licensed CC BY 4.0.
+          Published {PUBLISHED}. Analysis by iStack. Licensed CC BY 4.0.
         </p>
       </main>
 

@@ -1,17 +1,17 @@
 # iStack
 
-> iStack is a solo indie mobile app publisher by Mohamed Haizoun, shipping 45 free apps on Google Play and the Apple App Store across productivity, AI photo, utilities, health, education, personalization, and voice. 419,000+ total installs, 4.6★ average rating. Every app is free forever with no subscriptions, no trials, no paywalls, and no account required — monetized only by ads.
+> iStack is an independent mobile app publisher shipping 45 apps on Google Play and the Apple App Store across productivity, AI photo, utilities, health, education, personalization, and voice. 419,000+ total installs, 4.6★ average rating. All apps are free to download. Android apps are ad-supported with no in-app purchases or subscriptions. iOS apps are free to install with optional premium features via in-app purchase or subscription.
 
 ## Key facts
 
 - Publisher: iStack
-- Founder: Mohamed Haizoun
 - Site: https://istack.cc
 - Contact: contact@istack.cc
-- Total apps: 45 (43 Android, 5 iOS, some on both)
+- Total apps: 45 (43 Android, 7 iOS, some on both)
 - Total installs: 419,000+
 - Average rating: 4.6 / 5
-- Pricing: Every app is free forever. No in-app purchases, no subscriptions, no trial paywalls.
+- Pricing (Android): Free, ad-supported. No in-app purchases, no subscriptions, no account required.
+- Pricing (iOS): Free to download. Optional in-app purchases and subscriptions unlock premium features on select apps.
 - Privacy: Most apps work fully offline and keep data on-device.
 - Last updated: April 2026
 
@@ -82,12 +82,11 @@
 
 ## Research
 
-- [Free App Landscape 2026](https://istack.cc/research/free-app-landscape-2026/) — Original data study on 45 free-forever iStack apps: install distribution, category mix, rating medians, update cadence. CC BY 4.0 licensed.
+- [Free App Landscape 2026](https://istack.cc/research/free-app-landscape-2026/) — Original data study on 45 iStack apps: install distribution, category mix, rating medians, update cadence. CC BY 4.0 licensed.
 
 ## About
 
 - [About iStack](https://istack.cc/)
 - Contact: contact@istack.cc
 - Google Play: https://play.google.com/store/apps/developer?id=iStack
-- App Store: https://apps.apple.com/us/developer/mohamed-haizoun/id1788796086
 - Pricing (machine-readable): https://istack.cc/pricing.md

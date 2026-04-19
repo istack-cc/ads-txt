@@ -1,28 +1,34 @@
 # Pricing — iStack Apps
 
-All 45 iStack apps are free to download and free to use forever.
+iStack publishes 45 apps on Google Play and the Apple App Store. All apps are free to download. Pricing model differs by platform.
 
-## Free (all apps)
+## Android apps (Google Play)
 
-- Price: $0
-- Billing: None. No subscriptions, no trials, no paywalls.
-- Account: Not required for any app. No sign-up, no email, no login.
-- In-app purchases: None.
-- Monetization: Ad-supported only. Ads are the sole revenue model.
-- Offline use: Most apps run fully offline; some features (translation, live map, speed test) need connectivity.
-- Platforms: Google Play (Android) and Apple App Store (iOS). See https://istack.cc/apps.md for the full list.
-- Privacy: No account means no profile. Most apps keep your files and data on-device.
+- Price: $0 to download
+- In-app purchases: None
+- Subscriptions: None
+- Trials, paywalls, premium tiers: None
+- Account: Not required
+- Monetization: Ad-supported only
 
-## What is NOT sold
+## iOS apps (Apple App Store)
 
-- No "Pro" tier
-- No premium features locked behind purchase
-- No cloud sync subscription
-- No cosmetic unlocks or consumables
+- Price: $0 to download
+- In-app purchases: Yes (optional premium features)
+- Subscriptions: Yes (optional, on select apps)
+- Account: Not required to use free features
+- Monetization: Ads + optional IAP / subscriptions
+
+## What's consistent across both platforms
+
+- Free to install — no app costs money at download
+- No mandatory sign-up or account creation to use core features
+- Privacy-first: most apps work offline and keep data on-device
+- No mandatory data collection
 
 ## Contact
 
-- Publisher: iStack (founder: Mohamed Haizoun)
+- Publisher: iStack
 - Email: contact@istack.cc
 - Site: https://istack.cc
 - Last updated: April 2026
