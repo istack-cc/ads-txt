@@ -1,6 +1,19 @@
 # iStack
 
-> Solo indie mobile app publisher with 45 free Android and iOS apps. 419K+ total installs, 4.6★ average rating. Every app is free forever — no subscriptions, no trials, no dark patterns. Built by Mohamed Haizoun.
+> iStack is a solo indie mobile app publisher by Mohamed Haizoun, shipping 45 free apps on Google Play and the Apple App Store across productivity, AI photo, utilities, health, education, personalization, and voice. 419,000+ total installs, 4.6★ average rating. Every app is free forever with no subscriptions, no trials, no paywalls, and no account required — monetized only by ads.
+
+## Key facts
+
+- Publisher: iStack
+- Founder: Mohamed Haizoun
+- Site: https://istack.cc
+- Contact: contact@istack.cc
+- Total apps: 45 (43 Android, 5 iOS, some on both)
+- Total installs: 419,000+
+- Average rating: 4.6 / 5
+- Pricing: Every app is free forever. No in-app purchases, no subscriptions, no trial paywalls.
+- Privacy: Most apps work fully offline and keep data on-device.
+- Last updated: April 2026
 
 ## Categories
 
@@ -60,9 +73,21 @@
 - [Translate](https://istack.cc/apps/speak-translate/): Voice translation and camera text scanning for multilingual conversations on Android.
 - [Voice Commands](https://istack.cc/apps/voice-commands/): Trigger assistant actions with command presets and voice workflows on Android.
 
+## Guides
+
+- [Best-of roundups](https://istack.cc/best/best-free-pdf-scanner-apps-android/) — "Best free PDF scanner apps for Android 2026", "Best free step counter apps", "Best free home workout apps", "Best free font generator apps"
+- [How-to tutorials](https://istack.cc/how-to/) — step-by-step walkthroughs for using iStack apps
+- [App comparisons](https://istack.cc/compare/) — head-to-head feature comparisons (e.g. PDF Scanner vs Adobe Scan)
+- [Glossary](https://istack.cc/glossary/) — definitions for OCR, NFC, pedometer, unicode fonts, and more
+
+## Research
+
+- [Free App Landscape 2026](https://istack.cc/research/free-app-landscape-2026/) — Original data study on 45 free-forever iStack apps: install distribution, category mix, rating medians, update cadence. CC BY 4.0 licensed.
+
 ## About
 
 - [About iStack](https://istack.cc/)
 - Contact: contact@istack.cc
 - Google Play: https://play.google.com/store/apps/developer?id=iStack
 - App Store: https://apps.apple.com/us/developer/mohamed-haizoun/id1788796086
+- Pricing (machine-readable): https://istack.cc/pricing.md

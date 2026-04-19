@@ -1,7 +1,7 @@
 import type { App } from "@/data/apps";
 
-export type StoreSource = "homepage" | "category" | "app-page" | "how-to" | "compare";
-export type StorePosition = "hero" | "mid" | "footer";
+export type StoreSource = "homepage" | "category" | "app-page" | "how-to" | "compare" | "best-of";
+export type StorePosition = "hero" | "mid" | "footer" | "entry";
 
 const PLAY_STORE_BASE = "https://play.google.com/store/apps/details";
 const APP_STORE_BASE = "https://apps.apple.com/us/app";

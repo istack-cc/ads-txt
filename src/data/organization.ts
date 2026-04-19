@@ -9,6 +9,8 @@ export const ORGANIZATION = {
   sameAs: [
     "https://play.google.com/store/apps/developer?id=iStack",
     "https://apps.apple.com/us/developer/mohamed-haizoun/id1788796086",
+    "https://github.com/istackdev",
+    "https://sites.google.com/view/istack",
   ],
   contact_email: "contact@istack.cc",
   aggregate_stats: {

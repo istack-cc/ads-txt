@@ -25,5 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.3,
     },
+    {
+      url: `${BASE_URL}/research/free-app-landscape-2026/`,
+      lastModified: new Date("2026-04-19"),
+      changeFrequency: "yearly",
+      priority: 0.9,
+    },
   ];
 }
