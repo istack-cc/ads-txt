@@ -1,65 +1,109 @@
-import Image from "next/image";
+import { Nav } from "@/components/nav";
+import { Hero } from "@/components/hero";
+import { AppShowcase } from "@/components/app-showcase";
+import { AppGrid } from "@/components/app-grid";
+import { ManyMoreMarquee } from "@/components/many-more-marquee";
+import { Footer } from "@/components/footer";
+import { FEATURED_APPS } from "@/data/apps";
+import { APPS, DEVELOPER_URL, IOS_DEVELOPER_URL, SUPPORT_EMAIL } from "@/data/apps";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://istack.cc";
+
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "iStack",
+  url: SITE_URL,
+  logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.ico` },
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: SUPPORT_EMAIL,
+    contactType: "customer support",
+  },
+  sameAs: [DEVELOPER_URL, IOS_DEVELOPER_URL],
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "iStack",
+  url: SITE_URL,
+  description: `iStack makes free Android and iOS apps for workouts, photo editing, documents, device utilities, and everyday phone tasks. Browse ${APPS.length}+ apps on Google Play and App Store.`,
+  publisher: { "@type": "Organization", name: "iStack", url: SITE_URL },
+};
+
+const UNPUBLISHED_IDS = new Set(["forms"]);
+const LIVE_APPS = APPS.filter((a) => !UNPUBLISHED_IDS.has(a.id));
+const FEATURED = FEATURED_APPS.filter((a) => !UNPUBLISHED_IDS.has(a.id)).slice(0, 6);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+      />
+
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:px-4 focus:py-2 focus:text-sm focus:font-semibold"
+        style={{ background: "#0f0f0f", color: "#fff" }}
+      >
+        Skip to main content
+      </a>
+
+      <Nav appsHref="#apps" />
+
+      <main id="main-content">
+        <Hero />
+
+        <ManyMoreMarquee apps={LIVE_APPS} speed={40} />
+
+        {FEATURED.map((app, i) => (
+          <AppShowcase key={app.id} app={app} index={i} />
+        ))}
+
+        <ManyMoreMarquee apps={LIVE_APPS} speed={55} />
+
+        <section
+          id="apps"
+          aria-labelledby="apps-heading"
+          style={{
+            background: "#fff",
+            padding: "80px 24px",
+            scrollMarginTop: 80,
+          }}
+        >
+          <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+            <h2
+              id="apps-heading"
+              className="sd-fade-up"
+              style={{
+                fontWeight: 800,
+                fontSize: 36,
+                marginBottom: 8,
+                letterSpacing: "-0.03em",
+                color: "#0f0f0f",
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              All {APPS.length} Apps
+            </h2>
+            <p
+              className="sd-fade-up"
+              style={{ color: "#888", fontSize: 15, marginBottom: 36 }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              Every app is free to download. No trials, no limits.
+            </p>
+            <AppGrid />
+          </div>
+        </section>
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }
