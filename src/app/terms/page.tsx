@@ -6,6 +6,7 @@ import { SUPPORT_EMAIL } from "@/data/apps";
 export const metadata: Metadata = {
   title: "Terms of Service | iStack",
   description: "Terms of Service for iStack apps.",
+  alternates: { canonical: "/terms/" },
 };
 
 export default function TermsPage() {

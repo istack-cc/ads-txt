@@ -6,6 +6,7 @@ import { SUPPORT_EMAIL } from "@/data/apps";
 export const metadata: Metadata = {
   title: "Privacy Policy | iStack",
   description: "Privacy Policy for iStack apps.",
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {

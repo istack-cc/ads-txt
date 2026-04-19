@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { App } from "@/data/apps";
 import { AppIcon } from "@/components/app-card";
-import { getStoreUrl } from "@/data/apps";
+import { getStoreUrl } from "@/lib/storeUrl";
 
 interface AppShowcaseProps {
   app: App;
@@ -227,7 +227,7 @@ export function AppShowcase({ app, index = 0 }: AppShowcaseProps) {
   const bgFrom = app.gradientFrom;
   const bgTo = app.gradientTo;
   const sectionBg = `linear-gradient(135deg, color-mix(in oklab, ${bgFrom}, white 88%) 0%, color-mix(in oklab, ${bgTo}, white 82%) 100%)`;
-  const storeUrl = getStoreUrl(app);
+  const storeUrl = getStoreUrl(app, "homepage", "mid");
   const features = splitFeatures(app.playStoreShortDescription ?? app.description);
   const rating = 4.6; // Average-quality default; real rating data isn't in app data
   const platformLabel = app.platform === "ios" ? "App Store" : "Google Play";

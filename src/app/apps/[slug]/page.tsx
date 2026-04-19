@@ -16,9 +16,9 @@ import {
   DEVELOPER_URL,
   IOS_DEVELOPER_URL,
   getAppBySlug,
-  getStoreUrl,
   type App,
 } from "@/data/apps";
+import { getStoreUrl } from "@/lib/storeUrl";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
@@ -110,7 +110,7 @@ export default async function AppLandingPage({ params }: PageProps) {
     notFound();
   }
 
-  const storeUrl = getStoreUrl(app);
+  const storeUrl = getStoreUrl(app, "app-page", "hero");
   const isIos = app.platform === "ios";
   const devUrl = isIos ? IOS_DEVELOPER_URL : DEVELOPER_URL;
   const relatedApps = APPS.filter(
