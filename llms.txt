@@ -1,0 +1,92 @@
+# iStack
+
+> iStack is an independent mobile app publisher shipping 45 apps on Google Play and the Apple App Store across productivity, AI photo, utilities, health, education, personalization, and voice. 419,000+ total installs, 4.6★ average rating. All apps are free to download. Android apps are ad-supported with no in-app purchases or subscriptions. iOS apps are free to install with optional premium features via in-app purchase or subscription.
+
+## Key facts
+
+- Publisher: iStack
+- Site: https://istack.cc
+- Contact: contact@istack.cc
+- Total apps: 45 (43 Android, 7 iOS, some on both)
+- Total installs: 419,000+
+- Average rating: 4.6 / 5
+- Pricing (Android): Free, ad-supported. No in-app purchases, no subscriptions, no account required.
+- Pricing (iOS): Free to download. Optional in-app purchases and subscriptions unlock premium features on select apps.
+- Privacy: Most apps work fully offline and keep data on-device.
+- Last updated: April 2026
+
+## Categories
+
+- [Productivity](https://istack.cc/category/productivity/)
+- [AI & Photo](https://istack.cc/category/ai-photo/)
+- [Utilities](https://istack.cc/category/utilities/)
+- [Health & Fitness](https://istack.cc/category/health/)
+- [Education](https://istack.cc/category/education/)
+- [Personalization](https://istack.cc/category/personalization/)
+- [Voice & Commands](https://istack.cc/category/voice-commands/)
+
+## Apps
+
+- [PDF Scanner](https://istack.cc/apps/pdf-scanner/): Free Android app that scans documents, converts photos to PDF, and extracts text with OCR — fully offline.
+- [Home Workout](https://istack.cc/apps/home-workout/): No-equipment fitness plans for Android with guided routines for strength, fat loss, and consistency.
+- [NFC Card Reader](https://istack.cc/apps/nfc-card-reader/): Scans compatible NFC cards and manages card information in a secure wallet experience for Android.
+- [Document Reader](https://istack.cc/apps/document-reader/): Opens Word and office files on Android with a lightweight, fast-reading interface.
+- [Office Reader](https://istack.cc/apps/office-reader/): All-in-one document viewer for PDFs and office files with smooth navigation on Android.
+- [Signature Maker](https://istack.cc/apps/signature-maker/): Create digital signatures and sign PDF files on Android for forms and approvals.
+- [Forms](https://istack.cc/apps/forms/): Third-party Google Forms manager for Android with AI-assisted form generation.
+- [Gimin - AI Photo Editor](https://istack.cc/apps/gimin/): AI-powered photo editor for iOS — polaroid generator, cartoon filters, professional headshots.
+- [Transparency: Magic Eraser](https://istack.cc/apps/transparency/): Remove backgrounds with AI on iOS and export clean transparent PNGs in one tap.
+- [Hair Cut - Color Changer](https://istack.cc/apps/hair-cut/): Try any hairstyle or hair color in seconds using AI on iOS.
+- [Math AI](https://istack.cc/apps/math-ai/): Scan math problems with your camera and get step-by-step answers on iOS.
+- [Sweet Camera](https://istack.cc/apps/sweet-camera/): Beauty selfie camera for Android with real-time filters and skin smoothing.
+- [Photo Collage](https://istack.cc/apps/photo-collage/): Create photo grids and collages with 500+ layouts for Android.
+- [Time Warp Scan](https://istack.cc/apps/time-warp-scan/): Create trending warp effects and distortions with a scan-line camera on Android.
+- [Cut Paste Photo](https://istack.cc/apps/cut-paste-photo/): Background removal and object cutout tools for creative photo edits on Android.
+- [Sticker Maker](https://istack.cc/apps/sticker-maker/): Convert photos into custom stickers for WhatsApp and other chat apps on Android.
+- [Photo Vault](https://istack.cc/apps/photo-vault/): Secure private photos behind a calculator-style lock with AES encryption on Android.
+- [GPS Photo](https://istack.cc/apps/gps-photo/): Add location, date, and map stamps to photos for geotag documentation on Android.
+- [Speed Test](https://istack.cc/apps/speed-test/): Measure internet download, upload, and ping performance in real time on Android.
+- [Speaker Cleaner](https://istack.cc/apps/speaker-cleaner/): Play tuned frequencies to eject water and improve muffled speaker output on Android.
+- [Guitar Tuner](https://istack.cc/apps/guitar-tuner/): Accurate chromatic tuning for guitar and string instruments on Android.
+- [AR Measure](https://istack.cc/apps/ar-measure/): Use your camera to measure object lengths and room dimensions on Android.
+- [Mirror](https://istack.cc/apps/mirror/): Quick front camera mirror with optional light tools for Android.
+- [Color Picker](https://istack.cc/apps/color-picker/): Detect and identify colors from camera input and images on Android.
+- [GPS Speedometer](https://istack.cc/apps/speedometer/): Track speed, distance, and trip metrics for driving and outdoor travel on Android.
+- [Screen Mirroring](https://istack.cc/apps/screen-mirroring/): Cast your Android screen to compatible TVs via Miracast.
+- [Hearing Amplifier](https://istack.cc/apps/hearing-amplifier/): Boost environmental sound for clearer distant or quiet audio on Android.
+- [Compass](https://istack.cc/apps/compass/): Reliable GPS-assisted direction tools for navigation on Android.
+- [Live Earth Map](https://istack.cc/apps/live-earth/): Satellite-style map views and location tools for exploration on Android.
+- [TCG Scanner](https://istack.cc/apps/tcg-scanner/): Scan trading cards and track collection value on iOS.
+- [Currency Converter & Calc](https://istack.cc/apps/currency-converter/): Convert 180+ currencies with real-time rates and offline support on iOS.
+- [AI Tanning & UV Index](https://istack.cc/apps/ai-tanning/): Safe tanning planner with live UV status, SPF advice, and guided tanning timer on iOS.
+- [Font Generator](https://istack.cc/apps/font-generator/): Create stylish text for social bios and captions with decorative font styles on Android.
+- [Watch Faces](https://istack.cc/apps/watch-faces/): Minimalist Wear OS watch face designs for Android smartwatches.
+- [Funky Smiles](https://istack.cc/apps/funky-smiles/): Animated live wallpapers and playful visual themes for Android.
+- [Kawaii Wallpaper](https://istack.cc/apps/kawaii-wallpaper/): Cute HD backgrounds for aesthetic phone customization on Android.
+- [Birthday Cards](https://istack.cc/apps/birthday-cards/): Design birthday wishes with templates, frames, and animated greeting styles on Android.
+- [Wedding Invitation](https://istack.cc/apps/wedding-invitation/): Design elegant invitation cards with customizable text and layouts on Android.
+- [Neon Clock](https://istack.cc/apps/smart-clock/): Live wallpaper clock visuals and glowing time displays for Android.
+- [Edge Lighting](https://istack.cc/apps/edge-lighting/): Animated edge effects and border glow for Android notifications and screens.
+- [LED Banner](https://istack.cc/apps/led-scroller/): Scrolling text display for events, messages, and attention-grabbing signs on Android.
+- [Home Design 3D](https://istack.cc/apps/house-design/): Sketch floor plans and visualize room layouts for home projects on Android.
+- [Step Counter](https://istack.cc/apps/step-counter/): Track daily steps, distance, and activity trends with a clean pedometer on Android.
+- [Translate](https://istack.cc/apps/speak-translate/): Voice translation and camera text scanning for multilingual conversations on Android.
+- [Voice Commands](https://istack.cc/apps/voice-commands/): Trigger assistant actions with command presets and voice workflows on Android.
+
+## Guides
+
+- [Best-of roundups](https://istack.cc/best/best-free-pdf-scanner-apps-android/) — "Best free PDF scanner apps for Android 2026", "Best free step counter apps", "Best free home workout apps", "Best free font generator apps"
+- [How-to tutorials](https://istack.cc/how-to/) — step-by-step walkthroughs for using iStack apps
+- [App comparisons](https://istack.cc/compare/) — head-to-head feature comparisons (e.g. PDF Scanner vs Adobe Scan)
+- [Glossary](https://istack.cc/glossary/) — definitions for OCR, NFC, pedometer, unicode fonts, and more
+
+## Research
+
+- [Free App Landscape 2026](https://istack.cc/research/free-app-landscape-2026/) — Original data study on 45 iStack apps: install distribution, category mix, rating medians, update cadence. CC BY 4.0 licensed.
+
+## About
+
+- [About iStack](https://istack.cc/)
+- Contact: contact@istack.cc
+- Google Play: https://play.google.com/store/apps/developer?id=iStack
+- Pricing (machine-readable): https://istack.cc/pricing.md
