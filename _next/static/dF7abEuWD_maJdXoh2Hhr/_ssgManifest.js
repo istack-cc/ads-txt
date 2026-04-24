@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fapps\u002F[slug]","\u002Fbest\u002F[slug]","\u002Fcategory\u002F[slug]","\u002Fcompare\u002F[slug]","\u002Fglossary\u002F[term]","\u002Fhow-to\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
