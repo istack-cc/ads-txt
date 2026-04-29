@@ -38,6 +38,64 @@ function toAbsoluteUrl(url: string) {
   return `${SITE_URL}${url.startsWith("/") ? url : `/${url}`}`;
 }
 
+function cleanText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function trimToLength(value: string, maxLength: number) {
+  const normalized = cleanText(value);
+  if (normalized.length <= maxLength) return normalized;
+
+  const truncated = normalized.slice(0, maxLength - 1);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return `${(lastSpace > 40 ? truncated.slice(0, lastSpace) : truncated).trim()}…`;
+}
+
+function getPlatformLabel(app: App) {
+  if (app.platform === "ios") return "iPhone";
+  if (app.platform === "both") return "Android & iPhone";
+  return "Android";
+}
+
+function buildAppTitle(app: App) {
+  const cleanedKeyword = cleanText(
+    app.primary_keyword
+      .replace(/\bfree\b/gi, "")
+      .replace(/\bandroid\b/gi, "")
+      .replace(/\bios\b/gi, "")
+      .replace(/\biphone\b/gi, "")
+  );
+
+  const candidates = [
+    `${app.name} – ${app.subtitle} | iStack`,
+    `${app.name} – ${cleanedKeyword} | iStack`,
+    `${app.name} ${getPlatformLabel(app)} App | iStack`,
+    `${app.name} | iStack`,
+  ].map(cleanText);
+
+  return candidates.find((candidate) => candidate.length <= 60) ?? candidates[candidates.length - 1];
+}
+
+function buildAppDescription(app: App) {
+  const base = cleanText(app.short_description || app.description);
+  const availability =
+    app.platform === "ios"
+      ? `Free iPhone app on the App Store.`
+      : app.platform === "both"
+        ? `Free app for Android and iPhone.`
+        : `Free Android app on Google Play.`;
+  const installs =
+    app.playStoreInstalls && !["0+", "1+"].includes(app.playStoreInstalls)
+      ? `${app.playStoreInstalls} installs.`
+      : "";
+
+  const withName = base.toLowerCase().includes(app.name.toLowerCase())
+    ? base
+    : `${app.name}: ${base}`;
+
+  return trimToLength(cleanText([withName, availability, installs].filter(Boolean).join(" ")), 155);
+}
+
 /* ── Description parser ───────────────────────────────────────────────────── */
 
 interface DescSection {
@@ -143,6 +201,52 @@ function getHowToSteps(app: App) {
   ];
 }
 
+function getRelatedSeoLinks(app: App) {
+  const linksByApp: Record<
+    string,
+    Array<{ title: string; href: string; description: string }>
+  > = {
+    "pdf-scanner": [
+      {
+        title: "Best free PDF scanner apps for Android",
+        href: "/best/best-free-pdf-scanner-apps-android/",
+        description: "Compare PDF Scanner with other free document scanner apps.",
+      },
+      {
+        title: "How to scan documents with PDF Scanner",
+        href: "/how-to/how-to-scan-documents-with-pdf-scanner/",
+        description: "Follow the step-by-step guide for scanning documents to PDF.",
+      },
+      {
+        title: "PDF Scanner vs Adobe Scan",
+        href: "/compare/pdf-scanner-vs-adobe-scan/",
+        description: "Compare account requirements, offline OCR, privacy, and exports.",
+      },
+      {
+        title: "What is OCR?",
+        href: "/glossary/ocr/",
+        description: "Learn how scanned images become searchable, copyable text.",
+      },
+    ],
+    "step-counter": [
+      {
+        title: "Best free step counter apps for Android",
+        href: "/best/best-free-step-counter-apps-android/",
+        description: "Compare simple pedometer apps for daily step tracking.",
+      },
+    ],
+    "home-workout": [
+      {
+        title: "Best free home workout apps with no equipment",
+        href: "/best/best-free-home-workout-apps-no-equipment/",
+        description: "Compare free bodyweight training apps for home workouts.",
+      },
+    ],
+  };
+
+  return linksByApp[app.id] ?? [];
+}
+
 /* ── Page props ───────────────────────────────────────────────────────────── */
 
 interface PageProps {
@@ -167,17 +271,20 @@ export async function generateMetadata({
   }
 
   const category = CATEGORY_DATA[app.seoCategory];
-  const titleH1 = `${app.name} — ${app.primary_keyword}`;
-  const pageTitle = `${titleH1} | iStack`;
-  const rawDesc = app.short_description || app.description;
-  const pageDescription =
-    rawDesc.length > 160 ? rawDesc.slice(0, 157) + "..." : rawDesc;
+  const titleH1 = `${app.name} — ${app.subtitle}`;
+  const pageTitle = buildAppTitle(app);
+  const pageDescription = buildAppDescription(app);
   const canonical = `/apps/${app.id}/`;
 
   return {
     title: pageTitle,
     description: pageDescription,
-    keywords: [app.primary_keyword, ...app.secondary_keywords],
+    keywords: [
+      app.name,
+      app.subtitle,
+      app.primary_keyword,
+      ...app.secondary_keywords,
+    ],
     alternates: { canonical },
     openGraph: {
       title: pageTitle,
@@ -223,6 +330,7 @@ export default async function AppLandingPage({ params }: PageProps) {
 
   const faqs = getEffectiveFaq(app);
   const howToSteps = getHowToSteps(app);
+  const relatedSeoLinks = getRelatedSeoLinks(app);
 
   const relatedApps = APPS.filter(
     (a) => a.seoCategory === app.seoCategory && a.id !== app.id
@@ -335,19 +443,19 @@ export default async function AppLandingPage({ params }: PageProps) {
                     <h1
                       className="text-2xl font-semibold leading-tight lg:text-3xl"
                       style={{
-                        fontFamily: "var(--font-fraunces)",
+                        fontFamily: "var(--font-display)",
                         color: "var(--foreground)",
                         fontVariationSettings: '"opsz" 48',
                         textWrap: "balance",
                       }}
                     >
                       {app.name}
-                      {app.primary_keyword && (
+                      {app.subtitle && (
                         <span
                           className="block text-xl italic font-normal lg:text-2xl"
                           style={{ color: "var(--muted-foreground)" }}
                         >
-                          {app.primary_keyword}
+                          {app.subtitle}
                         </span>
                       )}
                     </h1>
@@ -559,7 +667,7 @@ export default async function AppLandingPage({ params }: PageProps) {
               id="about-heading"
               className="mb-6 text-xl font-semibold"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 36',
               }}
@@ -620,7 +728,7 @@ export default async function AppLandingPage({ params }: PageProps) {
                   id="screenshots-heading"
                   className="mb-6 text-xl font-semibold"
                   style={{
-                    fontFamily: "var(--font-fraunces)",
+                    fontFamily: "var(--font-display)",
                     color: "var(--foreground)",
                     fontVariationSettings: '"opsz" 36',
                   }}
@@ -662,7 +770,7 @@ export default async function AppLandingPage({ params }: PageProps) {
               id="howto-heading"
               className="mb-6 text-xl font-semibold"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 36',
               }}
@@ -707,6 +815,57 @@ export default async function AppLandingPage({ params }: PageProps) {
             </ol>
           </section>
 
+          {relatedSeoLinks.length > 0 && (
+            <>
+              <SectionDivider />
+              <section
+                className="py-10 lg:py-12"
+                aria-labelledby="related-guides-heading"
+              >
+                <h2
+                  id="related-guides-heading"
+                  className="mb-6 text-xl font-semibold"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "var(--foreground)",
+                    fontVariationSettings: '"opsz" 36',
+                  }}
+                >
+                  Related guides
+                </h2>
+                <div className="grid max-w-4xl gap-4 sm:grid-cols-2">
+                  {relatedSeoLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="rounded-xl border p-4 transition-colors hover:bg-[--surface]"
+                      style={{
+                        borderColor: "var(--border)",
+                        color: "var(--foreground)",
+                      }}
+                    >
+                      <p
+                        className="mb-1.5 text-sm font-semibold"
+                        style={{ fontFamily: "var(--font-outfit)" }}
+                      >
+                        {link.title}
+                      </p>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                          color: "var(--muted-foreground)",
+                          fontFamily: "var(--font-outfit)",
+                        }}
+                      >
+                        {link.description}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            </>
+          )}
+
           <SectionDivider />
 
           {/* Feature Grid (only when data is populated) */}
@@ -720,7 +879,7 @@ export default async function AppLandingPage({ params }: PageProps) {
                   id="features-heading"
                   className="mb-6 text-xl font-semibold"
                   style={{
-                    fontFamily: "var(--font-fraunces)",
+                    fontFamily: "var(--font-display)",
                     color: "var(--foreground)",
                     fontVariationSettings: '"opsz" 36',
                   }}
@@ -772,7 +931,7 @@ export default async function AppLandingPage({ params }: PageProps) {
               id="why-heading"
               className="mb-6 text-xl font-semibold"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 36',
               }}
@@ -844,7 +1003,7 @@ export default async function AppLandingPage({ params }: PageProps) {
               id="faq-heading"
               className="mb-6 text-xl font-semibold"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 36',
               }}
@@ -902,7 +1061,7 @@ export default async function AppLandingPage({ params }: PageProps) {
                     id="related-heading"
                     className="text-xl font-semibold"
                     style={{
-                      fontFamily: "var(--font-fraunces)",
+                      fontFamily: "var(--font-display)",
                       color: "var(--foreground)",
                       fontVariationSettings: '"opsz" 36',
                     }}
@@ -963,7 +1122,7 @@ export default async function AppLandingPage({ params }: PageProps) {
             <p
               className="mb-2 text-2xl font-semibold"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 36',
               }}

@@ -26,6 +26,12 @@ export const metadata: Metadata = {
     type: "article",
     url: CANONICAL,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "The free Android & iOS app landscape in 2026 — iStack Research",
+    description:
+      "Original data on 45 free apps across 419K+ installs: category distribution, rating patterns, account-free vs account-gated apps, and what 'free' actually means in 2026.",
+  },
 };
 
 /* ── Derived stats from actual portfolio data ──────────────────────────── */
@@ -234,7 +240,7 @@ export default function ResearchPage() {
         <h1
           className="mb-4 text-4xl font-semibold leading-tight"
           style={{
-            fontFamily: "var(--font-fraunces)",
+            fontFamily: "var(--font-display)",
             color: "var(--foreground)",
             fontVariationSettings: '"opsz" 48',
             textWrap: "balance",
@@ -306,7 +312,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -345,7 +351,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -380,7 +386,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -479,7 +485,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -543,7 +549,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -580,7 +586,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -608,7 +614,7 @@ export default function ResearchPage() {
           <h2
             className="mb-4 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}
@@ -659,7 +665,7 @@ export default function ResearchPage() {
           <h2
             className="mb-6 text-2xl font-semibold"
             style={{
-              fontFamily: "var(--font-fraunces)",
+              fontFamily: "var(--font-display)",
               color: "var(--foreground)",
               fontVariationSettings: '"opsz" 36',
             }}

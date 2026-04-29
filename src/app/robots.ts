@@ -28,14 +28,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/" },
       ...AI_CRAWLERS.map((bot) => ({ userAgent: bot, allow: "/" })),
     ],
-    sitemap: [
-      `${SITE_URL}/sitemap.xml`,
-      `${SITE_URL}/apps/sitemap.xml`,
-      `${SITE_URL}/category/sitemap.xml`,
-      `${SITE_URL}/how-to/sitemap.xml`,
-      `${SITE_URL}/compare/sitemap.xml`,
-      `${SITE_URL}/best/sitemap.xml`,
-      `${SITE_URL}/glossary/sitemap.xml`,
-    ],
+    // Single sitemap index — Google follows it to discover all child sitemaps.
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

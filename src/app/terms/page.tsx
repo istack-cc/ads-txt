@@ -17,7 +17,7 @@ export default function TermsPage() {
         <h1
           className="mb-2 text-4xl font-semibold"
           style={{
-            fontFamily: "var(--font-fraunces)",
+            fontFamily: "var(--font-display)",
             fontVariationSettings: '"opsz" 48',
           }}
         >

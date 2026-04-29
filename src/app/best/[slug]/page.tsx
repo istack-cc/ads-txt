@@ -40,6 +40,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       url: `/best/${article.slug}/`,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | iStack`,
+      description: article.description,
+    },
   };
 }
 
@@ -122,7 +127,7 @@ export default async function BestOfPage({ params }: PageProps) {
         <h1
           className="mb-3 text-4xl font-semibold leading-tight"
           style={{
-            fontFamily: "var(--font-fraunces)",
+            fontFamily: "var(--font-display)",
             color: "var(--foreground)",
             fontVariationSettings: '"opsz" 48',
             textWrap: "balance",
@@ -178,7 +183,7 @@ export default async function BestOfPage({ params }: PageProps) {
           <h2
             id="picks-heading"
             className="mb-6 text-2xl font-semibold"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
           >
             The picks, ranked
           </h2>
@@ -214,7 +219,7 @@ export default async function BestOfPage({ params }: PageProps) {
                   <div className="min-w-0 flex-1">
                     <h3
                       className="text-xl font-semibold leading-tight"
-                      style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+                      style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
                     >
                       {p.is_istack && p.app ? (
                         <Link href={`/apps/${p.app.id}/`} style={{ color: "var(--foreground)" }} className="hover:underline underline-offset-4">
@@ -301,7 +306,7 @@ export default async function BestOfPage({ params }: PageProps) {
           <h2
             id="method-heading"
             className="mb-4 text-2xl font-semibold"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
           >
             How we picked
           </h2>
@@ -318,7 +323,7 @@ export default async function BestOfPage({ params }: PageProps) {
           <h2
             id="faq-heading"
             className="mb-6 text-2xl font-semibold"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
           >
             Frequently asked questions
           </h2>

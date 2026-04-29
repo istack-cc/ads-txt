@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local scratch / tooling
+.design-ref-*
+.next-dev*.log
+.playwright-mcp/
+bash.exe.stackdump
+icons-local-check.png
+seo/

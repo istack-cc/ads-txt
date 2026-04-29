@@ -187,7 +187,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <h1
               className="mb-4 text-3xl font-semibold leading-tight lg:text-4xl"
               style={{
-                fontFamily: "var(--font-fraunces)",
+                fontFamily: "var(--font-display)",
                 color: "var(--foreground)",
                 fontVariationSettings: '"opsz" 48',
                 textWrap: "balance",
@@ -246,7 +246,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <h2
               id="compare-heading"
               className="mb-6 text-xl font-semibold"
-              style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
             >
               All {category.name} apps at a glance
             </h2>
@@ -340,7 +340,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <h2
               id="featured-heading"
               className="mb-8 text-xl font-semibold"
-              style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
             >
               Top {category.name.toLowerCase()} apps from iStack
             </h2>
@@ -376,7 +376,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <h2
               id="usecases-heading"
               className="mb-4 text-xl font-semibold"
-              style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
             >
               Which {category.name.toLowerCase()} app is right for you?
             </h2>
@@ -402,7 +402,7 @@ export default async function CategoryPage({ params }: PageProps) {
             <h2
               id="faq-heading"
               className="mb-6 text-xl font-semibold"
-              style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
             >
               Frequently asked questions
             </h2>
@@ -434,7 +434,7 @@ export default async function CategoryPage({ params }: PageProps) {
               <h2
                 id="all-apps-heading"
                 className="text-xl font-semibold"
-                style={{ fontFamily: "var(--font-fraunces)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
+                style={{ fontFamily: "var(--font-display)", color: "var(--foreground)", fontVariationSettings: '"opsz" 36' }}
               >
                 All {allApps.length} free {category.name.toLowerCase()} app{allApps.length !== 1 ? "s" : ""}
               </h2>
@@ -572,7 +572,7 @@ function FeaturedAppCard({ app, category }: { app: App; category: CategoryData }
             <Link
               href={`/apps/${app.id}/`}
               className="font-semibold hover:underline"
-              style={{ color: "var(--foreground)", fontFamily: "var(--font-fraunces)", fontSize: 18 }}
+              style={{ color: "var(--foreground)", fontFamily: "var(--font-display)", fontSize: 18 }}
             >
               {app.name}
             </Link>
