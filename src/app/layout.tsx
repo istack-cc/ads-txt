@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description:
     "iStack makes free Android and iOS apps for workouts, photo editing, documents, device utilities, and everyday phone tasks. Browse 46+ apps on Google Play and App Store.",
   alternates: { canonical: "/" },
+  verification: {
+    google: "K_nylkNpeneEp5GXz4IvWbnOoiqg9kmVOCWazEPBNKU",
+  },
   robots: {
     index: true,
     follow: true,
