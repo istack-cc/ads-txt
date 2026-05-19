@@ -1,0 +1,256 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Page Header" [ref=e3]:
+      - link "Google Play logo" [ref=e4] [cursor=pointer]:
+        - /url: /store/games
+        - img [ref=e5]
+        - generic [ref=e12]: google_logo Play
+      - navigation "Main" [ref=e14]:
+        - tablist [ref=e16]:
+          - generic [ref=e19]:
+            - tab "Games" [ref=e20] [cursor=pointer]:
+              - generic:
+                - generic: Games
+            - tab "Apps" [selected] [ref=e22] [cursor=pointer]:
+              - generic:
+                - generic: Apps
+            - tab "Kids" [ref=e24] [cursor=pointer]:
+              - generic:
+                - generic: Kids
+      - generic [ref=e26]:
+        - button "Search" [ref=e28] [cursor=pointer]:
+          - generic [ref=e29]: search
+        - button "Help Center" [ref=e31] [cursor=pointer]:
+          - generic [ref=e32]: help_outline
+        - button "Open account menu" [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+  - generic [ref=e43]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - img [ref=e49]
+          - img [ref=e50]
+        - generic [ref=e51]:
+          - generic [ref=e54]:
+            - 'heading "Home Workout: No Equipment Gym" [level=1] [ref=e56]'
+            - generic [ref=e57]:
+              - link "iStack" [ref=e59] [cursor=pointer]:
+                - /url: /store/apps/developer?id=iStack
+              - generic [ref=e61]: Contains ads
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: 1+
+              - generic [ref=e67]: Downloads
+            - generic [ref=e68]:
+              - img "Content rating" [ref=e70]
+              - generic [ref=e71]:
+                - generic [ref=e72]: Rated for 3+
+                - button "More info about this content rating" [ref=e73] [cursor=pointer]:
+                  - generic [ref=e74]: info
+      - generic [ref=e75]:
+        - button "Install" [ref=e83]:
+          - generic [ref=e86]: Install
+        - generic [ref=e87]:
+          - button "Share" [ref=e91] [cursor=pointer]:
+            - img [ref=e93]
+          - button "Add to wishlist" [ref=e98] [cursor=pointer]:
+            - img [ref=e100]
+    - generic [ref=e103]:
+      - generic [ref=e105]:
+        - list [ref=e109]:
+          - listitem [ref=e110]:
+            - button "Screenshot image" [ref=e112] [cursor=pointer]
+          - listitem [ref=e113]:
+            - button "Screenshot image" [ref=e115] [cursor=pointer]
+          - listitem [ref=e116]:
+            - button "Screenshot image" [ref=e118] [cursor=pointer]
+          - listitem [ref=e119]:
+            - button "Screenshot image" [ref=e121] [cursor=pointer]
+          - listitem [ref=e122]:
+            - button "Screenshot image" [ref=e124] [cursor=pointer]
+        - generic [ref=e127]:
+          - generic [ref=e129]:
+            - heading "About this app" [level=2] [ref=e131]
+            - button "See more information on About this app" [ref=e133] [cursor=pointer]:
+              - generic [ref=e134]: arrow_forward
+          - generic [ref=e135]:
+            - generic [ref=e136]:
+              - text: 💪 Build real muscle, burn fat, and transform your body — no gym membership, no equipment, no excuses.
+              - text: "Home Workout: Muscle Booster is a complete bodyweight training app that guides you through every rep, set, and rest period from the comfort of your home. Whether you're a complete beginner or an experienced athlete, the structured workout plans adapt to your fitness level so you can start building strength from day one."
+              - text: 🏋️ 500+ Exercises for Every Muscle Group
+              - text: "Browse a massive exercise library with animated demonstrations covering:"
+              - text: • Abs workouts and core training for a defined midsection
+              - text: • Chest workouts and push variations to build upper body strength
+              - text: • Arm workouts — biceps, triceps, and forearm exercises
+              - text: • Leg workouts — squats, lunges, glutes, and calves
+              - text: • Back workouts and shoulder routines for a balanced physique
+              - text: • Full body workouts for total conditioning and fat burning
+              - text: Every exercise includes clear animated guidance so you always know exactly how to perform each movement safely and effectively.
+              - text: 📅 Structured Workout Plans That Deliver Results
+              - text: "Stop guessing what to do next. Choose from a library of multi-day and multi-week workout programs designed for specific goals:"
+              - text: • Muscle building and hypertrophy plans for strength gains
+              - text: • Fat burning and body transformation programs
+              - text: • Beginner fitness routines for a smooth, injury-free start
+              - text: • Advanced bodyweight and calisthenics programs
+              - text: Each plan is structured to deliver measurable results without a single piece of gym equipment. Train at your own pace, follow the program, and track your transformation week by week.
+              - text: ⏱ Fully Guided Workout Sessions
+              - text: Every session is guided with a smart workout timer and rep counter. The built-in rest timer handles your rest periods automatically — just follow the session and let the app pace your training. A session progress bar keeps you on track, while session controls let you pause, skip, or navigate freely between exercises.
+              - text: 🎯 Build Your Own Custom Workouts
+              - text: Not finding the exact routine you need? Build your own. Use the custom workout creator to select exercises from the full library and assemble a personalized routine that perfectly matches your training style, available time, and target muscle groups.
+              - text: 📊 Progress Tracking That Actually Motivates
+              - text: "Your fitness transformation is visible in real time:"
+              - text: • Total workouts completed and active training minutes logged
+              - text: • Workout streak tracker to build and maintain a daily exercise habit
+              - text: • Weight tracking chart with easy body weight entry and trend visualization
+              - text: • Session history with detailed logs for reviewing past performance
+              - text: • Fitness statistics summary covering all your training over time
+              - text: Your home screen displays today's workout card and a quick-access row for your most popular workout plans — getting to your workout takes seconds, not minutes. Stay motivated with streak banners and recent activity cards that celebrate your consistency.
+              - text: 🔥 Train Anywhere, Anytime — No Equipment Required
+              - text: Home workout or outdoor training session — this app works wherever you do. No internet required after setup, no gym membership needed, no equipment necessary. Just open the app, start your session, and build the body you want with effective bodyweight training.
+              - text: Every exercise in the library is designed to be performed with only your bodyweight, making this the perfect workout companion for travel, home, small spaces, or whenever the gym isn't an option.
+              - text: Start your fitness journey today. Your first workout is one tap away.
+            - generic [ref=e139]:
+              - generic [ref=e140]: Updated on
+              - generic [ref=e141]: Apr 1, 2026
+            - generic [ref=e144]:
+              - generic [ref=e146]: Health & Fitness
+              - link "Health & Fitness" [ref=e147] [cursor=pointer]:
+                - /url: /store/apps/category/HEALTH_AND_FITNESS
+        - generic [ref=e149]:
+          - generic [ref=e151]:
+            - heading "Data safety" [level=2] [ref=e153]
+            - generic [ref=e154] [cursor=pointer]:
+              - generic [ref=e155]: arrow_forward
+              - link "See more information on Data safety" [ref=e156]:
+                - /url: /store/apps/datasafety?id=com.istack.home_workout
+          - generic [ref=e157]:
+            - text: Safety starts with understanding how developers collect and share your data. Data privacy and security practices may vary based on your use, region, and age. The developer provided this information and may update it over time.
+            - generic [ref=e158]:
+              - generic [ref=e159]:
+                - img [ref=e160]
+                - generic [ref=e161]:
+                  - text: This app may share these data types with third parties
+                  - generic [ref=e162]: App activity and Device or other IDs
+              - generic [ref=e163]:
+                - img [ref=e164]
+                - generic [ref=e165]:
+                  - text: This app may collect these data types
+                  - generic [ref=e166]: Health and fitness, App activity, and Device or other IDs
+              - generic [ref=e167]:
+                - img [ref=e168]
+                - generic [ref=e169]: Data is encrypted in transit
+              - generic [ref=e170]:
+                - img [ref=e171]
+                - generic [ref=e172]: Data can’t be deleted
+              - generic [ref=e175]:
+                - generic [ref=e177]: See details
+                - link "See more details on data safety" [ref=e178] [cursor=pointer]:
+                  - /url: /store/apps/datasafety?id=com.istack.home_workout
+        - generic [ref=e180]:
+          - heading "What’s new" [level=2] [ref=e184]
+          - generic [ref=e186]: First Release
+      - generic [ref=e187]:
+        - generic [ref=e191]:
+          - heading "App support" [level=2] [ref=e193]
+          - button "Expand" [ref=e195] [cursor=pointer]:
+            - generic [ref=e196]: expand_more
+        - generic [ref=e198]:
+          - generic [ref=e200]:
+            - heading "More by iStack" [level=2] [ref=e202]:
+              - generic [ref=e203]: More by iStack
+            - generic [ref=e204] [cursor=pointer]:
+              - generic [ref=e205]: arrow_forward
+              - link "See more information on More by iStack" [ref=e206]:
+                - /url: /store/apps/collection/cluster?gsr=SlhqGEt0cDkwa1pYMmdjdFJyU2ROdEZwK2c9PbICOAobChdjb20uaXN0YWNrLmhvbWVfd29ya291dBAHEhcIARITODQxNzA5NzcyNzYwMTE2MTkwMRgAsBIA:S:ANO1ljLuDb4
+          - generic [ref=e208]:
+            - 'link "AR Measure: Tape Measure Tool iStack" [ref=e210] [cursor=pointer]':
+              - /url: /store/apps/details?id=com.istack.ar.meter
+              - generic [ref=e211]:
+                - img [ref=e212]
+                - generic [ref=e213]:
+                  - generic [ref=e215]: "AR Measure: Tape Measure Tool"
+                  - generic [ref=e217]: iStack
+            - 'link "Funky Smiles: Live Wallpaper iStack" [ref=e219] [cursor=pointer]':
+              - /url: /store/apps/details?id=com.istack.funky_smiles
+              - generic [ref=e220]:
+                - img [ref=e221]
+                - generic [ref=e222]:
+                  - generic [ref=e224]: "Funky Smiles: Live Wallpaper"
+                  - generic [ref=e226]: iStack
+            - link "Photo Collage & Pic Grid Maker iStack" [ref=e228] [cursor=pointer]:
+              - /url: /store/apps/details?id=com.istack.photo_collage
+              - generic [ref=e229]:
+                - img [ref=e230]
+                - generic [ref=e231]:
+                  - generic [ref=e233]: Photo Collage & Pic Grid Maker
+                  - generic [ref=e235]: iStack
+            - link "Photo Vault – Calculator Lock iStack" [ref=e237] [cursor=pointer]:
+              - /url: /store/apps/details?id=com.istack.photo_lock
+              - generic [ref=e238]:
+                - img [ref=e239]
+                - generic [ref=e240]:
+                  - generic [ref=e242]: Photo Vault – Calculator Lock
+                  - generic [ref=e244]: iStack
+            - 'link "Sweet Camera: Beauty Cam iStack" [ref=e246] [cursor=pointer]':
+              - /url: /store/apps/details?id=com.istack.sweet_camera
+              - generic [ref=e247]:
+                - img [ref=e248]
+                - generic [ref=e249]:
+                  - generic [ref=e251]: "Sweet Camera: Beauty Cam"
+                  - generic [ref=e253]: iStack
+            - 'link "Speed Test: Download & Upload iStack" [ref=e255] [cursor=pointer]':
+              - /url: /store/apps/details?id=com.istack.wifi_speed_test
+              - generic [ref=e256]:
+                - img [ref=e257]
+                - generic [ref=e258]:
+                  - generic [ref=e260]: "Speed Test: Download & Upload"
+                  - generic [ref=e262]: iStack
+      - link "Flag as inappropriate" [ref=e266] [cursor=pointer]:
+        - /url: https://support.google.com/googleplay/?p=report_content
+        - generic [ref=e267]: flag
+        - text: Flag as inappropriate
+  - contentinfo [ref=e269]:
+    - generic [ref=e271]:
+      - generic [ref=e273]:
+        - text: Google Play
+        - link "Play Pass" [ref=e275] [cursor=pointer]:
+          - /url: /store/pass/getstarted
+          - paragraph [ref=e276]: Play Pass
+        - link "Play Points" [ref=e278] [cursor=pointer]:
+          - /url: /store/points/enroll
+          - paragraph [ref=e279]: Play Points
+        - link "Gift cards" [ref=e281] [cursor=pointer]:
+          - /url: https://play.google.com/about/giftcards
+          - paragraph [ref=e282]: Gift cards
+        - link "Redeem" [ref=e284] [cursor=pointer]:
+          - /url: /redeem
+          - paragraph [ref=e285]: Redeem
+        - link "Refund policy" [ref=e287] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay/answer/134336
+          - paragraph [ref=e288]: Refund policy
+      - generic [ref=e290]:
+        - text: Kids & family
+        - link "Parent Guide" [ref=e292] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay?p=pff_parentguide
+          - paragraph [ref=e293]: Parent Guide
+        - link "Family sharing" [ref=e295] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay/answer/7007852
+          - paragraph [ref=e296]: Family sharing
+    - generic [ref=e297]:
+      - link "Terms of Service" [ref=e299] [cursor=pointer]:
+        - /url: https://play.google.com/intl/en-US_ma/about/play-terms.html
+        - paragraph [ref=e300]: Terms of Service
+      - link "Privacy" [ref=e302] [cursor=pointer]:
+        - /url: https://policies.google.com/privacy
+        - paragraph [ref=e303]: Privacy
+      - link "About Google Play" [ref=e305] [cursor=pointer]:
+        - /url: https://support.google.com/googleplay/?p=about_play
+        - paragraph [ref=e306]: About Google Play
+      - link "Developers" [ref=e308] [cursor=pointer]:
+        - /url: http://developer.android.com/index.html
+        - paragraph [ref=e309]: Developers
+      - link "Google Store" [ref=e311] [cursor=pointer]:
+        - /url: https://store.google.com/?playredirect=true&utm_source=play&utm_medium=google_oo&utm_campaign=GS106288
+        - paragraph [ref=e312]: Google Store
+      - generic [ref=e313]: All prices include VAT.
+      - generic [ref=e316]: Morocco (English (United States))

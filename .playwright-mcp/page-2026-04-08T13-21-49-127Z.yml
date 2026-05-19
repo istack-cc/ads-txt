@@ -1,0 +1,570 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - navigation "Main navigation" [ref=e4]:
+      - link "iStack — home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - text: iStack
+      - generic [ref=e6]:
+        - link "Apps" [ref=e7] [cursor=pointer]:
+          - /url: "#apps"
+        - link "View all iStack apps on Google Play Store" [ref=e8] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/developer?id=iStack
+          - img [ref=e9]
+          - text: Google Play
+  - main [ref=e11]:
+    - region "Hero" [ref=e12]:
+      - generic [ref=e15]: iStack
+      - heading "Crafting Android Experiences" [level=1] [ref=e17]:
+        - generic [ref=e19]: Crafting
+        - generic [ref=e21]: Android
+        - generic [ref=e23]: Experiences
+      - paragraph [ref=e24]:
+        - text: A curated portfolio of
+        - generic [ref=e25]: 37+ Android apps
+        - text: — photography, productivity, health, utilities, and personalization.
+      - generic [ref=e26]:
+        - link "View all iStack apps on Google Play" [ref=e27] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/developer?id=iStack
+          - img [ref=e28]
+          - text: View on Google Play
+        - link "Browse Apps" [ref=e30] [cursor=pointer]:
+          - /url: "#apps"
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]: 0+
+          - generic [ref=e34]: Apps Published
+        - generic [ref=e35]:
+          - generic [ref=e36]: "5"
+          - generic [ref=e37]: Categories
+        - generic [ref=e38]:
+          - generic [ref=e39]: Mahmoud Haizoun
+          - generic [ref=e40]: Developer
+      - generic [ref=e41]:
+        - generic [ref=e42]: Scroll
+        - img [ref=e43]
+    - region "Featured Apps" [ref=e45]:
+      - generic [ref=e48]:
+        - paragraph [ref=e49]: Spotlight
+        - heading "Featured Apps" [level=2] [ref=e50]
+      - generic [ref=e51]:
+        - link "PDF Scanner (Featured) — Image to PDF & OCR. View on Google Play" [ref=e53] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/details?id=com.istack.img2.pdf
+          - img [ref=e55]
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - img [ref=e60]
+              - generic [ref=e61]: Productivity
+            - heading "PDF Scanner" [level=3] [ref=e62]
+            - paragraph [ref=e63]: Image to PDF & OCR
+            - generic [ref=e64]:
+              - text: View on Google Play
+              - img [ref=e65]
+        - link "Home Workout (Featured) — No equipment gym & 500+ exercises. View on Google Play" [ref=e68] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/details?id=com.istack.home_workout
+          - img [ref=e70]
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - img [ref=e75]
+              - generic [ref=e76]: Health
+            - heading "Home Workout" [level=3] [ref=e77]
+            - paragraph [ref=e78]: No equipment gym & 500+ exercises
+            - generic [ref=e79]:
+              - text: View on Google Play
+              - img [ref=e80]
+        - link "NFC Card Reader (Featured) — EMV scanner & digital wallet. View on Google Play" [ref=e83] [cursor=pointer]:
+          - /url: https://play.google.com/store/apps/details?id=com.istack.nfc.wallet
+          - img [ref=e85]
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - img [ref=e90]
+              - generic [ref=e91]: Utilities
+            - heading "NFC Card Reader" [level=3] [ref=e92]
+            - paragraph [ref=e93]: EMV scanner & digital wallet
+            - generic [ref=e94]:
+              - text: View on Google Play
+              - img [ref=e95]
+    - region "All Apps" [ref=e99]:
+      - generic [ref=e100]:
+        - paragraph [ref=e101]: Portfolio
+        - heading "All Apps" [level=2] [ref=e102]
+      - generic [ref=e103]:
+        - tablist "Filter apps by category" [ref=e104]:
+          - tab "All" [selected] [ref=e105]
+          - tab "Photography" [ref=e106]
+          - tab "Productivity" [ref=e107]
+          - tab "Health" [ref=e108]
+          - tab "Utilities" [ref=e109]
+          - tab "Personalization" [ref=e110]
+        - paragraph [ref=e111]: Showing 37 apps
+        - generic "Apps grid" [ref=e112]:
+          - link "Sweet Camera — Beauty filters & selfie cam. View on Google Play" [ref=e113] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.sweet_camera
+            - img [ref=e115]
+            - generic [ref=e117]:
+              - generic [ref=e118]:
+                - img [ref=e120]
+                - generic [ref=e121]: Photography
+              - heading "Sweet Camera" [level=3] [ref=e122]
+              - paragraph [ref=e123]: Beauty filters & selfie cam
+              - generic [ref=e124]:
+                - img [ref=e125]
+                - text: View on Google Play
+          - link "Photo Collage — Pic grid maker & 500+ layouts. View on Google Play" [ref=e127] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.photo_collage
+            - img [ref=e129]
+            - generic [ref=e131]:
+              - generic [ref=e132]:
+                - img [ref=e134]
+                - generic [ref=e135]: Photography
+              - heading "Photo Collage" [level=3] [ref=e136]
+              - paragraph [ref=e137]: Pic grid maker & 500+ layouts
+              - generic [ref=e138]:
+                - img [ref=e139]
+                - text: View on Google Play
+          - link "Time Warp Scan — Warp camera & slow-motion art. View on Google Play" [ref=e141] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.time_warp_scan
+            - img [ref=e143]
+            - generic [ref=e145]:
+              - generic [ref=e146]:
+                - img [ref=e148]
+                - generic [ref=e149]: Photography
+              - heading "Time Warp Scan" [level=3] [ref=e150]
+              - paragraph [ref=e151]: Warp camera & slow-motion art
+              - generic [ref=e152]:
+                - img [ref=e153]
+                - text: View on Google Play
+          - link "Photo Vault — Calculator lock & private album. View on Google Play" [ref=e155] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.photo_lock
+            - img [ref=e157]
+            - generic [ref=e159]:
+              - generic [ref=e160]:
+                - img [ref=e162]
+                - generic [ref=e163]: Photography
+              - heading "Photo Vault" [level=3] [ref=e164]
+              - paragraph [ref=e165]: Calculator lock & private album
+              - generic [ref=e166]:
+                - img [ref=e167]
+                - text: View on Google Play
+          - link "GPS Photo — Location stamp on every shot. View on Google Play" [ref=e169] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.gps.photo
+            - img [ref=e171]
+            - generic [ref=e173]:
+              - generic [ref=e174]:
+                - img [ref=e176]
+                - generic [ref=e177]: Photography
+              - heading "GPS Photo" [level=3] [ref=e178]
+              - paragraph [ref=e179]: Location stamp on every shot
+              - generic [ref=e180]:
+                - img [ref=e181]
+                - text: View on Google Play
+          - link "Cut Paste Photo — Background eraser & editor. View on Google Play" [ref=e183] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.cut_and_paste_photos
+            - img [ref=e185]
+            - generic [ref=e187]:
+              - generic [ref=e188]:
+                - img [ref=e190]
+                - generic [ref=e191]: Photography
+              - heading "Cut Paste Photo" [level=3] [ref=e192]
+              - paragraph [ref=e193]: Background eraser & editor
+              - generic [ref=e194]:
+                - img [ref=e195]
+                - text: View on Google Play
+          - link "Sticker Maker — Photo & emoji stickers for WhatsApp. View on Google Play" [ref=e197] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.sticker_maker
+            - img [ref=e199]
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - img [ref=e204]
+                - generic [ref=e205]: Photography
+              - heading "Sticker Maker" [level=3] [ref=e206]
+              - paragraph [ref=e207]: Photo & emoji stickers for WhatsApp
+              - generic [ref=e208]:
+                - img [ref=e209]
+                - text: View on Google Play
+          - link "Document Reader — Word & Docs viewer. View on Google Play" [ref=e211] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.word.reader
+            - img [ref=e213]
+            - generic [ref=e215]:
+              - generic [ref=e216]:
+                - img [ref=e218]
+                - generic [ref=e219]: Productivity
+              - heading "Document Reader" [level=3] [ref=e220]
+              - paragraph [ref=e221]: Word & Docs viewer
+              - generic [ref=e222]:
+                - img [ref=e223]
+                - text: View on Google Play
+          - link "Office Reader — PDF & document suite. View on Google Play" [ref=e225] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.office.reader
+            - img [ref=e227]
+            - generic [ref=e229]:
+              - generic [ref=e230]:
+                - img [ref=e232]
+                - generic [ref=e233]: Productivity
+              - heading "Office Reader" [level=3] [ref=e234]
+              - paragraph [ref=e235]: PDF & document suite
+              - generic [ref=e236]:
+                - img [ref=e237]
+                - text: View on Google Play
+          - link "PDF Scanner — Image to PDF & OCR. View on Google Play" [ref=e239] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.img2.pdf
+            - img [ref=e241]
+            - generic [ref=e243]:
+              - generic [ref=e244]:
+                - img [ref=e246]
+                - generic [ref=e247]: Productivity
+              - heading "PDF Scanner" [level=3] [ref=e248]
+              - paragraph [ref=e249]: Image to PDF & OCR
+              - generic [ref=e250]:
+                - img [ref=e251]
+                - text: View on Google Play
+          - link "Signature Maker — Sign & annotate PDFs. View on Google Play" [ref=e253] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.sigature.app
+            - img [ref=e255]
+            - generic [ref=e257]:
+              - generic [ref=e258]:
+                - img [ref=e260]
+                - generic [ref=e261]: Productivity
+              - heading "Signature Maker" [level=3] [ref=e262]
+              - paragraph [ref=e263]: Sign & annotate PDFs
+              - generic [ref=e264]:
+                - img [ref=e265]
+                - text: View on Google Play
+          - link "Font Generator — Stylish text & typography. View on Google Play" [ref=e267] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.artfonts
+            - img [ref=e269]
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - img [ref=e274]
+                - generic [ref=e275]: Productivity
+              - heading "Font Generator" [level=3] [ref=e276]
+              - paragraph [ref=e277]: Stylish text & typography
+              - generic [ref=e278]:
+                - img [ref=e279]
+                - text: View on Google Play
+          - link "Translate — Voice & camera scan translator. View on Google Play" [ref=e281] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.speakandtranslate
+            - img [ref=e283]
+            - generic [ref=e285]:
+              - generic [ref=e286]:
+                - img [ref=e288]
+                - generic [ref=e289]: Productivity
+              - heading "Translate" [level=3] [ref=e290]
+              - paragraph [ref=e291]: Voice & camera scan translator
+              - generic [ref=e292]:
+                - img [ref=e293]
+                - text: View on Google Play
+          - link "Home Workout — No equipment gym & 500+ exercises. View on Google Play" [ref=e295] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.home_workout
+            - img [ref=e297]
+            - generic [ref=e299]:
+              - generic [ref=e300]:
+                - img [ref=e302]
+                - generic [ref=e303]: Health
+              - heading "Home Workout" [level=3] [ref=e304]
+              - paragraph [ref=e305]: No equipment gym & 500+ exercises
+              - generic [ref=e306]:
+                - img [ref=e307]
+                - text: View on Google Play
+          - link "Step Counter — Pedometer & daily activity tracker. View on Google Play" [ref=e309] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.step_tracker
+            - img [ref=e311]
+            - generic [ref=e313]:
+              - generic [ref=e314]:
+                - img [ref=e316]
+                - generic [ref=e317]: Health
+              - heading "Step Counter" [level=3] [ref=e318]
+              - paragraph [ref=e319]: Pedometer & daily activity tracker
+              - generic [ref=e320]:
+                - img [ref=e321]
+                - text: View on Google Play
+          - link "Speed Test — Download & upload checker. View on Google Play" [ref=e323] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.wifi_speed_test
+            - img [ref=e325]
+            - generic [ref=e327]:
+              - generic [ref=e328]:
+                - img [ref=e330]
+                - generic [ref=e331]: Utilities
+              - heading "Speed Test" [level=3] [ref=e332]
+              - paragraph [ref=e333]: Download & upload checker
+              - generic [ref=e334]:
+                - img [ref=e335]
+                - text: View on Google Play
+          - link "NFC Card Reader — EMV scanner & digital wallet. View on Google Play" [ref=e337] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.nfc.wallet
+            - img [ref=e339]
+            - generic [ref=e341]:
+              - generic [ref=e342]:
+                - img [ref=e344]
+                - generic [ref=e345]: Utilities
+              - heading "NFC Card Reader" [level=3] [ref=e346]
+              - paragraph [ref=e347]: EMV scanner & digital wallet
+              - generic [ref=e348]:
+                - img [ref=e349]
+                - text: View on Google Play
+          - link "Speaker Cleaner — Water ejector & sound fix. View on Google Play" [ref=e351] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.speaker_cleaner
+            - img [ref=e353]
+            - generic [ref=e355]:
+              - generic [ref=e356]:
+                - img [ref=e358]
+                - generic [ref=e359]: Utilities
+              - heading "Speaker Cleaner" [level=3] [ref=e360]
+              - paragraph [ref=e361]: Water ejector & sound fix
+              - generic [ref=e362]:
+                - img [ref=e363]
+                - text: View on Google Play
+          - link "Guitar Tuner — Chromatic pitch detector. View on Google Play" [ref=e365] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.guitar_tuner
+            - img [ref=e367]
+            - generic [ref=e369]:
+              - generic [ref=e370]:
+                - img [ref=e372]
+                - generic [ref=e373]: Utilities
+              - heading "Guitar Tuner" [level=3] [ref=e374]
+              - paragraph [ref=e375]: Chromatic pitch detector
+              - generic [ref=e376]:
+                - img [ref=e377]
+                - text: View on Google Play
+          - link "AR Measure — Tape measure & AR ruler. View on Google Play" [ref=e379] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.ar.meter
+            - img [ref=e381]
+            - generic [ref=e383]:
+              - generic [ref=e384]:
+                - img [ref=e386]
+                - generic [ref=e387]: Utilities
+              - heading "AR Measure" [level=3] [ref=e388]
+              - paragraph [ref=e389]: Tape measure & AR ruler
+              - generic [ref=e390]:
+                - img [ref=e391]
+                - text: View on Google Play
+          - link "Mirror — Phone mirror & flashlight. View on Google Play" [ref=e393] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.phone_mirror
+            - img [ref=e395]
+            - generic [ref=e397]:
+              - generic [ref=e398]:
+                - img [ref=e400]
+                - generic [ref=e401]: Utilities
+              - heading "Mirror" [level=3] [ref=e402]
+              - paragraph [ref=e403]: Phone mirror & flashlight
+              - generic [ref=e404]:
+                - img [ref=e405]
+                - text: View on Google Play
+          - link "Color Picker — Color detector & identifier. View on Google Play" [ref=e407] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.color_identification
+            - img [ref=e409]
+            - generic [ref=e411]:
+              - generic [ref=e412]:
+                - img [ref=e414]
+                - generic [ref=e415]: Utilities
+              - heading "Color Picker" [level=3] [ref=e416]
+              - paragraph [ref=e417]: Color detector & identifier
+              - generic [ref=e418]:
+                - img [ref=e419]
+                - text: View on Google Play
+          - link "GPS Speedometer — Speed & trip tracker. View on Google Play" [ref=e421] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.speedometer
+            - img [ref=e423]
+            - generic [ref=e425]:
+              - generic [ref=e426]:
+                - img [ref=e428]
+                - generic [ref=e429]: Utilities
+              - heading "GPS Speedometer" [level=3] [ref=e430]
+              - paragraph [ref=e431]: Speed & trip tracker
+              - generic [ref=e432]:
+                - img [ref=e433]
+                - text: View on Google Play
+          - link "Screen Mirroring — Cast to TV via Miracast. View on Google Play" [ref=e435] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.screen_mirroring
+            - img [ref=e437]
+            - generic [ref=e439]:
+              - generic [ref=e440]:
+                - img [ref=e442]
+                - generic [ref=e443]: Utilities
+              - heading "Screen Mirroring" [level=3] [ref=e444]
+              - paragraph [ref=e445]: Cast to TV via Miracast
+              - generic [ref=e446]:
+                - img [ref=e447]
+                - text: View on Google Play
+          - link "Hearing Amplifier — Sound boost from a distance. View on Google Play" [ref=e449] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.hearing_from_distance
+            - img [ref=e451]
+            - generic [ref=e453]:
+              - generic [ref=e454]:
+                - img [ref=e456]
+                - generic [ref=e457]: Utilities
+              - heading "Hearing Amplifier" [level=3] [ref=e458]
+              - paragraph [ref=e459]: Sound boost from a distance
+              - generic [ref=e460]:
+                - img [ref=e461]
+                - text: View on Google Play
+          - link "Compass — GPS direction finder. View on Google Play" [ref=e463] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.compass.app
+            - img [ref=e465]
+            - generic [ref=e467]:
+              - generic [ref=e468]:
+                - img [ref=e470]
+                - generic [ref=e471]: Utilities
+              - heading "Compass" [level=3] [ref=e472]
+              - paragraph [ref=e473]: GPS direction finder
+              - generic [ref=e474]:
+                - img [ref=e475]
+                - text: View on Google Play
+          - link "Live Earth Map — Satellite GPS & world map. View on Google Play" [ref=e477] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.live.earth
+            - img [ref=e479]
+            - generic [ref=e481]:
+              - generic [ref=e482]:
+                - img [ref=e484]
+                - generic [ref=e485]: Utilities
+              - heading "Live Earth Map" [level=3] [ref=e486]
+              - paragraph [ref=e487]: Satellite GPS & world map
+              - generic [ref=e488]:
+                - img [ref=e489]
+                - text: View on Google Play
+          - link "Watch Faces — Minimal Wear OS designs. View on Google Play" [ref=e491] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.minimal_watch_faces
+            - img [ref=e493]
+            - generic [ref=e495]:
+              - generic [ref=e496]:
+                - img [ref=e498]
+                - generic [ref=e499]: Personalization
+              - heading "Watch Faces" [level=3] [ref=e500]
+              - paragraph [ref=e501]: Minimal Wear OS designs
+              - generic [ref=e502]:
+                - img [ref=e503]
+                - text: View on Google Play
+          - link "Funky Smiles — Live wallpaper & animations. View on Google Play" [ref=e505] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.funky_smiles
+            - img [ref=e507]
+            - generic [ref=e509]:
+              - generic [ref=e510]:
+                - img [ref=e512]
+                - generic [ref=e513]: Personalization
+              - heading "Funky Smiles" [level=3] [ref=e514]
+              - paragraph [ref=e515]: Live wallpaper & animations
+              - generic [ref=e516]:
+                - img [ref=e517]
+                - text: View on Google Play
+          - link "Kawaii Wallpaper — Aesthetic HD backgrounds. View on Google Play" [ref=e519] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.wallpaper_kawaii
+            - img [ref=e521]
+            - generic [ref=e523]:
+              - generic [ref=e524]:
+                - img [ref=e526]
+                - generic [ref=e527]: Personalization
+              - heading "Kawaii Wallpaper" [level=3] [ref=e528]
+              - paragraph [ref=e529]: Aesthetic HD backgrounds
+              - generic [ref=e530]:
+                - img [ref=e531]
+                - text: View on Google Play
+          - link "Birthday Cards — Maker, wishes & animated GIFs. View on Google Play" [ref=e533] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.birthday_greetings
+            - img [ref=e535]
+            - generic [ref=e537]:
+              - generic [ref=e538]:
+                - img [ref=e540]
+                - generic [ref=e541]: Personalization
+              - heading "Birthday Cards" [level=3] [ref=e542]
+              - paragraph [ref=e543]: Maker, wishes & animated GIFs
+              - generic [ref=e544]:
+                - img [ref=e545]
+                - text: View on Google Play
+          - link "Wedding Invitation — Card maker & designer. View on Google Play" [ref=e547] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.wedding_invitation_maker
+            - img [ref=e549]
+            - generic [ref=e551]:
+              - generic [ref=e552]:
+                - img [ref=e554]
+                - generic [ref=e555]: Personalization
+              - heading "Wedding Invitation" [level=3] [ref=e556]
+              - paragraph [ref=e557]: Card maker & designer
+              - generic [ref=e558]:
+                - img [ref=e559]
+                - text: View on Google Play
+          - link "Neon Clock — Live wallpaper & clock widget. View on Google Play" [ref=e561] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.smart_clock
+            - img [ref=e563]
+            - generic [ref=e565]:
+              - generic [ref=e566]:
+                - img [ref=e568]
+                - generic [ref=e569]: Personalization
+              - heading "Neon Clock" [level=3] [ref=e570]
+              - paragraph [ref=e571]: Live wallpaper & clock widget
+              - generic [ref=e572]:
+                - img [ref=e573]
+                - text: View on Google Play
+          - link "Edge Lighting — Live wallpaper & border glow. View on Google Play" [ref=e575] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.edge_lighting
+            - img [ref=e577]
+            - generic [ref=e579]:
+              - generic [ref=e580]:
+                - img [ref=e582]
+                - generic [ref=e583]: Personalization
+              - heading "Edge Lighting" [level=3] [ref=e584]
+              - paragraph [ref=e585]: Live wallpaper & border glow
+              - generic [ref=e586]:
+                - img [ref=e587]
+                - text: View on Google Play
+          - link "LED Banner — Text scroller & marquee display. View on Google Play" [ref=e589] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.led_scroller
+            - img [ref=e591]
+            - generic [ref=e593]:
+              - generic [ref=e594]:
+                - img [ref=e596]
+                - generic [ref=e597]: Personalization
+              - heading "LED Banner" [level=3] [ref=e598]
+              - paragraph [ref=e599]: Text scroller & marquee display
+              - generic [ref=e600]:
+                - img [ref=e601]
+                - text: View on Google Play
+          - link "Home Design 3D — Floor plan & interior designer. View on Google Play" [ref=e603] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.istack.house_design_plan_3d
+            - img [ref=e605]
+            - generic [ref=e607]:
+              - generic [ref=e608]:
+                - img [ref=e610]
+                - generic [ref=e611]: Personalization
+              - heading "Home Design 3D" [level=3] [ref=e612]
+              - paragraph [ref=e613]: Floor plan & interior designer
+              - generic [ref=e614]:
+                - img [ref=e615]
+                - text: View on Google Play
+          - link "Voice Commands — Voice assistant & automation. View on Google Play" [ref=e617] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=ru.commands.voice.assistant
+            - img [ref=e619]
+            - generic [ref=e621]:
+              - generic [ref=e622]:
+                - img [ref=e624]
+                - generic [ref=e625]: Utilities
+              - heading "Voice Commands" [level=3] [ref=e626]
+              - paragraph [ref=e627]: Voice assistant & automation
+              - generic [ref=e628]:
+                - img [ref=e629]
+                - text: View on Google Play
+    - region "Tools that just work." [ref=e631]:
+      - generic [ref=e633]:
+        - paragraph [ref=e634]: About iStack
+        - heading "Tools that just work." [level=2] [ref=e635]
+        - paragraph [ref=e636]: iStack is an indie Android studio building everyday tools for millions of people. From creative photography utilities to health trackers and productivity apps — every app is crafted to feel fast, focused, and genuinely useful without unnecessary complexity.
+  - contentinfo "Site footer" [ref=e641]:
+    - generic [ref=e642]:
+      - generic [ref=e643]:
+        - generic [ref=e644]:
+          - paragraph [ref=e645]: iStack
+          - paragraph [ref=e646]: Android apps crafted with care
+        - navigation "Footer navigation" [ref=e647]:
+          - link "Google Play Store" [ref=e648] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/developer?id=iStack
+          - link "contact@3sharkstudio.com" [ref=e649] [cursor=pointer]:
+            - /url: mailto:contact@3sharkstudio.com
+      - generic [ref=e651]:
+        - paragraph [ref=e652]: © 2026 iStack / Mahmoud Haizoun. All rights reserved.
+        - paragraph [ref=e653]:
+          - text: Built with
+          - link "Next.js framework" [ref=e654] [cursor=pointer]:
+            - /url: https://nextjs.org
+            - text: Next.js
+  - button "Open Next.js Dev Tools" [ref=e660] [cursor=pointer]:
+    - img [ref=e661]

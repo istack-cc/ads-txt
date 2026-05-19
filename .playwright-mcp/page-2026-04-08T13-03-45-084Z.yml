@@ -1,0 +1,254 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation "Page Header" [ref=e3]:
+      - link "Google Play logo" [ref=e4] [cursor=pointer]:
+        - /url: /store/games
+        - img [ref=e5]
+        - generic [ref=e12]: google_logo Play
+      - navigation "Main" [ref=e14]:
+        - tablist [ref=e16]:
+          - generic [ref=e19]:
+            - tab "Games" [ref=e20] [cursor=pointer]:
+              - generic:
+                - generic: Games
+            - tab "Apps" [selected] [ref=e22] [cursor=pointer]:
+              - generic:
+                - generic: Apps
+            - tab "Kids" [ref=e24] [cursor=pointer]:
+              - generic:
+                - generic: Kids
+      - generic [ref=e26]:
+        - button "Search" [ref=e28] [cursor=pointer]:
+          - generic [ref=e29]: search
+        - button "Help Center" [ref=e31] [cursor=pointer]:
+          - generic [ref=e32]: help_outline
+        - button "Open account menu" [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+  - generic [ref=e46]:
+    - generic [ref=e48]: iStack
+    - generic [ref=e51]:
+      - listitem [ref=e52]:
+        - 'link "Birthday Cards: Maker & Wishes iStack" [ref=e57] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.birthday_greetings
+          - img [ref=e59]
+          - generic [ref=e60]:
+            - img [ref=e61]
+            - generic [ref=e62]:
+              - generic [ref=e64]: "Birthday Cards: Maker & Wishes"
+              - generic [ref=e66]: iStack
+      - listitem [ref=e67]:
+        - 'link "Sweet Camera: Beauty Cam iStack" [ref=e72] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.sweet_camera
+          - img [ref=e74]
+          - generic [ref=e75]:
+            - img [ref=e76]
+            - generic [ref=e77]:
+              - generic [ref=e79]: "Sweet Camera: Beauty Cam"
+              - generic [ref=e81]: iStack
+      - listitem [ref=e82]:
+        - link "Photo Collage & Pic Grid Maker iStack" [ref=e87] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.photo_collage
+          - img [ref=e89]
+          - generic [ref=e90]:
+            - img [ref=e91]
+            - generic [ref=e92]:
+              - generic [ref=e94]: Photo Collage & Pic Grid Maker
+              - generic [ref=e96]: iStack
+      - listitem [ref=e97]:
+        - 'link "Home Workout: No Equipment Gym iStack" [ref=e102] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.home_workout
+          - img [ref=e104]
+          - generic [ref=e105]:
+            - img [ref=e106]
+            - generic [ref=e107]:
+              - generic [ref=e109]: "Home Workout: No Equipment Gym"
+              - generic [ref=e111]: iStack
+      - listitem [ref=e112]:
+        - 'link "Speed Test: Download & Upload iStack" [ref=e117] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.wifi_speed_test
+          - img [ref=e119]
+          - generic [ref=e120]:
+            - img [ref=e121]
+            - generic [ref=e122]:
+              - generic [ref=e124]: "Speed Test: Download & Upload"
+              - generic [ref=e126]: iStack
+      - listitem [ref=e127]:
+        - 'link "Time Warp Scan: Warp Camera iStack" [ref=e132] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.time_warp_scan
+          - img [ref=e134]
+          - generic [ref=e135]:
+            - img [ref=e136]
+            - generic [ref=e137]:
+              - generic [ref=e139]: "Time Warp Scan: Warp Camera"
+              - generic [ref=e141]: iStack
+      - listitem [ref=e142]:
+        - link "Step Counter – Pedometer iStack" [ref=e147] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.step_tracker
+          - img [ref=e149]
+          - generic [ref=e150]:
+            - img [ref=e151]
+            - generic [ref=e152]:
+              - generic [ref=e154]: Step Counter – Pedometer
+              - generic [ref=e156]: iStack
+      - listitem [ref=e157]:
+        - 'link "NFC Card Reader: EMV & Wallet iStack" [ref=e162] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.nfc.wallet
+          - img [ref=e164]
+          - generic [ref=e165]:
+            - img [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e169]: "NFC Card Reader: EMV & Wallet"
+              - generic [ref=e171]: iStack
+      - listitem [ref=e172]:
+        - link "Document Reader – Word & Docs iStack" [ref=e177] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.word.reader
+          - img [ref=e179]
+          - generic [ref=e180]:
+            - img [ref=e181]
+            - generic [ref=e182]:
+              - generic [ref=e184]: Document Reader – Word & Docs
+              - generic [ref=e186]: iStack
+      - listitem [ref=e187]:
+        - link "Watch Faces — Minimal Wear OS iStack" [ref=e192] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.minimal_watch_faces
+          - img [ref=e194]
+          - generic [ref=e195]:
+            - img [ref=e196]
+            - generic [ref=e197]:
+              - generic [ref=e199]: Watch Faces — Minimal Wear OS
+              - generic [ref=e201]: iStack
+      - listitem [ref=e202]:
+        - link "Photo Vault – Calculator Lock iStack" [ref=e207] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.photo_lock
+          - img [ref=e209]
+          - generic [ref=e210]:
+            - img [ref=e211]
+            - generic [ref=e212]:
+              - generic [ref=e214]: Photo Vault – Calculator Lock
+              - generic [ref=e216]: iStack
+      - listitem [ref=e217]:
+        - 'link "Funky Smiles: Live Wallpaper iStack" [ref=e222] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.funky_smiles
+          - img [ref=e224]
+          - generic [ref=e225]:
+            - img [ref=e226]
+            - generic [ref=e227]:
+              - generic [ref=e229]: "Funky Smiles: Live Wallpaper"
+              - generic [ref=e231]: iStack
+      - listitem [ref=e232]:
+        - 'link "Office Reader: PDF & Documents iStack" [ref=e237] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.office.reader
+          - img [ref=e239]
+          - generic [ref=e240]:
+            - img [ref=e241]
+            - generic [ref=e242]:
+              - generic [ref=e244]: "Office Reader: PDF & Documents"
+              - generic [ref=e246]: iStack
+      - listitem [ref=e247]:
+        - link "Speaker Cleaner – Water Eject iStack" [ref=e252] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.speaker_cleaner
+          - img [ref=e254]
+          - generic [ref=e255]:
+            - img [ref=e256]
+            - generic [ref=e257]:
+              - generic [ref=e259]: Speaker Cleaner – Water Eject
+              - generic [ref=e261]: iStack
+      - listitem [ref=e262]:
+        - 'link "PDF Scanner: Image to PDF, OCR iStack" [ref=e267] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.img2.pdf
+          - img [ref=e269]
+          - generic [ref=e270]:
+            - img [ref=e271]
+            - generic [ref=e272]:
+              - generic [ref=e274]: "PDF Scanner: Image to PDF, OCR"
+              - generic [ref=e276]: iStack
+      - listitem [ref=e277]:
+        - 'link "Guitar Tuner: Chromatic Pitch iStack" [ref=e282] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.guitar_tuner
+          - img [ref=e284]
+          - generic [ref=e285]:
+            - img [ref=e286]
+            - generic [ref=e287]:
+              - generic [ref=e289]: "Guitar Tuner: Chromatic Pitch"
+              - generic [ref=e291]: iStack
+      - listitem [ref=e292]:
+        - 'link "Sticker Maker: Photo & Emoji iStack" [ref=e297] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.sticker_maker
+          - img [ref=e299]
+          - generic [ref=e300]:
+            - img [ref=e301]
+            - generic [ref=e302]:
+              - generic [ref=e304]: "Sticker Maker: Photo & Emoji"
+              - generic [ref=e306]: iStack
+      - listitem [ref=e307]:
+        - link "Kawaii Aesthetic Wallpaper HD iStack" [ref=e312] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.wallpaper_kawaii
+          - img [ref=e314]
+          - generic [ref=e315]:
+            - img [ref=e316]
+            - generic [ref=e317]:
+              - generic [ref=e319]: Kawaii Aesthetic Wallpaper HD
+              - generic [ref=e321]: iStack
+      - listitem [ref=e322]:
+        - link "GPS Photo with Location Stamp iStack" [ref=e327] [cursor=pointer]:
+          - /url: /store/apps/details?id=com.istack.gps.photo
+          - img [ref=e329]
+          - generic [ref=e330]:
+            - img [ref=e331]
+            - generic [ref=e332]:
+              - generic [ref=e334]: GPS Photo with Location Stamp
+              - generic [ref=e336]: iStack
+      - listitem [ref=e337]:
+        - 'link "Signature Maker: Sign PDF iStack" [ref=e342] [cursor=pointer]':
+          - /url: /store/apps/details?id=com.istack.sigature.app
+          - img [ref=e344]
+          - generic [ref=e345]:
+            - img [ref=e346]
+            - generic [ref=e347]:
+              - generic [ref=e349]: "Signature Maker: Sign PDF"
+              - generic [ref=e351]: iStack
+  - contentinfo [ref=e353]:
+    - generic [ref=e355]:
+      - generic [ref=e357]:
+        - text: Google Play
+        - link "Play Pass" [ref=e359] [cursor=pointer]:
+          - /url: /store/pass/getstarted
+          - paragraph [ref=e360]: Play Pass
+        - link "Play Points" [ref=e362] [cursor=pointer]:
+          - /url: /store/points/enroll
+          - paragraph [ref=e363]: Play Points
+        - link "Gift cards" [ref=e365] [cursor=pointer]:
+          - /url: https://play.google.com/about/giftcards
+          - paragraph [ref=e366]: Gift cards
+        - link "Redeem" [ref=e368] [cursor=pointer]:
+          - /url: /redeem
+          - paragraph [ref=e369]: Redeem
+        - link "Refund policy" [ref=e371] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay/answer/134336
+          - paragraph [ref=e372]: Refund policy
+      - generic [ref=e374]:
+        - text: Kids & family
+        - link "Parent Guide" [ref=e376] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay?p=pff_parentguide
+          - paragraph [ref=e377]: Parent Guide
+        - link "Family sharing" [ref=e379] [cursor=pointer]:
+          - /url: https://support.google.com/googleplay/answer/7007852
+          - paragraph [ref=e380]: Family sharing
+    - generic [ref=e381]:
+      - link "Terms of Service" [ref=e383] [cursor=pointer]:
+        - /url: https://play.google.com/intl/en-US_ma/about/play-terms.html
+        - paragraph [ref=e384]: Terms of Service
+      - link "Privacy" [ref=e386] [cursor=pointer]:
+        - /url: https://policies.google.com/privacy
+        - paragraph [ref=e387]: Privacy
+      - link "About Google Play" [ref=e389] [cursor=pointer]:
+        - /url: https://support.google.com/googleplay/?p=about_play
+        - paragraph [ref=e390]: About Google Play
+      - link "Developers" [ref=e392] [cursor=pointer]:
+        - /url: http://developer.android.com/index.html
+        - paragraph [ref=e393]: Developers
+      - link "Google Store" [ref=e395] [cursor=pointer]:
+        - /url: https://store.google.com/?playredirect=true&utm_source=play&utm_medium=google_oo&utm_campaign=GS106288
+        - paragraph [ref=e396]: Google Store
+      - generic [ref=e397]: All prices include VAT.
+      - generic [ref=e400]: Morocco (English (United States))

@@ -1,0 +1,8 @@
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3111
+- PID:          35100
+- Dir:          C:\Users\drbro\OneDrive\Documents\play-store-portfolio
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 35100 /F to stop it.

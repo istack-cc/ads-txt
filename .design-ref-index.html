@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iStack — Free Apps for Real Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #fff;
+    color: #0f0f0f;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  #root { min-height: 100vh; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .app-section:nth-child(even) .section-inner { flex-direction: row-reverse; }
+
+  /* Store badge SVGs */
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 14px;
+    cursor: pointer; text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .store-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #f5f5f5; }
+  ::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// ─── DATA ─────────────────────────────────────────────────────────────────────
+
+const ALL_APPS = [
+  { id: 1,  name: 'StepUp',      cat: 'Fitness',         icon: '👟', color: '#22c55e', installs: '500K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 2,  name: 'RepCount',    cat: 'Fitness',         icon: '💪', color: '#ef4444', installs: '120K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 3,  name: 'PaceLog',     cat: 'Fitness',         icon: '🏃', color: '#f97316', installs: '80K+',   rating_a: 4.4, rating_i: null, platforms: ['android'] },
+  { id: 4,  name: 'WodTimer',    cat: 'Fitness',         icon: '⏱',  color: '#8b5cf6', installs: '200K+',  rating_a: 4.8, rating_i: 4.7, platforms: ['android','ios'] },
+  { id: 5,  name: 'FlexStretch', cat: 'Fitness',         icon: '🧘', color: '#06b6d4', installs: '60K+',   rating_a: 4.3, rating_i: 4.2, platforms: ['android','ios'] },
+  { id: 6,  name: 'HydroMind',   cat: 'Fitness',         icon: '💧', color: '#3b82f6', installs: '340K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 7,  name: 'CalBurn',     cat: 'Fitness',         icon: '🔥', color: '#f59e0b', installs: '95K+',   rating_a: 4.2, rating_i: null, platforms: ['android'] },
+  { id: 8,  name: 'BodyMass',    cat: 'Fitness',         icon: '⚖️',  color: '#10b981', installs: '150K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 9,  name: 'GrainLab',    cat: 'Photo',           icon: '🎞',  color: '#d97706', installs: '310K+',  rating_a: 4.8, rating_i: 4.7, platforms: ['android','ios'] },
+  { id: 10, name: 'PalettePick', cat: 'Photo',           icon: '🎨', color: '#ec4899', installs: '240K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 11, name: 'BorderBox',   cat: 'Photo',           icon: '🖼',  color: '#6366f1', installs: '180K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 12, name: 'LightSplit',  cat: 'Photo',           icon: '✨', color: '#f43f5e', installs: '70K+',   rating_a: 4.3, rating_i: null, platforms: ['android'] },
+  { id: 13, name: 'PixelDust',   cat: 'Photo',           icon: '🌀', color: '#a855f7', installs: '55K+',   rating_a: 4.4, rating_i: 4.3, platforms: ['android','ios'] },
+  { id: 14, name: 'CropMath',    cat: 'Photo',           icon: '✂️',  color: '#14b8a6', installs: '420K+',  rating_a: 4.9, rating_i: 4.8, platforms: ['android','ios'] },
+  { id: 15, name: 'PDFPress',    cat: 'PDF Tools',       icon: '📄', color: '#ef4444', installs: '1.2M+',  rating_a: 4.8, rating_i: 4.7, platforms: ['android','ios'] },
+  { id: 16, name: 'ScanStack',   cat: 'PDF Tools',       icon: '📷', color: '#f97316', installs: '870K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 17, name: 'MergePDF',    cat: 'PDF Tools',       icon: '📚', color: '#8b5cf6', installs: '650K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 18, name: 'SignDrop',    cat: 'PDF Tools',       icon: '✍️',  color: '#06b6d4', installs: '390K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 19, name: 'WaterMark+',  cat: 'PDF Tools',       icon: '💧', color: '#10b981', installs: '110K+',  rating_a: 4.3, rating_i: null, platforms: ['android'] },
+  { id: 20, name: 'PDFLock',     cat: 'PDF Tools',       icon: '🔒', color: '#f59e0b', installs: '280K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 21, name: 'BattStat',    cat: 'Utilities',       icon: '🔋', color: '#22c55e', installs: '720K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 22, name: 'NetProbe',    cat: 'Utilities',       icon: '📡', color: '#3b82f6', installs: '540K+',  rating_a: 4.5, rating_i: null, platforms: ['android'] },
+  { id: 23, name: 'StoreSweep',  cat: 'Utilities',       icon: '🧹', color: '#ec4899', installs: '480K+',  rating_a: 4.4, rating_i: null, platforms: ['android'] },
+  { id: 24, name: 'BrightKey',   cat: 'Utilities',       icon: '🔦', color: '#f59e0b', installs: '900K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 25, name: 'SoundMeter',  cat: 'Utilities',       icon: '🎙',  color: '#a855f7', installs: '320K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 26, name: 'MirrorCam',   cat: 'Utilities',       icon: '🪞', color: '#14b8a6', installs: '220K+',  rating_a: 4.3, rating_i: 4.2, platforms: ['android','ios'] },
+  { id: 27, name: 'RulerReal',   cat: 'Utilities',       icon: '📏', color: '#6366f1', installs: '190K+',  rating_a: 4.4, rating_i: 4.3, platforms: ['android','ios'] },
+  { id: 28, name: 'ClipVault',   cat: 'Utilities',       icon: '📋', color: '#f43f5e', installs: '410K+',  rating_a: 4.6, rating_i: null, platforms: ['android'] },
+  { id: 29, name: 'NFC Writer',  cat: 'Utilities',       icon: '📲', color: '#0ea5e9', installs: '160K+',  rating_a: 4.5, rating_i: null, platforms: ['android'] },
+  { id: 30, name: 'QR Forge',    cat: 'Utilities',       icon: '⬛', color: '#84cc16', installs: '730K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 31, name: 'WallMaker',   cat: 'Personalization', icon: '🖌',  color: '#8b5cf6', installs: '260K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 32, name: 'IconKit',     cat: 'Personalization', icon: '🎯', color: '#ec4899', installs: '440K+',  rating_a: null, rating_i: 4.7, platforms: ['ios'] },
+  { id: 33, name: 'FontDrop',    cat: 'Personalization', icon: '🔤', color: '#f97316', installs: '380K+',  rating_a: 4.5, rating_i: null, platforms: ['android'] },
+  { id: 34, name: 'WidgetCraft', cat: 'Personalization', icon: '🧩', color: '#22c55e', installs: '510K+',  rating_a: null, rating_i: 4.8, platforms: ['ios'] },
+  { id: 35, name: 'ClockFace',   cat: 'Personalization', icon: '🕐', color: '#3b82f6', installs: '330K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 36, name: 'NoisePaper',  cat: 'Personalization', icon: '🌊', color: '#14b8a6', installs: '175K+',  rating_a: 4.4, rating_i: null, platforms: ['android'] },
+  { id: 37, name: 'SnapNote',    cat: 'Productivity',    icon: '⚡', color: '#f59e0b', installs: '620K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+  { id: 38, name: 'DailyStack',  cat: 'Productivity',    icon: '✅', color: '#a855f7', installs: '290K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 39, name: 'FocusBell',   cat: 'Productivity',    icon: '🍅', color: '#ef4444', installs: '450K+',  rating_a: 4.8, rating_i: 4.7, platforms: ['android','ios'] },
+  { id: 40, name: 'LinkDrop',    cat: 'Productivity',    icon: '🔗', color: '#06b6d4', installs: '200K+',  rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 41, name: 'TableCalc',   cat: 'Productivity',    icon: '🔢', color: '#10b981', installs: '135K+',  rating_a: 4.4, rating_i: null, platforms: ['android'] },
+  { id: 42, name: 'Unsubber',    cat: 'Productivity',    icon: '📧', color: '#f43f5e', installs: '310K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 43, name: 'MeetingClock',cat: 'Productivity',    icon: '💸', color: '#6366f1', installs: '88K+',   rating_a: 4.5, rating_i: 4.4, platforms: ['android','ios'] },
+  { id: 44, name: 'TravelBag',   cat: 'Productivity',    icon: '🧳', color: '#0ea5e9', installs: '170K+',  rating_a: 4.4, rating_i: 4.3, platforms: ['android','ios'] },
+  { id: 45, name: 'VoiceDraft',  cat: 'Productivity',    icon: '🎤', color: '#84cc16', installs: '240K+',  rating_a: 4.6, rating_i: 4.5, platforms: ['android','ios'] },
+  { id: 46, name: 'SplitTab',    cat: 'Productivity',    icon: '🍽',  color: '#d946ef', installs: '380K+',  rating_a: 4.7, rating_i: 4.6, platforms: ['android','ios'] },
+];
+
+const FEATURED = [
+  {
+    ...ALL_APPS.find(a => a.name === 'PDFPress'),
+    tagline: 'Compress, sign, merge — no cloud required.',
+    desc: 'PDFPress is the fastest PDF toolkit on Android and iOS. Compress documents to email-ready sizes, merge and split pages, add signatures and passwords — all processed locally on your device. Zero uploads, zero subscriptions.',
+    bg: 'linear-gradient(135deg, #fff5f5 0%, #ffe4e4 100%)',
+    features: [
+      { label: 'Compress PDFs', sub: 'Shrink files up to 80%\nwithout quality loss' },
+      { label: 'Sign & Fill', sub: 'Draw your signature\nand embed it instantly' },
+      { label: 'Lock & Protect', sub: 'Password encrypt\nany document locally' },
+    ],
+    reviews: [
+      { name: 'James K.', text: 'Finally, a PDF app that doesn\'t need an account. Works perfectly offline.' },
+      { name: 'Maria L.', text: 'Compressed a 40MB presentation to under 2MB. My email actually sent.' },
+      { name: 'Dave R.', text: 'Signing documents on my phone used to be a nightmare. Not anymore.' },
+      { name: 'Sophie T.', text: 'Free, fast, and no ads. I\'ve been using it daily for two years.' },
+    ],
+  },
+  {
+    ...ALL_APPS.find(a => a.name === 'StepUp'),
+    tagline: 'Count steps without killing your battery.',
+    desc: 'StepUp is a no-frills pedometer that runs in the background without GPS. It uses your phone\'s built-in accelerometer to track steps accurately all day. No account, no sync, no upsell — just your step count.',
+    bg: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+    features: [
+      { label: 'Zero GPS Drain', sub: 'Pure accelerometer tracking\nno location permission needed' },
+      { label: 'Daily History', sub: 'View your steps, distance\nand calories over 30 days' },
+      { label: 'Live Widget', sub: 'Glanceable home screen widget\nno unlock required' },
+    ],
+    reviews: [
+      { name: 'Anna M.', text: 'Other step apps destroyed my battery. StepUp runs all day without a dent.' },
+      { name: 'Carlos P.', text: 'Simple, accurate, and free. Does exactly one thing and does it right.' },
+      { name: 'Priya N.', text: 'I love that it has a widget. I can see my steps without opening the app.' },
+      { name: 'Tom H.', text: 'No login, no cloud, no nonsense. Just step counting. Love it.' },
+    ],
+  },
+  {
+    ...ALL_APPS.find(a => a.name === 'GrainLab'),
+    tagline: 'Film grain that actually looks like film.',
+    desc: 'GrainLab adds authentic analog grain to your photos — not the fake digital noise other apps add. Choose from 12 film stock simulations, adjust intensity and warmth, and export at full resolution. Free, forever.',
+    bg: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+    features: [
+      { label: '12 Film Stocks', sub: 'Kodak, Fuji, Ilford\nand more simulations' },
+      { label: 'Full Resolution', sub: 'Export at original quality\nno compression artifacts' },
+      { label: 'Batch Mode', sub: 'Apply the same grain\nto multiple photos at once' },
+    ],
+    reviews: [
+      { name: 'Ella B.', text: 'The grain looks genuinely analog. Other apps produce ugly digital noise.' },
+      { name: 'Riku T.', text: 'I shoot on film and this app matches the look better than I expected.' },
+      { name: 'Nina V.', text: 'Full-res export for free is unheard of. This app is criminally underrated.' },
+      { name: 'Jake O.', text: 'The batch mode alone makes it better than every paid alternative.' },
+    ],
+  },
+  {
+    ...ALL_APPS.find(a => a.name === 'BrightKey'),
+    tagline: 'More than a flashlight. Much more.',
+    desc: 'BrightKey turns your phone into a real lighting tool. Max brightness flashlight, SOS strobe, adjustable color temperature, morse code mode, and a front-facing softbox for selfie situations. All in one free app.',
+    bg: 'linear-gradient(135deg, #fefce8 0%, #fef08a 100%)',
+    features: [
+      { label: 'SOS & Strobe', sub: 'Emergency signaling\nwith adjustable flash rate' },
+      { label: 'Color Temp', sub: 'Warm or cool tones\nfor photography use' },
+      { label: 'Front Softbox', sub: 'Use your screen as\na soft fill light' },
+    ],
+    reviews: [
+      { name: 'Ben C.', text: 'Used the SOS mode when camping. Glad I had it. Great app.' },
+      { name: 'Fatima R.', text: 'The screen softbox is genius for taking photos in dark restaurants.' },
+      { name: 'Leo S.', text: 'Every flashlight app is the same except this one. The strobe modes are useful.' },
+      { name: 'Amy W.', text: '900K installs don\'t lie — this is just the best flashlight app.' },
+    ],
+  },
+  {
+    ...ALL_APPS.find(a => a.name === 'FocusBell'),
+    tagline: 'Work in short bursts. Achieve more.',
+    desc: 'FocusBell is a Pomodoro timer designed to keep you in flow. Custom session lengths, ambient sounds, focus streaks, and a minimal interface that gets out of your way. No subscriptions, no distractions.',
+    bg: 'linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%)',
+    features: [
+      { label: 'Custom Lengths', sub: 'From 5-minute sprints\nto 90-minute deep work' },
+      { label: 'Ambient Sounds', sub: 'Rain, white noise, cafe\n— 8 soundscapes' },
+      { label: 'Focus Streaks', sub: 'Track your daily\nconsistency over time' },
+    ],
+    reviews: [
+      { name: 'Hana K.', text: 'I\'ve tried every Pomodoro app. This is the only one I\'ve kept.' },
+      { name: 'Malik J.', text: 'The ambient sounds make such a difference for focus. Actually works.' },
+      { name: 'Sara F.', text: 'Simple but powerful. I love that I can set 45-minute sessions.' },
+      { name: 'Oscar D.', text: 'No premium tier. No subscription. Just a timer that works. Rare.' },
+    ],
+  },
+  {
+    ...ALL_APPS.find(a => a.name === 'WidgetCraft'),
+    tagline: 'Your home screen, finally yours.',
+    desc: 'WidgetCraft lets you build custom iOS home screen widgets without any code. Choose layouts, pick fonts and colors, connect live data sources, and set up tap actions. Every widget you make is yours — no subscription needed to keep them running.',
+    bg: 'linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%)',
+    features: [
+      { label: 'Drag & Drop', sub: 'Build widgets visually\nin minutes, not hours' },
+      { label: 'Live Data', sub: 'Connect weather, battery\ncalendar, and more' },
+      { label: 'No Paywall', sub: 'Widgets keep running\neven if you delete the app' },
+    ],
+    reviews: [
+      { name: 'Mia C.', text: 'I spent an hour building the perfect home screen. WidgetCraft made it possible.' },
+      { name: 'Tyler B.', text: 'The no-paywall policy is a breath of fresh air. My widgets still work.' },
+      { name: 'Ingrid A.', text: 'Incredibly intuitive. I made 6 different widgets in one afternoon.' },
+      { name: 'Ryan P.', text: '510K installs and it\'s still free. This dev is one of the good ones.' },
+    ],
+  },
+];
+
+// ─── COMPONENTS ───────────────────────────────────────────────────────────────
+
+function StarRating({ value }) {
+  const full = Math.floor(value);
+  const half = value - full >= 0.5;
+  return (
+    <span style={{ display: 'inline-flex', gap: 2, alignItems: 'center' }}>
+      {[1,2,3,4,5].map(i => (
+        <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1l1.545 3.13 3.455.502-2.5 2.437.59 3.44L7 8.885 3.91 10.51l.59-3.44L2 4.632l3.455-.502z"
+            fill={i <= full ? '#FF9500' : (i === full+1 && half ? 'url(#half)' : '#E5E5E5')}
+          />
+          <defs>
+            <linearGradient id="half">
+              <stop offset="50%" stopColor="#FF9500"/>
+              <stop offset="50%" stopColor="#E5E5E5"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      ))}
+    </span>
+  );
+}
+
+function PhoneMockup({ app }) {
+  return (
+    <div style={{ position: 'relative', width: 260, height: 520, flexShrink: 0 }}>
+      {/* Phone shell */}
+      <svg width="260" height="520" viewBox="0 0 260 520" fill="none" style={{ position: 'absolute', inset: 0 }}>
+        <rect x="1" y="1" width="258" height="518" rx="40" fill="white" stroke="#e0e0e0" strokeWidth="2"/>
+        <rect x="8" y="8" width="244" height="504" rx="34" fill="#f8f8f8"/>
+        {/* Notch */}
+        <rect x="95" y="16" width="70" height="22" rx="11" fill="#e0e0e0"/>
+        {/* Home indicator */}
+        <rect x="100" y="490" width="60" height="4" rx="2" fill="#d0d0d0"/>
+        {/* Side buttons */}
+        <rect x="-1" y="130" width="3" height="50" rx="1.5" fill="#ddd"/>
+        <rect x="-1" y="190" width="3" height="50" rx="1.5" fill="#ddd"/>
+        <rect x="258" y="160" width="3" height="70" rx="1.5" fill="#ddd"/>
+      </svg>
+      {/* Screen content */}
+      <div style={{
+        position: 'absolute',
+        top: 38, left: 16, right: 16, bottom: 32,
+        borderRadius: 26,
+        background: `linear-gradient(145deg, ${app.color}22 0%, ${app.color}44 100%)`,
+        overflow: 'hidden',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        gap: 16,
+      }}>
+        <div style={{
+          width: 80, height: 80, borderRadius: 22,
+          background: `linear-gradient(135deg, ${app.color}55, ${app.color}99)`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 40,
+          boxShadow: `0 8px 24px ${app.color}44`,
+        }}>{app.icon}</div>
+        <div style={{ fontWeight: 800, fontSize: 18, color: '#1a1a1a', textAlign: 'center' }}>{app.name}</div>
+        {/* Simulated UI rows */}
+        <div style={{ width: '80%', display: 'flex', flexDirection: 'column', gap: 8, marginTop: 8 }}>
+          {[100, 75, 88, 60, 45].map((w, i) => (
+            <div key={i} style={{
+              height: 8, borderRadius: 4,
+              background: i === 0 ? app.color : `${app.color}${i === 1 ? '99' : '55'}`,
+              width: `${w}%`,
+            }}/>
+          ))}
+        </div>
+        {/* CTA button */}
+        <div style={{
+          marginTop: 12,
+          background: app.color, color: '#fff',
+          borderRadius: 12, padding: '10px 28px',
+          fontWeight: 700, fontSize: 13,
+        }}>Open App</div>
+      </div>
+    </div>
+  );
+}
+
+function AppSection({ app, index }) {
+  const isEven = index % 2 === 1;
+  return (
+    <section style={{ background: app.bg, width: '100%', padding: '80px 0 60px' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 48px' }}>
+
+        {/* Top row: phone + info */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 72,
+          flexDirection: isEven ? 'row-reverse' : 'row',
+          marginBottom: 64,
+          flexWrap: 'wrap',
+        }}>
+          <PhoneMockup app={app} />
+
+          <div style={{ flex: 1, minWidth: 280 }}>
+            {/* App icon + name */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+              <div style={{
+                width: 68, height: 68, borderRadius: 18,
+                background: `linear-gradient(135deg, ${app.color}44, ${app.color}88)`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: 34,
+                boxShadow: `0 4px 16px ${app.color}33`,
+              }}>{app.icon}</div>
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#888', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 2 }}>{app.cat}</div>
+                <div style={{ fontWeight: 800, fontSize: 28, lineHeight: 1.1 }}>{app.name}</div>
+              </div>
+            </div>
+
+            <p style={{ fontSize: 17, color: '#444', lineHeight: 1.65, marginBottom: 28, maxWidth: 460 }}>{app.desc}</p>
+
+            {/* Ratings row */}
+            <div style={{ display: 'flex', gap: 20, marginBottom: 32, flexWrap: 'wrap' }}>
+              {app.rating_a && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <StarRating value={app.rating_a} />
+                    <span style={{ fontWeight: 700, fontSize: 15 }}>{app.rating_a}</span>
+                  </div>
+                  <div style={{ fontSize: 11, color: '#999', fontWeight: 600, letterSpacing: '0.05em' }}>ANDROID</div>
+                </div>
+              )}
+              {app.rating_i && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <StarRating value={app.rating_i} />
+                    <span style={{ fontWeight: 700, fontSize: 15 }}>{app.rating_i}</span>
+                  </div>
+                  <div style={{ fontSize: 11, color: '#999', fontWeight: 600, letterSpacing: '0.05em' }}>IOS</div>
+                </div>
+              )}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ fontWeight: 700, fontSize: 15 }}>{app.installs}</span>
+                <div style={{ fontSize: 11, color: '#999', fontWeight: 600, letterSpacing: '0.05em' }}>INSTALLS</div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ fontWeight: 700, fontSize: 15 }}>Free</span>
+                <div style={{ fontSize: 11, color: '#999', fontWeight: 600, letterSpacing: '0.05em' }}>PRICE</div>
+              </div>
+            </div>
+
+            {/* Store buttons */}
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              {app.platforms.includes('android') && (
+                <a href="#" className="store-btn" style={{ background: '#1a1a1a', color: '#fff' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.18 23.76c.26.15.56.17.83.08l11.65-11.65L12 8.53 3.18 23.76zM20.47 10.36l-2.53-1.45-3.35 3.35 3.35 3.35 2.54-1.46c.72-.42.72-1.38-.01-1.79zM2.01 1.46C1.99 1.6 2 1.74 2 1.89v20.22c0 .15.01.29.03.43L13.48 11.1 2.01 1.46zM15.66 2.17L4.01.09c-.27-.09-.57-.07-.83.08L12 8.53l3.66-6.36z"/>
+                  </svg>
+                  Google Play
+                </a>
+              )}
+              {app.platforms.includes('ios') && (
+                <a href="#" className="store-btn" style={{ background: '#fff', color: '#1a1a1a', border: '1.5px solid #e0e0e0' }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  App Store
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Features row */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginBottom: 48 }}>
+          {app.features.map((f, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.7)', borderRadius: 20,
+              padding: '28px 24px',
+              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,0.9)',
+            }}>
+              <div style={{
+                width: 44, height: 44, borderRadius: 12,
+                background: `${app.color}22`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: 14,
+                fontSize: 22,
+              }}>
+                {['✦', '◈', '◉'][i]}
+              </div>
+              <div style={{ fontWeight: 800, fontSize: 15, marginBottom: 6 }}>{f.label}</div>
+              <div style={{ fontSize: 13, color: '#666', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{f.sub}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Reviews */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+          {app.reviews.map((r, i) => (
+            <div key={i} style={{
+              background: 'rgba(255,255,255,0.7)',
+              borderRadius: 16, padding: '20px 22px',
+              border: '1px solid rgba(255,255,255,0.9)',
+            }}>
+              <div style={{ fontWeight: 700, fontSize: 12, color: '#888', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+                <StarRating value={5} />
+                <span style={{ color: '#1a1a1a' }}>{r.name}</span>
+              </div>
+              <p style={{ fontSize: 13, color: '#444', lineHeight: 1.6 }}>{r.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+function Marquee() {
+  const repeated = [...ALL_APPS, ...ALL_APPS];
+  return (
+    <div style={{ background: '#f9f9f9', borderTop: '1px solid #eee', borderBottom: '1px solid #eee', padding: '24px 0', overflow: 'hidden' }}>
+      <div style={{ display: 'flex', gap: 20, animation: 'marquee 40s linear infinite', width: 'max-content' }}>
+        {repeated.map((app, i) => (
+          <div key={i} style={{
+            width: 56, height: 56, borderRadius: 14, flexShrink: 0,
+            background: `linear-gradient(135deg, ${app.color}33, ${app.color}66)`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 28, border: `1px solid ${app.color}33`,
+          }}>
+            {app.icon}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MoreApps() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const cats = ['All', 'Fitness', 'Photo', 'PDF Tools', 'Utilities', 'Personalization', 'Productivity'];
+  const filtered = activeFilter === 'All' ? ALL_APPS : ALL_APPS.filter(a => a.cat === activeFilter);
+
+  return (
+    <section style={{ background: '#fff', padding: '80px 0 80px' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '0 48px' }}>
+        <h2 style={{ fontWeight: 800, fontSize: 36, marginBottom: 8 }}>All 46 Apps</h2>
+        <p style={{ color: '#888', fontSize: 15, marginBottom: 36 }}>Every app is free to download. No trials, no limits.</p>
+
+        {/* Filters */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 36 }}>
+          {cats.map(c => (
+            <button key={c} onClick={() => setActiveFilter(c)} style={{
+              padding: '8px 18px', borderRadius: 100,
+              fontFamily: 'Plus Jakarta Sans', fontWeight: 600, fontSize: 13,
+              cursor: 'pointer', border: 'none',
+              background: activeFilter === c ? '#1a1a1a' : '#f2f2f2',
+              color: activeFilter === c ? '#fff' : '#555',
+              transition: 'all 0.15s',
+            }}>{c}</button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 16 }}>
+          {filtered.map(app => (
+            <AppCard key={app.id} app={app} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AppCard({ app }) {
+  const [hov, setHov] = useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        background: hov ? '#fafafa' : '#f7f7f7',
+        border: `1.5px solid ${hov ? app.color + '66' : '#ebebeb'}`,
+        borderRadius: 18, padding: '20px 18px',
+        cursor: 'default',
+        transition: 'all 0.2s',
+        transform: hov ? 'translateY(-3px)' : 'none',
+        boxShadow: hov ? `0 8px 28px ${app.color}18` : 'none',
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+        <div style={{
+          width: 44, height: 44, borderRadius: 12, flexShrink: 0,
+          background: `linear-gradient(135deg, ${app.color}33, ${app.color}66)`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 22,
+        }}>{app.icon}</div>
+        <div>
+          <div style={{ fontWeight: 800, fontSize: 14 }}>{app.name}</div>
+          <div style={{ fontSize: 11, color: '#999', fontWeight: 600 }}>{app.cat}</div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ fontSize: 11, color: '#aaa' }}>{app.installs} installs</div>
+        <div style={{ display: 'flex', gap: 4 }}>
+          {app.platforms.map(p => (
+            <span key={p} style={{
+              fontSize: 9, fontWeight: 700,
+              padding: '3px 7px', borderRadius: 5,
+              background: p === 'android' ? '#e8f5e9' : '#e3f2fd',
+              color: p === 'android' ? '#2e7d32' : '#1565c0',
+            }}>{p === 'android' ? 'Android' : 'iOS'}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Nav() {
+  return (
+    <nav style={{
+      position: 'sticky', top: 0, zIndex: 200,
+      background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(16px)',
+      borderBottom: '1px solid #eee',
+      padding: '0 48px', height: 60,
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+    }}>
+      <div style={{ fontWeight: 800, fontSize: 20, letterSpacing: '-0.02em' }}>iStack</div>
+      <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
+        <a href="#apps" style={{ fontSize: 14, fontWeight: 600, color: '#444', textDecoration: 'none' }}>All Apps</a>
+        <a href="#" style={{
+          fontSize: 13, fontWeight: 700, color: '#fff',
+          background: '#1a1a1a', padding: '8px 18px',
+          borderRadius: 10, textDecoration: 'none',
+        }}>Google Play ↗</a>
+      </div>
+    </nav>
+  );
+}
+
+function Hero() {
+  return (
+    <div style={{
+      background: '#fff',
+      padding: '96px 48px 80px',
+      borderBottom: '1px solid #eee',
+      textAlign: 'center',
+    }}>
+      <div style={{ maxWidth: 700, margin: '0 auto' }}>
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          background: '#f3f4f6', borderRadius: 100,
+          padding: '6px 16px', marginBottom: 28,
+        }}>
+          <div style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e' }}/>
+          <span style={{ fontSize: 12, fontWeight: 700, color: '#555', letterSpacing: '0.06em' }}>SOLO INDIE DEVELOPER · 46 FREE APPS</span>
+        </div>
+
+        <h1 style={{
+          fontWeight: 800, fontSize: 'clamp(40px, 6vw, 72px)',
+          lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 24,
+        }}>
+          Portfolio of apps
+        </h1>
+        <p style={{ fontSize: 18, color: '#666', lineHeight: 1.65, marginBottom: 48, maxWidth: 500, margin: '0 auto 48px' }}>
+          Small apps. Real jobs. No noise. Every app is free to download — no subscriptions, no trials, no dark patterns.
+        </p>
+
+        {/* Stats */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 0, flexWrap: 'wrap' }}>
+          {[
+            { n: '46', l: 'Free apps' },
+            { n: '12M+', l: 'Total installs' },
+            { n: '4.6★', l: 'Avg. rating' },
+            { n: '6', l: 'Categories' },
+          ].map((s, i) => (
+            <div key={i} style={{
+              padding: '20px 36px',
+              borderLeft: i === 0 ? '1px solid #eee' : 'none',
+              borderRight: '1px solid #eee',
+              borderTop: '1px solid #eee',
+              borderBottom: '1px solid #eee',
+            }}>
+              <div style={{ fontWeight: 800, fontSize: 28, letterSpacing: '-0.02em' }}>{s.n}</div>
+              <div style={{ fontSize: 12, color: '#999', fontWeight: 600, marginTop: 2 }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Nav />
+      <Hero />
+      <Marquee />
+      {FEATURED.map((app, i) => <AppSection key={app.id} app={app} index={i} />)}
+      <Marquee />
+      <div id="apps"><MoreApps /></div>
+      <footer style={{
+        background: '#f9f9f9', borderTop: '1px solid #eee',
+        padding: '48px', textAlign: 'center',
+      }}>
+        <div style={{ fontWeight: 800, fontSize: 22, marginBottom: 8 }}>iStack</div>
+        <p style={{ fontSize: 13, color: '#999' }}>Built by one person. Used by millions. All apps free, forever.</p>
+        <p style={{ fontSize: 12, color: '#bbb', marginTop: 24 }}>© 2019–2026 iStack</p>
+      </footer>
+
+      <TweaksPanel />
+    </div>
+  );
+}
+
+// ─── TWEAKS ───────────────────────────────────────────────────────────────────
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#1a1a1a",
+  "navStyle": "light"
+}/*EDITMODE-END*/;
+
+function TweaksPanel() {
+  const [visible, setVisible] = useState(false);
+  const [tweaks, setTweaks] = useState(TWEAK_DEFAULTS);
+
+  useEffect(() => {
+    window.addEventListener('message', e => {
+      if (e.data?.type === '__activate_edit_mode') setVisible(true);
+      if (e.data?.type === '__deactivate_edit_mode') setVisible(false);
+    });
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <div style={{
+      position: 'fixed', bottom: 24, right: 24, zIndex: 9000,
+      background: '#fff', border: '1px solid #e5e5e5',
+      borderRadius: 16, padding: 20, width: 220,
+      boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+    }}>
+      <div style={{ fontWeight: 800, fontSize: 13, marginBottom: 14, color: '#1a1a1a' }}>Tweaks</div>
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#999', marginBottom: 8, letterSpacing: '0.08em' }}>NAV ACCENT</div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        {['#1a1a1a', '#ef4444', '#3b82f6', '#22c55e', '#8b5cf6'].map(c => (
+          <button key={c} onClick={() => {
+            const next = { ...tweaks, accentColor: c };
+            setTweaks(next);
+            window.parent.postMessage({ type: '__edit_mode_set_keys', edits: next }, '*');
+          }} style={{
+            width: 28, height: 28, borderRadius: 8, background: c,
+            border: tweaks.accentColor === c ? '3px solid #fff' : '2px solid transparent',
+            outline: tweaks.accentColor === c ? `2px solid ${c}` : 'none',
+            cursor: 'pointer',
+          }}/>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

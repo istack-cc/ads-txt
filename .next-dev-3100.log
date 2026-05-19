@@ -1,0 +1,34 @@
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3100
+- Network:       http://192.168.1.3:3100
+✓ Ready in 1329ms
+
+ GET / 200 in 2.5s (next.js: 337ms, application-code: 2.2s)
+ GET / 200 in 494ms (next.js: 43ms, application-code: 451ms)
+ GET /category/productivity/ 200 in 2.5s (next.js: 2.1s, generate-params: 1061ms, application-code: 370ms)
+ GET /category/ai-photo/ 200 in 479ms (next.js: 233ms, generate-params: 228ms, application-code: 246ms)
+ GET /category/productivity/ 200 in 156ms (next.js: 18ms, generate-params: 11ms, application-code: 138ms)
+ GET / 200 in 159ms (next.js: 4ms, application-code: 155ms)
+ GET /category/utilities/ 200 in 141ms (next.js: 11ms, generate-params: 8ms, application-code: 130ms)
+ GET /apps/nfc-card-reader/ 200 in 873ms (next.js: 791ms, generate-params: 718ms, application-code: 82ms)
+ GET / 200 in 195ms (next.js: 7ms, application-code: 188ms)
+ GET / 200 in 518ms (next.js: 19ms, application-code: 499ms)
+ GET /category/productivity/ 200 in 3.3s (next.js: 21ms, generate-params: 14ms, application-code: 3.2s)
+ GET /apps/pdf-scanner/ 200 in 1915ms (next.js: 19ms, generate-params: 12ms, application-code: 1896ms)
+ GET /how-to/how-to-scan-documents-with-pdf-scanner/ 200 in 4.1s (next.js: 3.0s, generate-params: 1159ms, application-code: 1141ms)
+ GET /compare/pdf-scanner-vs-adobe-scan/ 200 in 3.0s (next.js: 2.4s, generate-params: 1292ms, application-code: 653ms)
+ GET /glossary/ocr/ 200 in 6.0s (next.js: 3.2s, generate-params: 1025ms, application-code: 2.8s)
+✓ Compiled in 559ms
+✓ Compiled in 386ms
+✓ Compiled in 517ms
+✓ Compiled in 196ms
+✓ Compiled in 58ms
+✓ Compiled in 61ms
+✓ Compiled in 65ms
+✓ Compiled in 58ms
+✓ Compiled in 52ms
+✓ Compiled in 58ms
+✓ Compiled in 73ms
+✓ Compiled in 60ms
+✓ Compiled in 59ms
+✓ Compiled in 59ms

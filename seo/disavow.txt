@@ -1,0 +1,34 @@
+# istack.cc disavow file — generated 2026-04-28
+# Submit at: https://search.google.com/search-console/disavow-links
+#
+# These referring domains are PBN/spam networks identified via Semrush backlinks audit.
+# Most cluster on shared hosting IPs 195.20.19.178 and 147.135.215.43, on cheap TLDs
+# (.md, .sbs, .cfd, .top, .monster, .website, .store) with Authority Scores of 2-8.
+# The most-cited anchor is "we found 3 hidden steps that quickly boosted istack.cc's
+# ranking on seoflox.com" — a known seoflox-style scraper anchor.
+#
+# Legit referrers retained (NOT disavowed): aptoide.com, appbrain.com.
+
+domain:sequone.com
+domain:5118.com
+domain:analyticshaven.top
+domain:atomizelink.icu
+domain:creativeposts.top
+domain:jake.eu
+domain:knows.monster
+domain:optimizeflow.top
+domain:takes.sbs
+domain:appgoblin.info
+domain:blinks.monster
+domain:blogsphere.top
+domain:blueinblue.com
+domain:buzzshrink.website
+domain:dailymusings.top
+domain:domains.com.bz
+domain:iiccc.cc
+domain:knows.sbs
+domain:seodomains.website
+domain:seoflox.io
+domain:seol.store
+domain:wants.cfd
+domain:websites.freemyip.com
