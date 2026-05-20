@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://istack.cc/</loc>
-<lastmod>2026-04-24T18:24:24.977Z</lastmod>
-<changefreq>daily</changefreq>
-<priority>1</priority>
-</url>
-<url>
-<loc>https://istack.cc/privacy/</loc>
-<lastmod>2026-04-24T18:24:24.977Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://istack.cc/terms/</loc>
-<lastmod>2026-04-24T18:24:24.977Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.3</priority>
-</url>
-<url>
-<loc>https://istack.cc/research/free-app-landscape-2026/</loc>
-<lastmod>2026-04-19T00:00:00.000Z</lastmod>
-<changefreq>yearly</changefreq>
-<priority>0.9</priority>
-</url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://istack.cc/sitemap-core.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/apps/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/category/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/best/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/compare/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/how-to/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://istack.cc/glossary/sitemap.xml</loc>
+    <lastmod>2026-05-20T17:52:28.830Z</lastmod>
+  </sitemap>
+</sitemapindex>

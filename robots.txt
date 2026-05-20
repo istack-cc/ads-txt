@@ -47,9 +47,3 @@ User-Agent: YouBot
 Allow: /
 
 Sitemap: https://istack.cc/sitemap.xml
-Sitemap: https://istack.cc/apps/sitemap.xml
-Sitemap: https://istack.cc/category/sitemap.xml
-Sitemap: https://istack.cc/how-to/sitemap.xml
-Sitemap: https://istack.cc/compare/sitemap.xml
-Sitemap: https://istack.cc/best/sitemap.xml
-Sitemap: https://istack.cc/glossary/sitemap.xml
