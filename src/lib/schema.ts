@@ -56,6 +56,7 @@ export function generateSoftwareApplicationSchema(app: App) {
   const iosUrl = app.appStoreId
     ? `https://apps.apple.com/us/app/${app.id}/id${app.appStoreId}`
     : undefined;
+  const downloadUrl = [playUrl, iosUrl].filter((url): url is string => Boolean(url));
 
   const schema: Record<string, unknown> = {
     "@type": "SoftwareApplication",
@@ -90,8 +91,25 @@ export function generateSoftwareApplicationSchema(app: App) {
     };
   }
 
-  const downloadUrl = [playUrl, iosUrl].filter(Boolean);
-  if (downloadUrl.length) schema.downloadUrl = downloadUrl.length === 1 ? downloadUrl[0] : downloadUrl;
+  Object.assign(schema, {
+    downloadUrl: downloadUrl.length === 1 ? downloadUrl[0] : downloadUrl,
+    sameAs: downloadUrl,
+    inLanguage: "en-US",
+    audience: {
+      "@type": "Audience",
+      audienceType: app.id === "dmv-practice-test"
+        ? "U.S. learner drivers, CDL learners, permit test learners, and Spanish-speaking driver exam learners"
+        : app.id === "ai-tanning"
+          ? "U.S. and Mexico beachgoers, vacation travelers, summer skincare users, and Spanish-speaking UV safety learners"
+          : `${app.category} app users`,
+      geographicArea: app.id === "dmv-practice-test" || app.id === "ai-tanning"
+        ? [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "Mexico" },
+          ]
+        : undefined,
+    },
+  });
 
   return schema;
 }

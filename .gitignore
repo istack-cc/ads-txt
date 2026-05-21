@@ -47,3 +47,6 @@ next-env.d.ts
 bash.exe.stackdump
 icons-local-check.png
 seo/
+.firecrawl/
+.firecrawl-*.json
+.qa/

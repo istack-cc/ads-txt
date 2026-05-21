@@ -25,8 +25,8 @@ function useCountUp(target: number, active: boolean, duration = 1800) {
     if (!active) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce) {
-      setValue(target);
-      return;
+      const raf = requestAnimationFrame(() => setValue(target));
+      return () => cancelAnimationFrame(raf);
     }
     let raf = 0;
     const start = performance.now();

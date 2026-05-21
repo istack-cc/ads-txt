@@ -16,13 +16,16 @@ export function ManyMoreMarquee({ apps, speed = 40 }: ManyMoreMarqueeProps) {
         background: "#f9f9f9",
         borderTop: "1px solid #eee",
         borderBottom: "1px solid #eee",
-        padding: "24px 0",
+        height: 106,
         overflow: "hidden",
+        contain: "layout paint",
+        position: "relative",
+        width: "100%",
       }}
     >
       <div
         className="marquee-track"
-        style={{ gap: 20, animationDuration: `${speed}s` }}
+        style={{ gap: 20, animationDuration: `${speed}s`, left: 0, position: "absolute", top: 24 }}
       >
         {loop.map((app, i) => (
           <MarqueeTile key={`${app.id}-${i}`} app={app} />

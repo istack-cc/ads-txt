@@ -232,7 +232,7 @@ async function saveShots(packageId, urls) {
       await fs.writeFile(path.join(dir, fname), buf);
       localPaths.push(`/app-screenshots/${packageId}/${fname}`);
       process.stdout.write(".");
-    } catch (e) {
+    } catch {
       process.stdout.write("x");
     }
   }

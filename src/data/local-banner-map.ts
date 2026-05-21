@@ -35,5 +35,6 @@ export const LOCAL_BANNER_MAP: Record<string, string> = {
   "com.istack.edge_lighting": "/app-banners/com.istack.edge_lighting.jpg",
   "com.istack.led_scroller": "/app-banners/com.istack.led_scroller.jpg",
   "com.istack.house_design_plan_3d": "/app-banners/com.istack.house_design_plan_3d.jpg",
-  "ru.commands.voice.assistant": "/app-banners/ru.commands.voice.assistant.png"
+  "ru.commands.voice.assistant": "/app-banners/ru.commands.voice.assistant.png",
+  "ios.appx.sunglow.uv.index": "/generated/ai-tanning-beach-walk.png"
 };

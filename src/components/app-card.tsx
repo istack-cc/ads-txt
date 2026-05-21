@@ -7,7 +7,6 @@ import { motion } from "motion/react";
 import type { App } from "@/data/apps";
 import { cn } from "@/lib/utils";
 
-const EASE = [0.2, 0.9, 0.3, 1] as const;
 const MotionLink = motion.create(Link);
 
 /* ─── Icon with gradient fallback ───────────────────────── */

@@ -251,6 +251,48 @@ export const LOCAL_SCREENSHOT_MAP: Record<string, string[]> = {
     "/app-screenshots/ru.commands.voice.assistant/3.png",
     "/app-screenshots/ru.commands.voice.assistant/4.png"
   ],
+  "com.appx.bptracker": [
+    "/app-screenshots/com.appx.bptracker/1.webp",
+    "/app-screenshots/com.appx.bptracker/2.webp",
+    "/app-screenshots/com.appx.bptracker/3.webp",
+    "/app-screenshots/com.appx.bptracker/4.webp"
+  ],
+  "ios.appx.periodtracker": [
+    "/app-screenshots/ios.appx.periodtracker/1.webp",
+    "/app-screenshots/ios.appx.periodtracker/2.webp",
+    "/app-screenshots/ios.appx.periodtracker/3.webp",
+    "/app-screenshots/ios.appx.periodtracker/4.webp"
+  ],
+  "ios.appx.g1.ontario": [
+    "/app-screenshots/ios.appx.g1.ontario/1.webp",
+    "/app-screenshots/ios.appx.g1.ontario/2.webp",
+    "/app-screenshots/ios.appx.g1.ontario/3.webp",
+    "/app-screenshots/ios.appx.g1.ontario/4.webp"
+  ],
+  "ios.appx.electricianhandbook": [
+    "/app-screenshots/ios.appx.electricianhandbook/1.webp",
+    "/app-screenshots/ios.appx.electricianhandbook/2.webp",
+    "/app-screenshots/ios.appx.electricianhandbook/3.webp",
+    "/app-screenshots/ios.appx.electricianhandbook/4.webp"
+  ],
+  "ios.appx.lgvhgv": [
+    "/app-screenshots/ios.appx.lgvhgv/1.webp",
+    "/app-screenshots/ios.appx.lgvhgv/2.webp",
+    "/app-screenshots/ios.appx.lgvhgv/3.webp",
+    "/app-screenshots/ios.appx.lgvhgv/4.webp"
+  ],
+  "ios.appx.teleprompter": [
+    "/app-screenshots/ios.appx.teleprompter/1.webp",
+    "/app-screenshots/ios.appx.teleprompter/2.webp",
+    "/app-screenshots/ios.appx.teleprompter/3.webp",
+    "/app-screenshots/ios.appx.teleprompter/4.webp"
+  ],
+  "ios.appx.dmv.practice.test": [
+    "/app-screenshots/ios.appx.dmv.practice.test/1.webp",
+    "/app-screenshots/ios.appx.dmv.practice.test/2.webp",
+    "/app-screenshots/ios.appx.dmv.practice.test/3.webp",
+    "/app-screenshots/ios.appx.dmv.practice.test/4.webp"
+  ],
   "ios.appx.sunglow.uv.index": [
     "/app-screenshots/ios.appx.sunglow.uv.index/1.webp",
     "/app-screenshots/ios.appx.sunglow.uv.index/2.webp",

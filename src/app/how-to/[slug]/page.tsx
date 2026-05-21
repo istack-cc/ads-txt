@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAppBySlug, APPS } from "@/data/apps";
+import { getAppBySlug } from "@/data/apps";
 import { HOW_TO_ARTICLES, getHowToBySlug } from "@/data/how-to";
 import { CATEGORY_DATA } from "@/data/categories";
 import { getStoreUrl } from "@/lib/storeUrl";

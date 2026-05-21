@@ -11,6 +11,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://istack.cc";
+const RECENCY_REFERENCE_TIME = new Date("2026-05-20T00:00:00.000Z").getTime();
 const CANONICAL = "/research/free-app-landscape-2026/";
 const PUBLISHED = "2026-04-19";
 
@@ -124,7 +125,7 @@ export default function ResearchPage() {
   const withDate = APPS.filter((a) => a.playStoreUpdatedOn);
   const past90Days = withDate.filter((a) => {
     const d = new Date(a.playStoreUpdatedOn!);
-    const daysAgo = (Date.now() - d.getTime()) / 86_400_000;
+    const daysAgo = (RECENCY_REFERENCE_TIME - d.getTime()) / 86_400_000;
     return daysAgo <= 90;
   }).length;
 

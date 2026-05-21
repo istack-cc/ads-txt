@@ -10,7 +10,6 @@ import {
   generateOrganizationSchema,
   generateBreadcrumbListSchema,
   generateFAQPageSchema,
-  generateItemListSchema,
 } from "@/lib/schema";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";

@@ -98,6 +98,34 @@ export const CATEGORIES: AppCategory[] = [
   "Education",
 ];
 
+function buildFallbackLongDescription(
+  app: { name: string; platform?: AppPlatform },
+  seo: { primary_keyword: string; secondary_keywords: string[] },
+  shortDescription: string
+) {
+  const platform =
+    app.platform === "ios"
+      ? "iPhone"
+      : app.platform === "both"
+        ? "Android and iPhone"
+        : "Android";
+  const keyword = seo.primary_keyword || app.name.toLowerCase();
+  const secondary = seo.secondary_keywords.slice(0, 3);
+  const featureList = secondary.length
+    ? secondary.map((item) => `- ${item}`).join("\n")
+    : `- Fast setup\n- Simple controls\n- Mobile-first workflow`;
+
+  return `${app.name} is built for ${platform} users who want ${keyword} without a complicated setup. ${shortDescription}
+
+Open the app, complete the task, and move on. The interface is focused on the core workflow, so you do not need an account, a long onboarding flow, or a subscription gate before using the main feature.
+
+Key ways to use ${app.name}
+
+${featureList}
+
+${app.name} is part of the iStack portfolio of small, practical mobile apps. Each app is designed around one clear job, with lightweight screens, quick launch behavior, and a free path for everyday use.`;
+}
+
 export const PLAY_STORE_BASE = "https://play.google.com/store/apps/details?id=";
 export const APP_STORE_BASE = "https://apps.apple.com/us/app/";
 export const DEVELOPER_URL = "https://play.google.com/store/apps/developer?id=iStack";
@@ -197,7 +225,7 @@ const APP_DESCRIPTIONS: Record<string, string> = {
   "ru.commands.voice.assistant":
     "Voice Commands helps users trigger assistant actions with command presets and voice workflows. Speed up everyday phone tasks through voice-driven controls.",
   "ios.appx.sunglow.uv.index":
-    "AI Tanning & UV Index gives you a safe, personalized tanning plan so you know exactly when to enjoy the sun without burning. Live UV status, smart SPF advice, 7-day forecast, guided tanning timer, and an AI assistant for skin care tips.",
+    "Tanning UV Index - Sun Tracker helps iPhone users plan safer sun time with live UV index, Fitzpatrick skin type, SPF level, a sunburn risk timer, vitamin D estimates, 7-day forecast, SPF reminders, and session history for beach days, vacations, and everyday outdoor routines.",
   "ios.appx.tcg.card.value.scanner":
     "TCG Scanner lets you scan trading cards instantly, see real market value, and track your collection portfolio over time. Supports raw and graded pricing for Japanese cards, rare finds, and high-value collectibles.",
   "ios.hair.color.changer.appx":
@@ -210,6 +238,20 @@ const APP_DESCRIPTIONS: Record<string, string> = {
     "Transparency: Magic Eraser creates clean transparent PNGs in one tap. Remove backgrounds with AI, replace with photos or solid colors, blur for portraits, and export as PNG or JPG.",
   "ios.appx.currency.converter":
     "Currency Converter & Calc converts any currency instantly with real-time exchange rates. Supports 180+ currencies, works offline, and includes an interactive Home Screen widget.",
+  "com.appx.bptracker":
+    "Blood Pressure Diary helps you log blood pressure, glucose, SpO2, heart rate, and health notes in one place. Track readings over time with a simple mobile diary built for daily check-ins.",
+  "ios.appx.periodtracker":
+    "Period Tracker & Cycle Diary helps users follow cycles, ovulation windows, fertility timing, and recurring symptoms. Keep a clear private diary for period and wellness patterns.",
+  "ios.appx.g1.ontario":
+    "Ontario G1 Practice Test 2026 helps drivers prepare for the G1 knowledge exam with MTO-style practice questions, mock tests, and focused study sessions.",
+  "ios.appx.electricianhandbook":
+    "Electrician Calc & Reference provides offline electrical calculations, wiring references, and NEC-style study support for field work and exam preparation.",
+  "ios.appx.lgvhgv":
+    "LGV Theory Test: 4 in 1 Kit UK helps learners prepare for DVSA LGV and HGV theory with mock tests, hazard practice, and driver exam revision tools.",
+  "ios.appx.teleprompter":
+    "Teleprompter: Script for Video turns scripts into an easy scrolling prompt for recording videos, speeches, reels, and presentations with smoother delivery.",
+  "ios.appx.dmv.practice.test":
+    "DMV Practice Test 2026 helps learners prepare for U.S. permit tests, driver license written exams, CDL practice, motorcycle permit review, road signs, and traffic rules across all 50 states. Built for quick study sessions before a DMV appointment, with search-friendly support for examen de manejo and prueba de manejo learners.",
 };
 
 type AppSeed = Omit<App, "description" | "platform" | "seoCategory" | "primary_keyword" | "secondary_keywords" | "short_description" | "long_description" | "features" | "faq" | "competitors"> & { platform?: AppPlatform };
@@ -409,6 +451,18 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
     secondary_keywords: ["exchange rate converter ios", "forex calculator app ios", "currency conversion widget ios", "real time currency app"],
     features: [], faq: [], competitors: [],
   },
+  "electrician-calc": {
+    seoCategory: "utilities",
+    primary_keyword: "electrician calculator reference app ios",
+    secondary_keywords: ["electrical calculator ios", "wiring guide app", "nec reference app ios", "electrician handbook offline"],
+    features: [], faq: [], competitors: [],
+  },
+  "teleprompter": {
+    seoCategory: "utilities",
+    primary_keyword: "teleprompter script app ios",
+    secondary_keywords: ["video script reader ios", "voice prompter app", "scrolling script app ios", "teleprompter for reels"],
+    features: [], faq: [], competitors: [],
+  },
   /* ─── Health & Fitness ──────────────────────────────────── */
   "home-workout": {
     seoCategory: "health",
@@ -425,7 +479,79 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   "ai-tanning": {
     seoCategory: "health",
     primary_keyword: "uv index tanning timer app ios",
-    secondary_keywords: ["safe tanning app ios", "spf tracker app ios", "sun exposure tracker ios", "uv safety app free"],
+    secondary_keywords: [
+      "safe tanning app ios",
+      "sunburn timer app",
+      "spf reminder app ios",
+      "vitamin d tracker app",
+      "sun exposure tracker ios",
+      "fitzpatrick skin type tanning app",
+      "uv forecast beach app",
+      "indice UV bronceado app",
+      "protector solar recordatorio app",
+      "aplicacion para tomar el sol seguro",
+    ],
+    features: [
+      {
+        title: "Personalized safe tanning timer",
+        description:
+          "Plan sun exposure around live UV index, Fitzpatrick skin type, SPF level, and your session goal instead of guessing from a generic weather number.",
+      },
+      {
+        title: "Sunburn risk and SPF reminders",
+        description:
+          "Use countdown-based guidance for when to flip, seek shade, or reapply sunscreen during beach days, pool time, vacations, and outdoor routines.",
+      },
+      {
+        title: "Vitamin D and UV forecast planning",
+        description:
+          "Review estimated vitamin D exposure and a 7-day UV forecast so you can choose safer outdoor windows before stepping into the sun.",
+      },
+      {
+        title: "Built for U.S. and Mexico sun-seekers",
+        description:
+          "Useful for people searching in English or Spanish for UV index, indice UV, protector solar reminders, bronceado seguro, and sunburn prevention.",
+      },
+    ],
+    faq: [
+      {
+        question: "What does Tanning UV Index - Sun Tracker do?",
+        answer:
+          "Tanning UV Index - Sun Tracker helps users plan safer sun exposure with live UV index, Fitzpatrick skin type, SPF level, sunburn risk timing, vitamin D estimates, SPF reminders, a 7-day forecast, and session history.",
+      },
+      {
+        question: "Is this a UV index app or a tanning timer app?",
+        answer:
+          "It is both. The app uses UV index data as the input, then turns it into a more practical tanning and sun-exposure timer based on skin type, SPF, and session goals.",
+      },
+      {
+        question: "Can it help users in the U.S. and Mexico?",
+        answer:
+          "Yes. The app is built for location-based UV planning, which is useful for U.S. and Mexico beach, pool, vacation, and daily outdoor sun exposure. Spanish-search users may find it through terms like indice UV, bronceado seguro, protector solar, and quemaduras solares.",
+      },
+      {
+        question: "Does the app replace medical advice?",
+        answer:
+          "No. Tanning UV Index - Sun Tracker provides guidance based on UV data and personal inputs. It is not a medical device and is not a substitute for professional medical advice, diagnosis, or treatment.",
+      },
+      {
+        question: "Is Tanning UV Index - Sun Tracker free?",
+        answer:
+          "Yes. The app is free to download on the App Store and offers optional premium access through Apple in-app purchases or subscriptions.",
+      },
+    ],
+    competitors: [],
+  },
+  "blood-pressure-diary": {
+    seoCategory: "health",
+    primary_keyword: "blood pressure diary app ios",
+    secondary_keywords: ["bp log app ios", "heart rate diary ios", "glucose tracker app", "spo2 log app"],
+    features: [], faq: [], competitors: [],
+  },
+  "period-tracker": {
+    seoCategory: "health",
+    primary_keyword: "period tracker cycle diary ios",
+    secondary_keywords: ["ovulation tracker ios", "fertility calendar app", "cycle diary app", "period calendar ios"],
     features: [], faq: [], competitors: [],
   },
   /* ─── Education ─────────────────────────────────────────── */
@@ -434,6 +560,82 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
     primary_keyword: "ai math solver camera ios",
     secondary_keywords: ["photo math solver ios", "homework helper app ios", "step by step math ios", "algebra solver camera app"],
     features: [], faq: [], competitors: [],
+  },
+  "ontario-g1-test": {
+    seoCategory: "education",
+    primary_keyword: "ontario g1 practice test app ios",
+    secondary_keywords: ["g1 driver exam app", "mto practice test ios", "ontario driving test 2026", "g1 knowledge test simulator"],
+    features: [], faq: [], competitors: [],
+  },
+  "lgv-theory-test": {
+    seoCategory: "education",
+    primary_keyword: "lgv theory test app uk ios",
+    secondary_keywords: ["hgv theory test ios", "dvsa mock test app", "hazard perception practice", "driver theory test uk"],
+    features: [], faq: [], competitors: [],
+  },
+  "dmv-practice-test": {
+    seoCategory: "education",
+    primary_keyword: "dmv practice test 2026 app",
+    secondary_keywords: [
+      "dmv permit test app",
+      "cdl practice test app",
+      "driver license written exam practice",
+      "dmv practice test spanish learners",
+      "examen de manejo DMV practica",
+      "prueba de manejo estados unidos",
+      "road signs practice test",
+      "all 50 states DMV practice",
+    ],
+    features: [
+      {
+        title: "All 50 states",
+        description:
+          "Practice for U.S. driver license knowledge tests across state DMV, DPS, BMV, MVA, MVC, DOT, and related agencies.",
+      },
+      {
+        title: "CDL, Class C, and motorcycle prep",
+        description:
+          "Review general permit questions, commercial driver license topics, motorcycle permit practice, road signs, and traffic rules in one iPhone app.",
+      },
+      {
+        title: "Mock exam rhythm",
+        description:
+          "Use short practice sessions and full-length simulator-style tests to build confidence before a DMV appointment.",
+      },
+      {
+        title: "Spanish-search friendly",
+        description:
+          "Helpful for Spanish-speaking learners searching for examen de manejo, prueba de manejo, and U.S. DMV written test practice.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is DMV Practice Test 2026 used for?",
+        answer:
+          "DMV Practice Test 2026 helps learners prepare for U.S. driver license written exams, permit tests, CDL practice, motorcycle permit review, road signs, and traffic rules.",
+      },
+      {
+        question: "Does the app cover all U.S. states?",
+        answer:
+          "The app is built for all 50 U.S. states and common agencies such as DMV, DPS, BMV, MVA, MVC, RMV, DOT, and DOL. Always confirm official requirements with your state agency before scheduling a test.",
+      },
+      {
+        question: "Can Spanish-speaking learners use it for examen de manejo practice?",
+        answer:
+          "Yes. The app page is useful for people searching for examen de manejo DMV, prueba de manejo, and U.S. driver license practice. The App Store listing is in English, so learners should check the app before relying on it for Spanish-language study.",
+      },
+      {
+        question: "Is DMV Practice Test 2026 an official DMV app?",
+        answer:
+          "No. DMV Practice Test 2026 is an independent study tool from iStack and is not affiliated with, endorsed by, or connected to any U.S. DMV or government agency.",
+      },
+      {
+        question: "Is DMV Practice Test 2026 free?",
+        answer:
+          "Yes, DMV Practice Test 2026 is free to download on the App Store. Optional premium access may be offered through Apple in-app purchase.",
+      },
+    ],
+    competitors: [],
   },
   /* ─── Personalization ───────────────────────────────────── */
   "font-generator": {
@@ -934,9 +1136,107 @@ const REMOTE_APPS: AppSeed[] = [
   },
   /* ─── iOS Apps ────────────────────────────────────────── */
   {
+    id: "blood-pressure-diary",
+    name: "Blood Pressure Diary: BP Log",
+    subtitle: "Glucose, SpO2 & Heart Rate Log",
+    packageId: "com.appx.bptracker",
+    appStoreId: "6765660918",
+    platform: "ios",
+    category: "Health",
+    iconUrl: "/app-icons/com.appx.bptracker.jpg",
+    bannerUrl: "/app-icons/com.appx.bptracker.jpg",
+    gradientFrom: "#ef4444",
+    gradientTo: "#7f1d1d",
+    featured: true,
+  },
+  {
+    id: "period-tracker",
+    name: "Period Tracker & Cycle Diary",
+    subtitle: "Ovulation & Fertility Tracker",
+    packageId: "ios.appx.periodtracker",
+    appStoreId: "6765661587",
+    platform: "ios",
+    category: "Health",
+    iconUrl: "/app-icons/ios.appx.periodtracker.jpg",
+    bannerUrl: "/app-icons/ios.appx.periodtracker.jpg",
+    gradientFrom: "#f472b6",
+    gradientTo: "#be185d",
+    featured: true,
+  },
+  {
+    id: "ontario-g1-test",
+    name: "Ontario G1 Practice Test 2026",
+    subtitle: "G1 Driver Exam - MTO Simulator",
+    packageId: "ios.appx.g1.ontario",
+    appStoreId: "6765660407",
+    platform: "ios",
+    category: "Education",
+    iconUrl: "/app-icons/ios.appx.g1.ontario.jpg",
+    bannerUrl: "/app-icons/ios.appx.g1.ontario.jpg",
+    gradientFrom: "#38bdf8",
+    gradientTo: "#1d4ed8",
+    featured: true,
+  },
+  {
+    id: "electrician-calc",
+    name: "Electrician Calc & Reference",
+    subtitle: "Offline NEC & Wiring Guide",
+    packageId: "ios.appx.electricianhandbook",
+    appStoreId: "6765661973",
+    platform: "ios",
+    category: "Utilities",
+    iconUrl: "/app-icons/ios.appx.electricianhandbook.jpg",
+    bannerUrl: "/app-icons/ios.appx.electricianhandbook.jpg",
+    gradientFrom: "#f59e0b",
+    gradientTo: "#854d0e",
+    featured: true,
+  },
+  {
+    id: "lgv-theory-test",
+    name: "LGV Theory Test: 4 in 1 Kit UK",
+    subtitle: "DVSA Mock Test & Hazard Clips",
+    packageId: "ios.appx.lgvhgv",
+    appStoreId: "6765661241",
+    platform: "ios",
+    category: "Education",
+    iconUrl: "/app-icons/ios.appx.lgvhgv.jpg",
+    bannerUrl: "/app-icons/ios.appx.lgvhgv.jpg",
+    gradientFrom: "#fb7185",
+    gradientTo: "#9f1239",
+    featured: true,
+  },
+  {
+    id: "teleprompter",
+    name: "Teleprompter: Script for Video",
+    subtitle: "Script Reader & Voice Prompter",
+    packageId: "ios.appx.teleprompter",
+    appStoreId: "6765661790",
+    platform: "ios",
+    category: "Utilities",
+    iconUrl: "/app-icons/ios.appx.teleprompter.jpg",
+    bannerUrl: "/app-icons/ios.appx.teleprompter.jpg",
+    gradientFrom: "#6366f1",
+    gradientTo: "#312e81",
+    featured: true,
+  },
+  {
+    id: "dmv-practice-test",
+    name: "DMV Practice Test 2026 - CDL",
+    subtitle: "Driver License - Written Exam",
+    packageId: "ios.appx.dmv.practice.test",
+    appStoreId: "6765659835",
+    platform: "ios",
+    category: "Education",
+    iconUrl: "/app-icons/ios.appx.dmv.practice.test.jpg",
+    bannerUrl: "/app-icons/ios.appx.dmv.practice.test.jpg",
+    gradientFrom: "#22c55e",
+    gradientTo: "#166534",
+    featured: true,
+  },
+  {
     id: "ai-tanning",
-    name: "AI Tanning & UV Index",
-    subtitle: "Sunsafe time & SPF tips",
+    name: "Tanning UV Index - Sun Tracker",
+    subtitle: "Sunburn Timer, Vitamin D & SPF",
     packageId: "ios.appx.sunglow.uv.index",
     appStoreId: "6746761686",
     platform: "ios",
@@ -948,8 +1248,8 @@ const REMOTE_APPS: AppSeed[] = [
   },
   {
     id: "tcg-scanner",
-    name: "TCG Scanner",
-    subtitle: "Scan cards & track value",
+    name: "TCG Scanner: Value Tracker",
+    subtitle: "Scan Cards & Track Value",
     packageId: "ios.appx.tcg.card.value.scanner",
     appStoreId: "6752676234",
     platform: "ios",
@@ -1030,7 +1330,6 @@ const REMOTE_APPS: AppSeed[] = [
 
 export const APPS: App[] = REMOTE_APPS.map((app) => {
   const platform = app.platform ?? "android";
-  const isIos = platform === "ios";
   const seo = SEO_APP_DATA[app.id] ?? {
     seoCategory: "utilities" as SeoCategory,
     primary_keyword: app.name.toLowerCase(),
@@ -1040,14 +1339,14 @@ export const APPS: App[] = REMOTE_APPS.map((app) => {
     competitors: [],
   };
 
-  const long_description =
-    PLAY_STORE_FULL_DESCRIPTIONS[app.packageId] ??
-    `TODO: Write long_description for ${app.name}`;
-
   const short_description =
     PLAY_STORE_METADATA[app.packageId]?.shortDescription ??
     APP_DESCRIPTIONS[app.packageId] ??
     app.subtitle;
+
+  const long_description =
+    PLAY_STORE_FULL_DESCRIPTIONS[app.packageId] ??
+    buildFallbackLongDescription(app, seo, short_description);
 
   return {
     ...app,

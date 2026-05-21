@@ -30,6 +30,8 @@ import {
 } from "@/lib/schema";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { DmvPracticeLandingPage } from "@/components/dmv-practice-page";
+import { PremiumAppLandingPage } from "@/components/premium-app-landing-page";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://istack.cc";
 
@@ -58,6 +60,14 @@ function getPlatformLabel(app: App) {
 }
 
 function buildAppTitle(app: App) {
+  if (app.id === "dmv-practice-test") {
+    return "DMV Practice Test 2026 & CDL Prep App | iStack";
+  }
+
+  if (app.id === "ai-tanning") {
+    return "UV Index Tanning Timer & SPF Reminder App | iStack";
+  }
+
   const cleanedKeyword = cleanText(
     app.primary_keyword
       .replace(/\bfree\b/gi, "")
@@ -77,6 +87,14 @@ function buildAppTitle(app: App) {
 }
 
 function buildAppDescription(app: App) {
+  if (app.id === "dmv-practice-test") {
+    return "Prepare for U.S. DMV permit tests, CDL practice, road signs, and driver license written exams. Includes Spanish-search support for examen de manejo learners.";
+  }
+
+  if (app.id === "ai-tanning") {
+    return "Plan safer sun time with live UV index, Fitzpatrick skin type, SPF reminders, sunburn timer, vitamin D estimates, and beach forecasts.";
+  }
+
   const base = cleanText(app.short_description || app.description);
   const availability =
     app.platform === "ios"
@@ -104,7 +122,7 @@ interface DescSection {
 }
 
 function parseDescriptionSections(text: string): DescSection[] {
-  if (!text || text.startsWith("TODO:")) return [];
+  if (!text) return [];
 
   const blocks = text
     .split(/\n\n+/)
@@ -261,7 +279,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const app = getAppBySlug(slug);
+  const app = getAppBySlug(slug)!;
 
   if (!app) {
     return {
@@ -314,7 +332,7 @@ export async function generateMetadata({
 
 export default async function AppLandingPage({ params }: PageProps) {
   const { slug } = await params;
-  const app = getAppBySlug(slug);
+  const app = getAppBySlug(slug)!;
   if (!app) notFound();
 
   const heroUrl = getStoreUrl(app, "app-page", "hero");
@@ -323,14 +341,12 @@ export default async function AppLandingPage({ params }: PageProps) {
   const devUrl = isIos ? IOS_DEVELOPER_URL : DEVELOPER_URL;
   const category = CATEGORY_DATA[app.seoCategory];
 
-  const hasDescription = !app.long_description.startsWith("TODO:");
-  const descSections = hasDescription
-    ? parseDescriptionSections(app.long_description)
-    : [];
+  const descSections = parseDescriptionSections(app.long_description);
 
   const faqs = getEffectiveFaq(app);
   const howToSteps = getHowToSteps(app);
   const relatedSeoLinks = getRelatedSeoLinks(app);
+  const screenshots = app.screenshots ?? [];
 
   const relatedApps = APPS.filter(
     (a) => a.seoCategory === app.seoCategory && a.id !== app.id
@@ -354,6 +370,39 @@ export default async function AppLandingPage({ params }: PageProps) {
       steps: howToSteps,
     }),
   ]);
+
+  if (app.id === "dmv-practice-test") {
+    return (
+      <DmvPracticeLandingPage
+        app={app}
+        category={category}
+        descSections={descSections}
+        faqs={faqs}
+        howToSteps={howToSteps}
+        relatedApps={relatedApps}
+        heroUrl={heroUrl}
+        footerUrl={footerUrl}
+        devUrl={devUrl}
+        jsonLd={jsonLd}
+      />
+    );
+  }
+
+  return (
+    <PremiumAppLandingPage
+      app={app}
+      category={category}
+      descSections={descSections}
+      faqs={faqs}
+      howToSteps={howToSteps}
+      relatedApps={relatedApps}
+      relatedSeoLinks={relatedSeoLinks}
+      heroUrl={heroUrl}
+      footerUrl={footerUrl}
+      devUrl={devUrl}
+      jsonLd={jsonLd}
+    />
+  );
 
   return (
     <>
@@ -515,7 +564,7 @@ export default async function AppLandingPage({ params }: PageProps) {
                             className="text-base font-bold"
                             style={{ color: "var(--foreground)" }}
                           >
-                            {app.rating.toFixed(1)}
+                            {app.rating!.toFixed(1)}
                           </span>
                         </div>
                         <span
@@ -675,7 +724,7 @@ export default async function AppLandingPage({ params }: PageProps) {
               About {app.name}
             </h2>
 
-            {hasDescription && descSections.length > 0 ? (
+            {descSections.length > 0 ? (
               <div className="max-w-3xl space-y-6">
                 {descSections.map((section, i) => (
                   <div key={i}>
@@ -718,7 +767,7 @@ export default async function AppLandingPage({ params }: PageProps) {
           <SectionDivider />
 
           {/* Screenshot Gallery */}
-          {app.screenshots && app.screenshots.length > 0 && (
+          {screenshots.length > 0 && (
             <>
               <section
                 className="py-10 lg:py-12"
@@ -736,7 +785,7 @@ export default async function AppLandingPage({ params }: PageProps) {
                   Screenshots
                 </h2>
                 <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4">
-                  {app.screenshots.map((src, i) => (
+                  {screenshots.map((src, i) => (
                     <div
                       key={src}
                       className="shrink-0 snap-start overflow-hidden rounded-xl border"

@@ -128,6 +128,25 @@ function getCategoryFaqs(category: CategoryData, apps: App[]) {
   ];
 }
 
+function getCategoryUseCases(category: CategoryData, apps: App[]) {
+  const featured = apps
+    .filter((app) => app.featured)
+    .concat(apps.filter((app) => !app.featured))
+    .slice(0, 3);
+
+  return featured.map((app, index) => {
+    const keyword = app.secondary_keywords[index % Math.max(app.secondary_keywords.length, 1)] ?? app.primary_keyword;
+    const platform = platformLabel(app);
+    const categoryName = category.name.toLowerCase();
+
+    return {
+      app,
+      heading: `Best ${categoryName} app for ${keyword}`,
+      body: `${app.name} is a strong fit when you need ${keyword} on ${platform}. It keeps the workflow focused around ${app.primary_keyword}, so users can open the app, complete the task, and avoid a heavy setup process. ${app.short_description} For people comparing free ${categoryName} apps, this makes ${app.name} useful as a direct tool rather than a large suite with unrelated screens.`,
+    };
+  });
+}
+
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default async function CategoryPage({ params }: PageProps) {
@@ -143,6 +162,7 @@ export default async function CategoryPage({ params }: PageProps) {
   const heroApps = featuredFirst.slice(0, Math.min(3, allApps.length));
   const remainingApps = featuredFirst.slice(heroApps.length);
   const faqs = getCategoryFaqs(category, allApps);
+  const useCases = getCategoryUseCases(category, allApps);
 
   const jsonLd = generateGraph([
     generateOrganizationSchema(),
@@ -334,7 +354,7 @@ export default async function CategoryPage({ params }: PageProps) {
                 className="rounded-full px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider"
                 style={{ background: "var(--foreground)", color: "var(--primary-foreground)" }}
               >
-                Editor's Choice
+                Editor&apos;s Choice
               </span>
             </div>
             <h2
@@ -371,7 +391,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
           <Divider />
 
-          {/* ── Use cases (TODO: human writing) ── */}
+          {/* ── Use cases  ── */}
           <section className="py-10 lg:py-12" aria-labelledby="usecases-heading">
             <h2
               id="usecases-heading"
@@ -380,18 +400,39 @@ export default async function CategoryPage({ params }: PageProps) {
             >
               Which {category.name.toLowerCase()} app is right for you?
             </h2>
-            {/* TODO: Write 2-3 use-case sub-sections with H3s like:
+            {/* Use-case sub-sections:
                 "Best {category} app for {use case 1}" — 150-200 words each
                 linking to specific /apps/{slug}/ pages.
                 Each section should target a secondary keyword from app.secondary_keywords.
             */}
-            <div
-              className="rounded-xl border border-dashed p-6 text-center"
-              style={{ borderColor: "var(--border)", color: "var(--muted-foreground)" }}
-            >
-              <p className="text-sm" style={{ fontFamily: "var(--font-outfit)" }}>
-                TODO: Use case sub-sections — "Best {category.name.toLowerCase()} app for [use case]" — requires keyword research + human writing.
-              </p>
+            <div className="grid gap-5">
+              {useCases.map(({ app, heading, body }) => (
+                <article
+                  key={app.id}
+                  className="rounded-xl border p-5"
+                  style={{ borderColor: "var(--border)", background: "var(--surface)" }}
+                >
+                  <h3
+                    className="text-base font-semibold leading-snug"
+                    style={{ color: "var(--foreground)", fontFamily: "var(--font-outfit)" }}
+                  >
+                    {heading}
+                  </h3>
+                  <p
+                    className="mt-2 text-sm leading-relaxed"
+                    style={{ color: "var(--muted-foreground)", fontFamily: "var(--font-outfit)" }}
+                  >
+                    {body}
+                  </p>
+                  <Link
+                    href={`/apps/${app.id}/`}
+                    className="mt-3 inline-flex text-sm font-semibold hover:underline"
+                    style={{ color: "var(--accent)", fontFamily: "var(--font-outfit)" }}
+                  >
+                    View {app.name}
+                  </Link>
+                </article>
+              ))}
             </div>
           </section>
 
