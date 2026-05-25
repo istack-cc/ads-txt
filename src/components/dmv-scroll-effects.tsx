@@ -107,54 +107,7 @@ export function DmvAnimatedText({
   text: string;
   className?: string;
 }) {
-  const ref = useRef<HTMLParagraphElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.8", "end 0.2"],
-  });
-
-  return (
-    <p
-      ref={ref}
-      className={className ? `relative ${className}` : "relative"}
-      style={{ position: "relative" }}
-    >
-      {text.split("").map((char, index) => (
-        <AnimatedCharacter
-          key={`${char}-${index}`}
-          char={char}
-          index={index}
-          total={text.length}
-          progress={scrollYProgress}
-        />
-      ))}
-    </p>
-  );
-}
-
-function AnimatedCharacter({
-  char,
-  index,
-  total,
-  progress,
-}: {
-  char: string;
-  index: number;
-  total: number;
-  progress: MotionValue<number>;
-}) {
-  const start = (index / total) * 0.82;
-  const end = Math.min(start + 0.16, 1);
-  const opacity = useTransform(progress, [start, end], [0.2, 1]);
-
-  return (
-    <span className="relative inline-block">
-      <span className="opacity-0">{char === " " ? "\u00a0" : char}</span>
-      <motion.span className="absolute inset-0" style={{ opacity }}>
-        {char === " " ? "\u00a0" : char}
-      </motion.span>
-    </span>
-  );
+  return <p className={className}>{text}</p>;
 }
 
 export function DmvStickyAttestations({ cards }: { cards: AttestationCard[] }) {

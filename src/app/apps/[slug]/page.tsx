@@ -200,6 +200,41 @@ function getEffectiveFaq(app: App): AppFaq[] {
 function getHowToSteps(app: App) {
   const isIos = app.platform === "ios";
   const store = isIos ? "App Store" : "Google Play";
+
+  if (app.id === "dmv-practice-test") {
+    return [
+      {
+        name: "Download DMV Practice Test 2026 for free",
+        text: "Install the iPhone app from the App Store and open it before your DMV appointment or written exam study session.",
+      },
+      {
+        name: "Choose your practice focus",
+        text: "Review permit test questions, CDL topics, motorcycle permit material, road signs, traffic rules, or all-50-state written exam practice.",
+      },
+      {
+        name: "Practice, review, and confirm official rules",
+        text: "Use short mock-test sessions to build recall, then confirm current documents, fees, and requirements with your official state DMV or motor vehicle agency.",
+      },
+    ];
+  }
+
+  if (app.id === "ai-tanning") {
+    return [
+      {
+        name: "Download Tanning UV Index - Sun Tracker for free",
+        text: "Install the iPhone app from the App Store before a beach day, pool session, vacation, or outdoor routine.",
+      },
+      {
+        name: "Set your UV and skin inputs",
+        text: "Use live UV index, Fitzpatrick skin type, SPF level, and your sun-exposure goal to estimate safer tanning windows and sunburn risk.",
+      },
+      {
+        name: "Follow timer and SPF reminders as guidance",
+        text: "Use the sunburn timer, sunscreen reapplication reminders, vitamin D estimates, and 7-day UV forecast as wellness guidance, not medical advice.",
+      },
+    ];
+  }
+
   // Derive a verb phrase from short_description's first sentence
   const firstSentence = app.short_description.split(/[.!?]/)[0].trim().toLowerCase();
 
