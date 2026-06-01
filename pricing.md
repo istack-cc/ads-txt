@@ -28,6 +28,7 @@ iStack publishes 45 apps on Google Play and the Apple App Store. All apps are fr
 - Account: Not required for core practice
 - Market focus: U.S. DMV permit test, CDL practice, driver license written exam, road signs, traffic rules, and Spanish-search learners looking for examen de manejo / prueba de manejo practice
 - Affiliation: Independent iStack study app; not affiliated with any U.S. DMV or government agency
+- App Store source facts checked: 2026-06-01; category Education; version 1.0; requires iOS 15.0 or later; content rating 4+
 
 ### Tanning UV Index - Sun Tracker
 
@@ -38,6 +39,7 @@ iStack publishes 45 apps on Google Play and the Apple App Store. All apps are fr
 - Account: Not required for core use
 - Market focus: U.S. and Mexico UV index planning, safe tanning, sunburn timer, SPF reminders, vitamin D estimates, indice UV, bronceado seguro, protector solar, and summer beach/vacation sun exposure
 - Disclaimer: Guidance-only wellness app; not medical advice and not a substitute for professional medical guidance
+- App Store source facts checked: 2026-06-01; category Weather; version 1.0.1; requires iOS 18.0 or later; content rating 4+
 
 ## What's consistent across both platforms
 
@@ -51,4 +53,4 @@ iStack publishes 45 apps on Google Play and the Apple App Store. All apps are fr
 - Publisher: iStack
 - Email: contact@istack.cc
 - Site: https://istack.cc
-- Last updated: April 2026
+- Last updated: June 2026
