@@ -85,14 +85,16 @@ export function generateSoftwareApplicationSchema(app: App) {
   if (app.playStoreContentRating) schema.contentRating = app.playStoreContentRating;
   if (app.id === "ai-tanning") {
     schema.applicationSubCategory = "Weather";
-    schema.contentRating = "9+";
+    schema.contentRating = "4+";
     schema.softwareRequirements = "Requires iOS 18.0 or later";
+    schema.softwareVersion = "1.0.1";
     schema.keywords = [
       app.primary_keyword,
       ...app.secondary_keywords,
       "Fitzpatrick skin type",
       "UV index forecast",
       "sunscreen reapplication reminder",
+      "Mexico beach UV planning",
     ].join(", ");
     schema.featureList = [
       "Live UV index planning",
@@ -102,6 +104,34 @@ export function generateSoftwareApplicationSchema(app: App) {
       "Vitamin D exposure estimates",
       "7-day UV forecast",
       "Session history",
+    ];
+  }
+
+  if (app.id === "dmv-practice-test") {
+    schema.applicationSubCategory = "Driver Education";
+    schema.contentRating = "4+";
+    schema.softwareRequirements = "Requires iOS 15.0 or later";
+    schema.softwareVersion = "1.0";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "permit test",
+      "written driving exam",
+      "road signs",
+      "CDL practice",
+      "motorcycle permit",
+      "Class C driver license",
+      "examen de manejo",
+      "prueba de manejo",
+    ].join(", ");
+    schema.featureList = [
+      "DMV permit test practice",
+      "All 50 U.S. states study coverage",
+      "CDL topic review",
+      "Motorcycle permit practice",
+      "Class C written exam prep",
+      "Road signs and traffic rules",
+      "Independent, non-government study app",
     ];
   }
   if (app.rating) {

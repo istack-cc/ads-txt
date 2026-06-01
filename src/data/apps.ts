@@ -489,9 +489,11 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       "sun exposure tracker ios",
       "fitzpatrick skin type tanning app",
       "uv forecast beach app",
+      "uv index tanning timer Mexico",
       "indice UV bronceado app",
       "protector solar recordatorio app",
       "aplicacion para tomar el sol seguro",
+      "quemaduras solares temporizador app",
     ],
     features: [
       {
@@ -530,6 +532,11 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
         question: "Can it help users in the U.S. and Mexico?",
         answer:
           "Yes. The app is built for location-based UV planning, which is useful for U.S. and Mexico beach, pool, vacation, and daily outdoor sun exposure. Spanish-search users may find it through terms like indice UV, bronceado seguro, protector solar, and quemaduras solares.",
+      },
+      {
+        question: "Can I use it for beach or summer trip planning?",
+        answer:
+          "Yes. The app is designed for beach days, pool sessions, vacations, and summer outdoor planning. Check the UV forecast before going out, then use SPF, Fitzpatrick skin type, and timer reminders as guidance while you follow sunscreen labels and local weather alerts.",
       },
       {
         question: "How should users treat UV and tanning guidance?",
@@ -590,8 +597,10 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       "dmv practice test spanish learners",
       "examen de manejo DMV practica",
       "prueba de manejo estados unidos",
+      "examen de manejo en espanol estados unidos",
       "road signs practice test",
       "all 50 states DMV practice",
+      "CA DMV TX DPS FL DMV practice test",
     ],
     features: [
       {
@@ -630,6 +639,11 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
         question: "Can Spanish-speaking learners use it for examen de manejo practice?",
         answer:
           "Yes. The app page is useful for people searching for examen de manejo DMV, prueba de manejo, and U.S. driver license practice. The App Store listing is in English, so learners should check the app before relying on it for Spanish-language study.",
+      },
+      {
+        question: "Which DMV exams does the app focus on?",
+        answer:
+          "The app focuses on permit test and written exam practice for Class C driver licenses, CDL topics, motorcycle permit review, road signs, traffic rules, and common state agency formats across the United States.",
       },
       {
         question: "Is DMV Practice Test 2026 an official DMV app?",

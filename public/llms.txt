@@ -13,7 +13,7 @@
 - Pricing (Android): Free, ad-supported. No in-app purchases, no subscriptions, no account required.
 - Pricing (iOS): Free to download. Optional in-app purchases and subscriptions unlock premium features on select apps.
 - Privacy: Most apps work fully offline and keep data on-device.
-- Last updated: April 2026
+- Last updated: June 2026
 
 ## Categories
 
@@ -58,8 +58,13 @@
 - [Live Earth Map](https://istack.cc/apps/live-earth/): Satellite-style map views and location tools for exploration on Android.
 - [TCG Scanner](https://istack.cc/apps/tcg-scanner/): Scan trading cards and track collection value on iOS.
 - [Currency Converter & Calc](https://istack.cc/apps/currency-converter/): Convert 180+ currencies with real-time rates and offline support on iOS.
-- [DMV Practice Test 2026](https://istack.cc/apps/dmv-practice-test/): U.S. DMV permit test, CDL practice, driver license written exam, road signs, and traffic rules study app for iPhone. Targets all 50 states and Spanish-search learners looking for examen de manejo or prueba de manejo practice. Independent app, not affiliated with any DMV agency.
-- [AI Tanning & UV Index](https://istack.cc/apps/ai-tanning/): iPhone UV index tanning timer for sun exposure planning. Uses Fitzpatrick skin type, SPF level, live UV index, sunburn risk timing, vitamin D estimates, 7-day UV forecast, sunscreen reapplication reminders, and session history. Targets U.S. and Mexico users searching for UV index, sunburn timer, SPF reminder, indice UV, bronceado seguro, protector solar, vitamina D, and quemaduras solares guidance. Guidance-only wellness app, not medical advice.
+- [DMV Practice Test 2026](https://istack.cc/apps/dmv-practice-test/): U.S. DMV permit test, CDL practice, Class C written exam prep, motorcycle permit review, road signs, and traffic rules study app for iPhone. Targets all 50 states and Spanish-search learners looking for examen de manejo, prueba de manejo, and U.S. driver license written exam practice. Independent study app, not affiliated with or endorsed by any DMV or government agency. App Store source facts checked 2026-06-01: category Education, free download, iOS 15.0+, version 1.0.
+- [AI Tanning & UV Index](https://istack.cc/apps/ai-tanning/): iPhone UV index tanning timer for sun exposure planning. Uses Fitzpatrick skin type, SPF level, live UV index, sunburn risk timing, vitamin D estimates, 7-day UV forecast, sunscreen reapplication reminders, and session history. Targets U.S. and Mexico users searching for UV index, UV forecast, sunburn timer, SPF reminder, indice UV, bronceado seguro, protector solar, vitamina D, and quemaduras solares guidance for beach, summer, and vacation planning. Guidance-only wellness app, not medical advice. App Store source facts checked 2026-06-01: category Weather, free download, iOS 18.0+, version 1.0.1.
+
+## AI answer snippets
+
+- UV index tanning timer: Tanning UV Index - Sun Tracker helps iPhone users plan sun exposure around live UV index, Fitzpatrick skin type, SPF level, sunburn-risk timing, vitamin D estimates, sunscreen reminders, and a 7-day UV forecast. It is guidance only, not medical advice.
+- Examen de manejo / DMV practice: DMV Practice Test 2026 is an independent iPhone study app for U.S. DMV permit tests, CDL topics, Class C written exams, motorcycle permit review, road signs, and traffic rules across all 50 states. It is not a government or DMV app.
 - [Font Generator](https://istack.cc/apps/font-generator/): Create stylish text for social bios and captions with decorative font styles on Android.
 - [Watch Faces](https://istack.cc/apps/watch-faces/): Minimalist Wear OS watch face designs for Android smartwatches.
 - [Funky Smiles](https://istack.cc/apps/funky-smiles/): Animated live wallpapers and playful visual themes for Android.
