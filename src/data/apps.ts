@@ -66,6 +66,8 @@ export interface App {
   packageId: string;
   /** Apple App Store numeric ID (iOS only) */
   appStoreId?: string;
+  /** Apple App Store URL slug when it differs from the local app slug. */
+  appStoreSlug?: string;
   category: Exclude<AppCategory, "All">;
   iconUrl: string;
   bannerUrl: string;
@@ -139,7 +141,7 @@ export function getPlayStoreUrl(packageId: string) {
 
 export function getAppStoreUrl(app: App) {
   if (!app.appStoreId) return "";
-  return `${APP_STORE_BASE}${app.id}/id${app.appStoreId}`;
+  return `${APP_STORE_BASE}${app.appStoreSlug ?? app.id}/id${app.appStoreId}`;
 }
 
 export function getStoreUrl(app: App) {
@@ -225,7 +227,7 @@ const APP_DESCRIPTIONS: Record<string, string> = {
   "ru.commands.voice.assistant":
     "Voice Commands helps users trigger assistant actions with command presets and voice workflows. Speed up everyday phone tasks through voice-driven controls.",
   "ios.appx.sunglow.uv.index":
-    "Tanning UV Index - Sun Tracker helps iPhone users plan safer sun time with live UV index, Fitzpatrick skin type, SPF level, a sunburn risk timer, vitamin D estimates, 7-day forecast, SPF reminders, and session history for beach days, vacations, and everyday outdoor routines.",
+    "Tanning UV Index - Sun Tracker helps iPhone users plan sun exposure with live UV index, Fitzpatrick skin type, SPF level, a sunburn risk timer, vitamin D estimates, 7-day forecast, SPF reminders, and session history for beach days, vacations, and everyday outdoor routines.",
   "ios.appx.tcg.card.value.scanner":
     "TCG Scanner lets you scan trading cards instantly, see real market value, and track your collection portfolio over time. Supports raw and graded pricing for Japanese cards, rare finds, and high-value collectibles.",
   "ios.hair.color.changer.appx":
@@ -480,7 +482,7 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
     seoCategory: "health",
     primary_keyword: "uv index tanning timer app ios",
     secondary_keywords: [
-      "safe tanning app ios",
+      "safer sun exposure app ios",
       "sunburn timer app",
       "spf reminder app ios",
       "vitamin d tracker app",
@@ -493,9 +495,9 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
     ],
     features: [
       {
-        title: "Personalized safe tanning timer",
+        title: "Personalized UV tanning timer",
         description:
-          "Plan sun exposure around live UV index, Fitzpatrick skin type, SPF level, and your session goal instead of guessing from a generic weather number.",
+          "Plan sun exposure around live UV index, Fitzpatrick skin type, SPF level, and your session goal instead of relying on a generic weather number.",
       },
       {
         title: "Sunburn risk and SPF reminders",
@@ -505,7 +507,7 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         title: "Vitamin D and UV forecast planning",
         description:
-          "Review estimated vitamin D exposure and a 7-day UV forecast so you can choose safer outdoor windows before stepping into the sun.",
+          "Review estimated vitamin D exposure and a 7-day UV forecast so you can choose lower-risk outdoor windows before stepping into the sun.",
       },
       {
         title: "Built for U.S. and Mexico sun-seekers",
@@ -517,7 +519,7 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         question: "What does Tanning UV Index - Sun Tracker do?",
         answer:
-          "Tanning UV Index - Sun Tracker helps users plan safer sun exposure with live UV index, Fitzpatrick skin type, SPF level, sunburn risk timing, vitamin D estimates, SPF reminders, a 7-day forecast, and session history.",
+          "Tanning UV Index - Sun Tracker helps users plan sun exposure with live UV index, Fitzpatrick skin type, SPF level, sunburn risk timing, vitamin D estimates, SPF reminders, a 7-day forecast, and session history.",
       },
       {
         question: "Is this a UV index app or a tanning timer app?",
@@ -528,6 +530,11 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
         question: "Can it help users in the U.S. and Mexico?",
         answer:
           "Yes. The app is built for location-based UV planning, which is useful for U.S. and Mexico beach, pool, vacation, and daily outdoor sun exposure. Spanish-search users may find it through terms like indice UV, bronceado seguro, protector solar, and quemaduras solares.",
+      },
+      {
+        question: "How should users treat UV and tanning guidance?",
+        answer:
+          "Use UV, SPF, tanning, sunburn, and vitamin D estimates as planning guidance only. UV exposure can still damage skin, and users should follow public-health advice, sunscreen label directions, and professional medical guidance for personal risk.",
       },
       {
         question: "Does the app replace medical advice?",
@@ -1239,6 +1246,7 @@ const REMOTE_APPS: AppSeed[] = [
     subtitle: "Sunburn Timer, Vitamin D & SPF",
     packageId: "ios.appx.sunglow.uv.index",
     appStoreId: "6746761686",
+    appStoreSlug: "tanning-uv-index-sun-tracker",
     platform: "ios",
     category: "Health",
     iconUrl: "/app-icons/ios.appx.sunglow.uv.index.jpg",

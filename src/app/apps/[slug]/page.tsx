@@ -92,7 +92,7 @@ function buildAppDescription(app: App) {
   }
 
   if (app.id === "ai-tanning") {
-    return "Plan safer sun time with live UV index, Fitzpatrick skin type, SPF reminders, sunburn timer, vitamin D estimates, and beach forecasts.";
+    return "Plan sun exposure with live UV index, Fitzpatrick skin type, SPF reminders, sunburn timer, vitamin D estimates, and 7-day forecasts.";
   }
 
   const base = cleanText(app.short_description || app.description);
@@ -226,7 +226,7 @@ function getHowToSteps(app: App) {
       },
       {
         name: "Set your UV and skin inputs",
-        text: "Use live UV index, Fitzpatrick skin type, SPF level, and your sun-exposure goal to estimate safer tanning windows and sunburn risk.",
+        text: "Use live UV index, Fitzpatrick skin type, SPF level, and your sun-exposure goal to estimate tanning windows and sunburn risk.",
       },
       {
         name: "Follow timer and SPF reminders as guidance",

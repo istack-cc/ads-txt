@@ -14,7 +14,7 @@ export function getStoreUrl(
   const content = `${app.id}-${source}-${position}`;
 
   if (app.platform === "ios") {
-    const name = app.id;
+    const name = app.appStoreSlug ?? app.id;
     const id = app.appStoreId ?? "";
     const ct = encodeURIComponent(content);
     return `${APP_STORE_BASE}/${name}/id${id}?pt=ISTACK&ct=${ct}`;
@@ -55,5 +55,5 @@ export function getAppStoreUrl(
   if (!app.appStoreId) return "";
   const content = `${app.id}-${source}-${position}`;
   const ct = encodeURIComponent(content);
-  return `${APP_STORE_BASE}/${app.id}/id${app.appStoreId}?pt=ISTACK&ct=${ct}`;
+  return `${APP_STORE_BASE}/${app.appStoreSlug ?? app.id}/id${app.appStoreId}?pt=ISTACK&ct=${ct}`;
 }

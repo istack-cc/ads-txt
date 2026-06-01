@@ -54,7 +54,7 @@ export function generateSoftwareApplicationSchema(app: App) {
     ? `https://play.google.com/store/apps/details?id=${app.packageId}`
     : undefined;
   const iosUrl = app.appStoreId
-    ? `https://apps.apple.com/us/app/${app.id}/id${app.appStoreId}`
+    ? `https://apps.apple.com/us/app/${app.appStoreSlug ?? app.id}/id${app.appStoreId}`
     : undefined;
   const downloadUrl = [playUrl, iosUrl].filter((url): url is string => Boolean(url));
 
@@ -83,6 +83,27 @@ export function generateSoftwareApplicationSchema(app: App) {
 
   if (app.playStoreUpdatedOn) schema.dateModified = app.playStoreUpdatedOn;
   if (app.playStoreContentRating) schema.contentRating = app.playStoreContentRating;
+  if (app.id === "ai-tanning") {
+    schema.applicationSubCategory = "Weather";
+    schema.contentRating = "9+";
+    schema.softwareRequirements = "Requires iOS 18.0 or later";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "Fitzpatrick skin type",
+      "UV index forecast",
+      "sunscreen reapplication reminder",
+    ].join(", ");
+    schema.featureList = [
+      "Live UV index planning",
+      "Fitzpatrick skin type inputs",
+      "SPF reapplication reminders",
+      "Sunburn risk timer",
+      "Vitamin D exposure estimates",
+      "7-day UV forecast",
+      "Session history",
+    ];
+  }
   if (app.rating) {
     schema.aggregateRating = {
       "@type": "AggregateRating",

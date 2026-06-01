@@ -193,7 +193,10 @@ export function PremiumAppLandingPage({
   const stats = getProofStats(app, category);
   const features = getFeatures(app);
   const lifestyleAssets = getLifestyleAssets(app);
-  const sections = (descSections.length ? descSections : [{ body: app.description }]).slice(0, 3);
+  const sections = (descSections.length ? descSections : [{ body: app.description }]).slice(
+    0,
+    app.id === "ai-tanning" ? 6 : 3
+  );
   const accentStyle = {
     "--app-accent": app.gradientFrom,
     "--app-accent-soft": `${app.gradientFrom}16`,
