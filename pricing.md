@@ -58,24 +58,24 @@ iStack publishes 52 Android and iOS apps on Google Play and the Apple App Store.
 - Market focus: U.S. and Canada hairstyle try-on, hair color changer, virtual haircut, highlights, ombre, balayage, and salon preview searches
 - App Store source facts checked: 2026-06-09; category Photo & Video; version 1.1.1; requires iOS 16.6 or later; content rating 4+
 
-### Gimin: AI Photo & Face Editor
+### Gimin Style Image & AI Photo Editor
 
 - App page: https://istack.cc/apps/gimin/
 - App Store: https://apps.apple.com/us/app/gimin-ai-photo-face-editor/id6751965282
 - Price: $0 to download
 - Optional in-app purchases/subscriptions: Credit packs and premium subscriptions may be offered through Apple in-app purchase
 - Account: Not required for core app access
-- Market focus: AI photo editor, face swap, object removal, AI image generator, polaroid-style images, cartoon filters, business headshots, tattoo try-on, interior visualization, product photos, and photo enhancement
+- Market focus: Gimin style image, Gimin image style, AI photo editor, face swap, object removal, AI image generator, polaroid-style images, cartoon filters, business headshots, tattoo try-on, interior visualization, product photos, and photo enhancement
 - App Store source facts checked: 2026-06-09; category Graphics & Design; version 2.2.1; requires iOS; content rating 4+
 
-### Tanning UV Index - Sun Tracker
+### UV Index Tanning Timer & SPF Reminder
 
 - App page: https://istack.cc/apps/ai-tanning/
 - App Store: https://apps.apple.com/us/app/tanning-uv-index-sun-tracker/id6746761686
 - Price: $0 to download
 - Optional in-app purchases/subscriptions: Tanning Pro access may be offered through Apple in-app purchase or subscription
 - Account: Not required for core use
-- Market focus: U.S. and Mexico UV index planning, tanning timer, sunburn timer, SPF reminders, vitamin D estimates, indice UV Mexico, bronceado seguro, protector solar, and summer beach/vacation sun exposure
+- Market focus: U.S. and Mexico UV index tanning timer, SPF reminder, sunburn timer, vitamin D estimates, indice UV Mexico, bronceado seguro, protector solar, and summer beach/vacation sun exposure
 - Disclaimer: Guidance-only wellness app; not medical advice and not a substitute for professional medical guidance
 - App Store source facts checked: 2026-06-09; category Weather; version 1.0.1; requires iOS 18.0 or later; content rating 9+
 
