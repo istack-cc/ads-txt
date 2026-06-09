@@ -44,9 +44,29 @@ iStack publishes 52 Android and iOS apps on Google Play and the Apple App Store.
 - Price: $0 to download
 - Optional in-app purchase: Lifetime All States access may be offered through Apple in-app purchase
 - Account: Not required for core practice
-- Market focus: U.S. DMV permit test, CDL practice, driver license written exam, road signs, traffic rules, and Spanish-search learners looking for examen de manejo / prueba de manejo practice
-- Affiliation: Independent iStack study app; not affiliated with any U.S. DMV or government agency
-- App Store source facts checked: 2026-06-01; category Education; version 1.0; requires iOS 15.0 or later; content rating 4+
+- Market focus: U.S. DMV permit test, CDL practice, driver license written exam, road signs, traffic rules, and Spanish-search learners in the U.S. or Mexico looking for examen de manejo / prueba de manejo practice for U.S. licensing
+- Affiliation: Independent iStack study app; not affiliated with any U.S. DMV, state motor vehicle agency, or government agency
+- App Store source facts checked: 2026-06-09; category Education; requires iOS 15.0 or later; content rating 4+
+
+### Hairstyle Try-On Color Changer
+
+- App page: https://istack.cc/apps/hair-cut/
+- App Store: https://apps.apple.com/us/app/hairstyle-try-on-color-changer/id6752723064
+- Price: $0 to download
+- Optional in-app purchases: Image edit credit packs may be offered through Apple in-app purchase
+- Account: Not required for core app access
+- Market focus: U.S. and Canada hairstyle try-on, hair color changer, virtual haircut, highlights, ombre, balayage, and salon preview searches
+- App Store source facts checked: 2026-06-09; category Photo & Video; version 1.1.1; requires iOS 16.6 or later; content rating 4+
+
+### Gimin: AI Photo & Face Editor
+
+- App page: https://istack.cc/apps/gimin/
+- App Store: https://apps.apple.com/us/app/gimin-ai-photo-face-editor/id6751965282
+- Price: $0 to download
+- Optional in-app purchases/subscriptions: Credit packs and premium subscriptions may be offered through Apple in-app purchase
+- Account: Not required for core app access
+- Market focus: AI photo editor, face swap, object removal, AI image generator, polaroid-style images, cartoon filters, business headshots, tattoo try-on, interior visualization, product photos, and photo enhancement
+- App Store source facts checked: 2026-06-09; category Graphics & Design; version 2.2.1; requires iOS; content rating 4+
 
 ### Tanning UV Index - Sun Tracker
 
@@ -55,9 +75,20 @@ iStack publishes 52 Android and iOS apps on Google Play and the Apple App Store.
 - Price: $0 to download
 - Optional in-app purchases/subscriptions: Tanning Pro access may be offered through Apple in-app purchase or subscription
 - Account: Not required for core use
-- Market focus: U.S. and Mexico UV index planning, safe tanning, sunburn timer, SPF reminders, vitamin D estimates, indice UV, bronceado seguro, protector solar, and summer beach/vacation sun exposure
+- Market focus: U.S. and Mexico UV index planning, tanning timer, sunburn timer, SPF reminders, vitamin D estimates, indice UV Mexico, bronceado seguro, protector solar, and summer beach/vacation sun exposure
 - Disclaimer: Guidance-only wellness app; not medical advice and not a substitute for professional medical guidance
-- App Store source facts checked: 2026-06-01; category Weather; version 1.0.1; requires iOS 18.0 or later; content rating 4+
+- App Store source facts checked: 2026-06-09; category Weather; version 1.0.1; requires iOS 18.0 or later; content rating 9+
+
+### PokeWert Karten Wert Scanner
+
+- App page: https://istack.cc/apps/pokewert/
+- App Store: https://apps.apple.com/de/app/pokewert-karten-wert-scanner/id6768062606
+- Price: $0 to download
+- Optional in-app purchases/subscriptions: Premium card scanning or tracking access may be offered through Apple in-app purchase
+- Account: Not required for core app access
+- Market focus: Germany, Austria, Switzerland, Luxembourg, and Liechtenstein users searching for Karten Wert Scanner, Kartenwert Scanner, Pokemon Karten Wert Scanner, TCG Karten Scanner, Sammelkarten Preise, Cardmarket Preise, and EUR collection tracking
+- Affiliation: Independent collector utility; not affiliated with Nintendo, The Pokemon Company, or Cardmarket
+- App Store source facts checked: 2026-06-09; German App Store storefront; app availability may vary by country
 
 ## What's consistent across both platforms
 
