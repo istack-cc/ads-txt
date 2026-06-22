@@ -58,14 +58,14 @@ iStack publishes 52 Android and iOS apps on Google Play and the Apple App Store.
 - Market focus: U.S. and Canada hairstyle try-on, hair color changer, virtual haircut, highlights, ombre, balayage, and salon preview searches
 - App Store source facts checked: 2026-06-09; category Photo & Video; version 1.1.1; requires iOS 16.6 or later; content rating 4+
 
-### Gimin Style Image & AI Photo Editor
+### Gimin App - Gimin Style Image & AI Photo Editor
 
 - App page: https://istack.cc/apps/gimin/
 - App Store: https://apps.apple.com/us/app/gimin-ai-photo-face-editor/id6751965282
 - Price: $0 to download
 - Optional in-app purchases/subscriptions: Credit packs and premium subscriptions may be offered through Apple in-app purchase
 - Account: Not required for core app access
-- Market focus: Gimin style image, Gimin image style, AI photo editor, face swap, object removal, AI image generator, polaroid-style images, cartoon filters, business headshots, tattoo try-on, interior visualization, product photos, and photo enhancement
+- Market focus: Gimin app, Gimin iPhone app, Gimin style image, Gimin style photo edit, Gimin photo style, Gimin image style, AI photo editor, face swap, object removal, AI image generator, polaroid-style images, cartoon filters, business headshots, tattoo try-on, interior visualization, product photos, and photo enhancement
 - App Store source facts checked: 2026-06-09; category Graphics & Design; version 2.2.1; requires iOS; content rating 4+
 
 ### UV Index Tanning Timer & SPF Reminder
