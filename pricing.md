@@ -48,6 +48,17 @@ iStack publishes 52 Android and iOS apps on Google Play and the Apple App Store.
 - Affiliation: Independent iStack study app; not affiliated with any U.S. DMV, state motor vehicle agency, or government agency
 - App Store source facts checked: 2026-06-09; category Education; requires iOS 15.0 or later; content rating 4+
 
+### LGV Theory Test: 4 in 1 Kit UK
+
+- App page: https://istack.cc/apps/lgv-theory-test/
+- App Store: https://apps.apple.com/gb/app/lgv-theory-test-4-in-1-kit-uk/id6765661241
+- Price: GBP 0 to download
+- Optional in-app purchases/subscriptions: Premium revision access may be offered through Apple in-app purchase or subscription if available
+- Account: Not required for core app access
+- Market focus: United Kingdom LGV theory test app, HGV theory test app, DVSA LGV mock test, lorry theory test practice, hazard perception LGV practice, Driver CPC part 1 revision, CPC case studies, and UK lorry learner revision on iPhone
+- Affiliation: Independent iStack study app; not affiliated with DVSA, GOV.UK, nidirect, or any government agency
+- Official-rule note: Learners should confirm current booking rules, fees, documents, pass marks, waiting periods, and Driver CPC requirements on GOV.UK or nidirect before taking a test
+
 ### Hairstyle Try-On Color Changer
 
 - App page: https://istack.cc/apps/hair-cut/

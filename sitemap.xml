@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://istack.cc/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,13 +14,13 @@
   </url>
   <url>
     <loc>https://istack.cc/privacy/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://istack.cc/terms/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -350,43 +350,43 @@
   </url>
   <url>
     <loc>https://istack.cc/category/productivity/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/ai-photo/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/utilities/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/health/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/education/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/personalization/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://istack.cc/category/voice-commands/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -517,74 +517,80 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://istack.cc/how-to/how-to-prepare-for-the-lgv-theory-test-uk/</loc>
+    <lastmod>2026-06-21T23:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://istack.cc/glossary/ocr/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/pdf/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/digital-signature/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/pedometer/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/nfc/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/background-removal/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/unicode-fonts/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/live-wallpaper/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/document-scanner/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/calorie-tracking/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/bodyweight-workout/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://istack.cc/glossary/ar-measurement/</loc>
-    <lastmod>2026-06-22T14:05:42.269Z</lastmod>
+    <lastmod>2026-06-22T14:59:48.433Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
