@@ -86,9 +86,15 @@ export function DmvPracticeLandingPage({
 }: DmvPracticePageProps) {
   const screenshots = app.screenshots ?? [];
   const marqueeImages = [
-    ...attestationCards.map((card) => card.image),
-    "/generated/dmv-hero-color.png",
-    ...screenshots.slice(0, 6),
+    ...attestationCards.map((card) => ({
+      src: card.image,
+      alt: `${card.person} holding a fictional DMV practice pass card`,
+    })),
+    { src: "/generated/dmv-hero-color.png", alt: `${app.name} promotional artwork` },
+    ...screenshots.slice(0, 6).map((src, index) => ({
+      src,
+      alt: `${app.name} screenshot ${index + 1}`,
+    })),
   ];
 
   return (
@@ -105,6 +111,7 @@ export function DmvPracticeLandingPage({
           <Image
             src="/generated/dmv-hero-road.png"
             alt=""
+            aria-hidden="true"
             fill
             priority
             className="object-cover object-center"
@@ -118,7 +125,7 @@ export function DmvPracticeLandingPage({
               <div className={`mb-5 inline-flex items-center gap-3 rounded-full px-4 py-2 ${glass}`}>
                 <Image
                   src={app.iconUrl}
-                  alt=""
+                  alt={`${app.name} icon`}
                   width={28}
                   height={28}
                   className="rounded-[8px]"
@@ -341,7 +348,7 @@ export function DmvPracticeLandingPage({
                   <MotionReveal key={card.image} delay={120 + index * 80}>
                     <Image
                       src={card.image}
-                      alt=""
+                      alt={`${card.person} holding a fictional DMV practice pass card`}
                       width={1024}
                       height={1536}
                       className={`aspect-[3/4] rounded-[18px] object-cover ${index === 1 ? "mt-10" : ""}`}
@@ -449,6 +456,7 @@ function LightNav({ appIconUrl }: { appIconUrl: string }) {
           <Image
             src={appIconUrl}
             alt=""
+            aria-hidden="true"
             width={34}
             height={34}
             className="h-8 w-8 rounded-[10px] object-cover shadow-sm"

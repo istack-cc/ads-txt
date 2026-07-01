@@ -264,7 +264,7 @@ export default function Home() {
             <div className="recent3d-grid">
               {RECENT.map((app) => (
                 <Link key={app.id} href={`/apps/${app.id}/`} className="recent3d-card">
-                  <Image src={app.iconUrl} alt="" width={48} height={48} unoptimized />
+                  <Image src={app.iconUrl} alt={`${app.name} icon`} width={48} height={48} unoptimized />
                   <div>
                     <strong>{app.name}</strong>
                     <span>{app.playStoreUpdatedOn}</span>

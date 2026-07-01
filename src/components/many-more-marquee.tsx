@@ -56,7 +56,7 @@ function MarqueeTile({ app }: { app: App }) {
     >
       <Image
         src={app.iconUrl}
-        alt=""
+        alt={`${app.name} icon`}
         width={56}
         height={56}
         style={{ objectFit: "cover" }}

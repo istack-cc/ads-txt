@@ -46,7 +46,12 @@ export function MotionReveal({
   );
 }
 
-export function DmvScrollMarquee({ images }: { images: string[] }) {
+export interface DmvMarqueeImage {
+  src: string;
+  alt: string;
+}
+
+export function DmvScrollMarquee({ images }: { images: DmvMarqueeImage[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -77,17 +82,17 @@ export function DmvScrollMarquee({ images }: { images: string[] }) {
   );
 }
 
-function MarqueeRow({ images, x }: { images: string[]; x: MotionValue<string> }) {
+function MarqueeRow({ images, x }: { images: DmvMarqueeImage[]; x: MotionValue<string> }) {
   return (
     <motion.div className="flex w-max gap-3 px-3" style={{ x, willChange: "transform" }}>
-      {images.map((src, index) => (
+      {images.map((image, index) => (
         <div
-          key={`${src}-${index}`}
+          key={`${image.src}-${index}`}
           className="h-[180px] w-[280px] overflow-hidden rounded-[18px] border border-[#dbe8f5] bg-white shadow-[0_24px_80px_-66px_rgba(15,60,130,0.38)] sm:h-[220px] sm:w-[340px] md:h-[270px] md:w-[420px]"
         >
           <Image
-            src={src}
-            alt=""
+            src={image.src}
+            alt={image.alt}
             width={840}
             height={540}
             className="h-full w-full object-cover object-top"

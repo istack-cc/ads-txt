@@ -90,12 +90,18 @@ function AppGridCard({ app }: { app: (typeof APPS)[number] }) {
         {primaryShot ? (
           <>
             <div className="app-grid-card__shot app-grid-card__shot--main">
-              <Image src={primaryShot} alt="" fill sizes="220px" unoptimized />
+              <Image src={primaryShot} alt={`${app.name} screenshot`} fill sizes="220px" unoptimized />
             </div>
             <div className="app-grid-card__shot-stack">
               {secondaryShots.map((src, index) => (
                 <div key={src} className="app-grid-card__shot app-grid-card__shot--small">
-                  <Image src={src} alt="" fill sizes="118px" unoptimized />
+                  <Image
+                    src={src}
+                    alt={`${app.name} screenshot ${index + 2}`}
+                    fill
+                    sizes="118px"
+                    unoptimized
+                  />
                   <span>{String(index + 2).padStart(2, "0")}</span>
                 </div>
               ))}
