@@ -36,5 +36,6 @@ export const LOCAL_ICON_MAP: Record<string, string> = {
   "com.istack.edge_lighting": "/app-icons/com.istack.edge_lighting.webp",
   "com.istack.led_scroller": "/app-icons/com.istack.led_scroller.webp",
   "com.istack.house_design_plan_3d": "/app-icons/com.istack.house_design_plan_3d.webp",
-  "ru.commands.voice.assistant": "/app-icons/ru.commands.voice.assistant.webp"
+  "ru.commands.voice.assistant": "/app-icons/ru.commands.voice.assistant.webp",
+  "ios.appx.karten.wert.scanner": "/app-icons/ios.appx.karten.wert.scanner.jpg"
 };

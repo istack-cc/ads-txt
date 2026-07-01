@@ -68,6 +68,8 @@ export interface App {
   appStoreId?: string;
   /** Apple App Store URL slug when it differs from the local app slug. */
   appStoreSlug?: string;
+  /** Apple App Store country storefront code. Defaults to "us". */
+  appStoreCountry?: string;
   category: Exclude<AppCategory, "All">;
   iconUrl: string;
   bannerUrl: string;
@@ -141,7 +143,8 @@ export function getPlayStoreUrl(packageId: string) {
 
 export function getAppStoreUrl(app: App) {
   if (!app.appStoreId) return "";
-  return `${APP_STORE_BASE}${app.appStoreSlug ?? app.id}/id${app.appStoreId}`;
+  const country = app.appStoreCountry ?? "us";
+  return `https://apps.apple.com/${country}/app/${app.appStoreSlug ?? app.id}/id${app.appStoreId}`;
 }
 
 export function getStoreUrl(app: App) {
@@ -230,12 +233,14 @@ const APP_DESCRIPTIONS: Record<string, string> = {
     "Tanning UV Index - Sun Tracker helps iPhone users plan sun exposure with live UV index, Fitzpatrick skin type, SPF level, a sunburn risk timer, vitamin D estimates, 7-day forecast, SPF reminders, and session history for beach days, vacations, and everyday outdoor routines.",
   "ios.appx.tcg.card.value.scanner":
     "TCG Scanner lets you scan trading cards instantly, see real market value, and track your collection portfolio over time. Supports raw and graded pricing for Japanese cards, rare finds, and high-value collectibles.",
+  "ios.appx.karten.wert.scanner":
+    "PokeWert scans trading cards on iPhone and shows Cardmarket EUR prices for German collectors. Scan a card, review trend and 30-day pricing, then track collection value, wishlists, and portfolio changes in euros.",
   "ios.hair.color.changer.appx":
     "Hair Cut - Color Changer lets you try any hairstyle or hair color in seconds using AI. Upload your photo and preview realistic cuts and shades with smart lighting and automatic hair masking.",
   "ios.appx.math.solver.ai":
     "Math AI helps you solve math problems instantly. Use your camera to scan equations and get accurate, step-by-step answers powered by AI. Covers algebra, geometry, calculus, and word problems.",
   "ios.appx.nano.banana.image":
-    "Gimin turns any snap into a scroll-stopping photo with one tap. AI-powered enhancements, polaroid generator, cartoon filters, tattoo try-on, interior design visualization, and professional headshots.",
+    "Gimin is the iPhone app for creating Gimin-style AI images, face swaps, object removal edits, polaroid looks, cartoons, headshots, and one-tap photo enhancements.",
   "ios.appx.background.remover":
     "Transparency: Magic Eraser creates clean transparent PNGs in one tap. Remove backgrounds with AI, replace with photos or solid colors, blur for portraits, and export as PNG or JPG.",
   "ios.appx.currency.converter":
@@ -249,7 +254,7 @@ const APP_DESCRIPTIONS: Record<string, string> = {
   "ios.appx.electricianhandbook":
     "Electrician Calc & Reference provides offline electrical calculations, wiring references, and NEC-style study support for field work and exam preparation.",
   "ios.appx.lgvhgv":
-    "LGV Theory Test: 4 in 1 Kit UK helps learners prepare for DVSA LGV and HGV theory with mock tests, hazard practice, and driver exam revision tools.",
+    "LGV Theory Test: 4 in 1 Kit UK helps UK learner lorry drivers prepare for DVSA LGV and HGV theory with multiple-choice practice, hazard perception revision, mock tests, and Driver CPC study support.",
   "ios.appx.teleprompter":
     "Teleprompter: Script for Video turns scripts into an easy scrolling prompt for recording videos, speeches, reels, and presentations with smoother delivery.",
   "ios.appx.dmv.practice.test":
@@ -317,8 +322,50 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   "time-warp-scan": {
     seoCategory: "ai-photo",
     primary_keyword: "time warp scan camera android",
-    secondary_keywords: ["warp effect camera android", "scan distortion camera", "viral photo effects android", "time warp video android"],
-    features: [], faq: [], competitors: [],
+    secondary_keywords: [
+      "warp scanner",
+      "scan warp",
+      "time warp effect",
+      "warp effect camera android",
+      "scan distortion camera",
+      "viral photo effects android",
+      "time warp video android",
+    ],
+    features: [
+      {
+        title: "Warp scanner camera",
+        description:
+          "Use the moving scan line to freeze motion, bend faces, stretch objects, and create scan warp photos or videos directly on Android.",
+      },
+      {
+        title: "Time warp effect presets",
+        description:
+          "Create the popular time warp effect for short-form videos, social posts, funny camera edits, and freeze-frame motion experiments.",
+      },
+      {
+        title: "Fast save and share",
+        description:
+          "Capture the effect, save it to your phone, and share the result without an account or a complicated editing workflow.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a warp scanner app?",
+        answer:
+          "A warp scanner app uses a moving scan line to capture parts of the camera view at different moments. Time Warp Scan turns that into stretched, frozen, or bent photo and video effects on Android.",
+      },
+      {
+        question: "Can I make a scan warp video with Time Warp Scan?",
+        answer:
+          "Yes. Time Warp Scan is built for scan warp videos, time warp effects, and viral distortion edits that can be saved and shared from your Android phone.",
+      },
+      {
+        question: "Is Time Warp Scan free?",
+        answer:
+          "Yes. Time Warp Scan is free to download on Google Play and does not require an account to use the main warp camera workflow.",
+      },
+    ],
+    competitors: [],
   },
   "cut-paste-photo": {
     seoCategory: "ai-photo",
@@ -334,15 +381,134 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   },
   "hair-cut": {
     seoCategory: "ai-photo",
-    primary_keyword: "ai hairstyle try on app ios",
-    secondary_keywords: ["hair color changer app ios", "virtual haircut ios", "ai hair transformation app", "hairstyle simulator free"],
-    features: [], faq: [], competitors: [],
+    primary_keyword: "hairstyle try on app iphone",
+    secondary_keywords: [
+      "hair color changer app ios",
+      "virtual haircut app Canada",
+      "AI hairstyle try on USA",
+      "hair color simulator iPhone",
+      "balayage highlights try on",
+      "ombre hair color changer",
+      "hair salon preview app",
+      "hairstyle simulator free",
+    ],
+    features: [
+      {
+        title: "AI hairstyle try-on",
+        description:
+          "Upload a selfie and preview haircut ideas, bangs, bobs, long styles, curls, and salon-ready looks before booking a stylist.",
+      },
+      {
+        title: "Hair color, highlights, and ombre",
+        description:
+          "Try blonde, brunette, black, red, copper, pastel, balayage, highlights, ombre, and vivid shades with realistic blending.",
+      },
+      {
+        title: "Built for U.S. and Canada salon decisions",
+        description:
+          "Use the app before a haircut, color appointment, wig purchase, content shoot, or style consultation in the United States or Canada.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is Hair Cut - Color Changer used for?",
+        answer:
+          "Hair Cut - Color Changer is an iPhone hairstyle try-on app for previewing haircuts, hair colors, highlights, ombre, balayage, and salon-style transformations on your own photo.",
+      },
+      {
+        question: "Can users in Canada and the U.S. use it before a salon visit?",
+        answer:
+          "Yes. The app is useful for users in Canada and the United States who want to compare haircut or color ideas before booking a salon appointment or buying hair products.",
+      },
+      {
+        question: "Does the app support highlights, ombre, and balayage previews?",
+        answer:
+          "Yes. The App Store listing describes hairstyle and hair color previews, including highlights, ombre, and other salon-inspired looks.",
+      },
+      {
+        question: "Is Hair Cut - Color Changer free to download?",
+        answer:
+          "Yes. Hair Cut - Color Changer is free to download on the App Store and offers optional in-app purchases for image edit credits.",
+      },
+    ],
+    competitors: [],
   },
   "gimin": {
     seoCategory: "ai-photo",
-    primary_keyword: "ai photo editor polaroid filter ios",
-    secondary_keywords: ["ai photo effects ios", "polaroid filter app ios", "cartoon filter camera ios", "ai image enhancement free"],
-    features: [], faq: [], competitors: [],
+    primary_keyword: "Gimin app for Gimin style images",
+    secondary_keywords: [
+      "gimin app",
+      "download Gimin iPhone",
+      "Gimin iPhone app",
+      "gimin style image",
+      "gimin image style",
+      "gimin style photo edit",
+      "gimin photo style",
+      "Gimin AI photo editor",
+      "Gimin style AI image",
+      "face swap app iPhone",
+      "object removal photo editor",
+      "ai photo effects ios",
+      "AI image generator iPhone",
+      "polaroid style image app",
+      "polaroid filter app ios",
+      "cartoon filter camera ios",
+      "ai image enhancement free",
+      "professional headshot app iphone",
+      "AI tattoo generator app",
+      "AI interior designer photo app",
+      "product photo studio iPhone",
+    ],
+    features: [
+      {
+        title: "Gimin app for style images",
+        description:
+          "Download Gimin on iPhone and create Gimin style images with AI image generation, polaroid-style looks, cartoon portraits, headshots, and profile photos.",
+      },
+      {
+        title: "Face swap and object removal",
+        description:
+          "Use face swap, object removal, photo enhancement, and AI effects when a selfie, product image, or social post needs a fast edit.",
+      },
+      {
+        title: "Creative and business photo workflows",
+        description:
+          "Use Gimin for social media images, profile pictures, product photo mockups, business headshots, tattoo previews, interior ideas, and creative experiments.",
+      },
+    ],
+    faq: [
+      {
+        question: "Where can I download the Gimin app?",
+        answer:
+          "You can download Gimin for iPhone from the App Store link on this iStack page. The listing is for Gimin - AI Photo Editor, an AI photo and face editor with optional premium features.",
+      },
+      {
+        question: "What is a Gimin style image?",
+        answer:
+          "A Gimin style image is a stylized AI photo edit made with the Gimin iPhone app, such as a polaroid-style portrait, cartoon look, professional headshot, tattoo preview, product mockup, or enhanced social profile image.",
+      },
+      {
+        question: "What is Gimin used for?",
+        answer:
+          "Gimin is an AI photo and face editor for iPhone used for Gimin style images, face swap, object removal, AI image generation, polaroid-style edits, cartoon portraits, headshots, tattoo previews, interior ideas, product photos, and enhanced images.",
+      },
+      {
+        question: "Can Gimin remove objects or swap faces?",
+        answer:
+          "Yes. The current App Store listing positions Gimin as an AI Photo & Face Editor with face swap, object removal, and art/photo creation workflows.",
+      },
+      {
+        question: "Can Gimin create polaroid-style images?",
+        answer:
+          "Yes. Gimin includes a polaroid-style image workflow along with Gimin style image generation, AI photo effects, cartoon filters, headshot tools, and photo enhancement options.",
+      },
+      {
+        question: "Is Gimin free to download?",
+        answer:
+          "Yes. Gimin is free to download on the App Store for iPhone, with optional premium features available inside the app.",
+      },
+    ],
+    competitors: [],
   },
   "transparency": {
     seoCategory: "ai-photo",
@@ -390,8 +556,49 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   "color-picker": {
     seoCategory: "utilities",
     primary_keyword: "color picker camera android",
-    secondary_keywords: ["color detector android free", "hex color picker app", "identify color from camera", "color identifier android"],
-    features: [], faq: [], competitors: [],
+    secondary_keywords: [
+      "color detector android free",
+      "color code scanner",
+      "color checker",
+      "hex color picker app",
+      "identify color from camera",
+      "color identifier android",
+    ],
+    features: [
+      {
+        title: "Camera color detector",
+        description:
+          "Point the camera at a surface or object to identify color values for design, decor, craft, and accessibility checks.",
+      },
+      {
+        title: "Color code scanner",
+        description:
+          "Capture practical color codes from images, including hex-style values you can reuse in design notes or creative projects.",
+      },
+      {
+        title: "Simple color checker",
+        description:
+          "Use Color Picker as a lightweight color checker on Android without signing in or setting up a full design tool.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a color detector app?",
+        answer:
+          "A color detector app identifies colors from a camera view or photo. Color Picker helps Android users check visible colors and capture reusable color code details.",
+      },
+      {
+        question: "Can Color Picker scan color codes from real objects?",
+        answer:
+          "Yes. Color Picker is built for checking colors from camera input and images, so you can identify colors from objects, screens, samples, and photos.",
+      },
+      {
+        question: "Is Color Picker free on Android?",
+        answer:
+          "Yes. Color Picker is free to download on Google Play and can be used as a simple Android color detector and color checker.",
+      },
+    ],
+    competitors: [],
   },
   "speedometer": {
     seoCategory: "utilities",
@@ -432,8 +639,48 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   "gps-photo": {
     seoCategory: "utilities",
     primary_keyword: "gps photo stamp android",
-    secondary_keywords: ["geotag photo android free", "location stamp camera app", "gps coordinates on photo", "photo location tagger android"],
-    features: [], faq: [], competitors: [],
+    secondary_keywords: [
+      "digital photos location stamp",
+      "location stamp camera app",
+      "gps coordinates on photo",
+      "geotag photo android free",
+      "photo location tagger android",
+    ],
+    features: [
+      {
+        title: "Digital photo location stamp",
+        description:
+          "Add a readable location stamp to photos with GPS coordinates, address context, date, and time for field notes or travel records.",
+      },
+      {
+        title: "GPS coordinates on photos",
+        description:
+          "Capture latitude and longitude details on image exports so each photo keeps clear location evidence outside the gallery metadata.",
+      },
+      {
+        title: "Simple location camera",
+        description:
+          "Open the camera, capture the scene, and save the stamped photo without needing an account or a heavy photo editing suite.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do I add a location stamp to digital photos?",
+        answer:
+          "Use GPS Photo on Android to take a picture with a visible location stamp. The app can place GPS coordinates, address information, date, and time directly on the saved photo.",
+      },
+      {
+        question: "Can GPS Photo show coordinates on a photo?",
+        answer:
+          "Yes. GPS Photo is designed for putting GPS coordinates on photos, including latitude and longitude details that stay visible when the image is shared.",
+      },
+      {
+        question: "Is GPS Photo a free location stamp camera app?",
+        answer:
+          "Yes. GPS Photo is free to download on Google Play and works as a simple Android location stamp camera app for everyday photo records.",
+      },
+    ],
+    competitors: [],
   },
   "speak-translate": {
     seoCategory: "utilities",
@@ -446,6 +693,72 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
     primary_keyword: "trading card scanner app ios",
     secondary_keywords: ["pokemon card scanner ios", "tcg card value tracker", "card collection app ios", "trading card price checker"],
     features: [], faq: [], competitors: [],
+  },
+  "pokewert": {
+    seoCategory: "utilities",
+    primary_keyword: "Karten Wert Scanner Deutschland",
+    secondary_keywords: [
+      "Pokemon Karten Wert Scanner",
+      "TCG Karten Scanner Deutschland",
+      "Sammelkarten Wert Scanner",
+      "Cardmarket Preise App",
+      "Kartenwert Scanner iPhone",
+      "Trading Card Preis Scanner EUR",
+      "TCG Sammlung Tracker",
+      "Karten Scanner Österreich",
+      "Karten Scanner Schweiz",
+      "Pokemon Karten Preise Euro",
+    ],
+    features: [
+      {
+        title: "Cardmarket-style EUR prices",
+        description:
+          "Scan cards and review German-market value context in euros, including trend, 30-day average, and low-price signals for German-speaking collectors.",
+      },
+      {
+        title: "Sammlung und Portfolio verfolgen",
+        description:
+          "Save scanned cards to a collection and track estimated portfolio value, purchase price, wishlist cards, and market changes in one iPhone workflow.",
+      },
+      {
+        title: "Built for Germany, Austria, and Switzerland",
+        description:
+          "Positioned for collectors searching in German for Karten Wert Scanner, Kartenwert, Sammelkarten Preise, and TCG Karten Scanner in DACH markets.",
+      },
+      {
+        title: "Independent collector utility",
+        description:
+          "PokeWert is an independent scanner and collection tracker; it is not affiliated with Nintendo, The Pokemon Company, or Cardmarket.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is PokeWert used for?",
+        answer:
+          "PokeWert is an iPhone Karten Wert Scanner for German-speaking TCG collectors. It scans cards, reviews euro value context, and helps track collection, wishlist, and portfolio value.",
+      },
+      {
+        question: "Is PokeWert built for Germany and German-speaking countries?",
+        answer:
+          "Yes. PokeWert is positioned for Germany, Austria, Switzerland, and German-speaking collectors who search for Karten Wert Scanner, Kartenwert Scanner, TCG Karten Scanner, and Sammelkarten Preise in euros.",
+      },
+      {
+        question: "Does PokeWert show prices in euros?",
+        answer:
+          "Yes. PokeWert is built around euro price context for German-market collecting workflows, so users do not need to start from U.S. dollar market values.",
+      },
+      {
+        question: "Is PokeWert affiliated with Pokemon, Nintendo, or Cardmarket?",
+        answer:
+          "No. PokeWert is an independent collector utility. It is not affiliated with, endorsed by, or sponsored by Nintendo, The Pokemon Company, or Cardmarket.",
+      },
+      {
+        question: "Is PokeWert available in the U.S. App Store?",
+        answer:
+          "The current App Store listing is available through the German storefront. The portfolio links directly to that German App Store page.",
+      },
+    ],
+    competitors: [],
   },
   "currency-converter": {
     seoCategory: "utilities",
@@ -480,8 +793,12 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   },
   "ai-tanning": {
     seoCategory: "health",
-    primary_keyword: "uv index tanning timer app ios",
+    primary_keyword: "UV index tanning timer and SPF reminder app iPhone",
     secondary_keywords: [
+      "UV index app United States",
+      "UV index app Mexico",
+      "UV index tanning timer",
+      "SPF reminder beach app",
       "safer sun exposure app ios",
       "sunburn timer app",
       "spf reminder app ios",
@@ -491,20 +808,23 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       "uv forecast beach app",
       "uv index tanning timer Mexico",
       "indice UV bronceado app",
+      "indice UV Mexico app",
       "protector solar recordatorio app",
       "aplicacion para tomar el sol seguro",
       "quemaduras solares temporizador app",
+      "playa Mexico UV forecast",
+      "SPF reminder beach vacation",
     ],
     features: [
       {
-        title: "Personalized UV tanning timer",
+        title: "UV index tanning timer",
         description:
-          "Plan sun exposure around live UV index, Fitzpatrick skin type, SPF level, and your session goal instead of relying on a generic weather number.",
+          "Plan beach, pool, and outdoor sessions around live UV index, Fitzpatrick skin type, SPF level, and your sun-exposure goal instead of relying on a generic weather number.",
       },
       {
         title: "Sunburn risk and SPF reminders",
         description:
-          "Use countdown-based guidance for when to flip, seek shade, or reapply sunscreen during beach days, pool time, vacations, and outdoor routines.",
+          "Use countdown-based guidance for when to check your skin, seek shade, or reapply sunscreen during U.S. and Mexico beach days, pool time, vacations, and outdoor routines.",
       },
       {
         title: "Vitamin D and UV forecast planning",
@@ -514,7 +834,12 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         title: "Built for U.S. and Mexico sun-seekers",
         description:
-          "Useful for people searching in English or Spanish for UV index, indice UV, protector solar reminders, bronceado seguro, and sunburn prevention.",
+          "Useful for people searching in English or Spanish for UV index, indice UV, Mexico beach UV forecasts, protector solar reminders, bronceado seguro, and sunburn prevention.",
+      },
+      {
+        title: "Guidance, not medical advice",
+        description:
+          "The App Store listing states that UV guidance is not a substitute for professional medical advice; users should follow sunscreen labels and local health guidance.",
       },
     ],
     faq: [
@@ -531,7 +856,7 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         question: "Can it help users in the U.S. and Mexico?",
         answer:
-          "Yes. The app is built for location-based UV planning, which is useful for U.S. and Mexico beach, pool, vacation, and daily outdoor sun exposure. Spanish-search users may find it through terms like indice UV, bronceado seguro, protector solar, and quemaduras solares.",
+          "Yes. The app is built for location-based UV planning, which is useful for U.S. and Mexico beach, pool, vacation, and daily outdoor sun exposure. Spanish-search users may find it through terms like indice UV Mexico, bronceado seguro, protector solar, and quemaduras solares.",
       },
       {
         question: "Can I use it for beach or summer trip planning?",
@@ -583,24 +908,90 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
   },
   "lgv-theory-test": {
     seoCategory: "education",
-    primary_keyword: "lgv theory test app uk ios",
-    secondary_keywords: ["hgv theory test ios", "dvsa mock test app", "hazard perception practice", "driver theory test uk"],
-    features: [], faq: [], competitors: [],
+    primary_keyword: "LGV theory test app UK",
+    secondary_keywords: [
+      "HGV theory test app",
+      "DVSA LGV mock test",
+      "lorry theory test practice",
+      "hazard perception LGV practice",
+      "Driver CPC part 1 revision",
+      "CPC case studies practice",
+      "UK lorry driver theory test",
+      "LGV multiple choice practice",
+      "HGV hazard perception iPhone",
+      "DVSA theory test lorry app",
+    ],
+    features: [
+      {
+        title: "Built around the UK lorry test path",
+        description:
+          "The page and app funnel focus on LGV/HGV learner drivers in England, Scotland, Wales, and Northern Ireland who are revising for DVSA-style multiple choice, hazard perception, and Driver CPC study.",
+      },
+      {
+        title: "Multiple-choice and hazard practice",
+        description:
+          "Use short iPhone sessions to review lorry theory topics, traffic signs, safe loading, road rules, and hazard perception timing before booking or retaking the official test.",
+      },
+      {
+        title: "Clear web-to-App-Store action",
+        description:
+          "The landing page sends UK searchers directly to the App Store listing with LGV-specific tracking so high-intent visitors can move from search result to install quickly.",
+      },
+      {
+        title: "Independent revision tool",
+        description:
+          "LGV Theory Test: 4 in 1 Kit UK is an independent iStack study app. It is not affiliated with, endorsed by, or connected to DVSA, GOV.UK, or any government agency.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is LGV Theory Test: 4 in 1 Kit UK for UK lorry learners?",
+        answer:
+          "Yes. The page is written for UK LGV and HGV learner drivers preparing for lorry theory, hazard perception, and Driver CPC-style revision on iPhone.",
+      },
+      {
+        question: "Does the app replace the official DVSA theory test?",
+        answer:
+          "No. It is an independent revision app. You still need to book and take the official theory test through the relevant government service and confirm current rules, fees, documents, and pass requirements with GOV.UK or nidirect.",
+      },
+      {
+        question: "What parts of the LGV theory test should I practise?",
+        answer:
+          "UK lorry learners normally revise multiple-choice theory, hazard perception, and Driver CPC topics where relevant. GOV.UK says the Driver CPC part 1 theory test is split into multiple choice and hazard perception, which are booked separately.",
+      },
+      {
+        question: "Can I use this for HGV theory test revision?",
+        answer:
+          "Yes. In UK search language, learners often use LGV and HGV interchangeably. The page targets both LGV theory test app and HGV theory test app intent for lorry driver revision.",
+      },
+      {
+        question: "Is the app free to download?",
+        answer:
+          "Yes. LGV Theory Test: 4 in 1 Kit UK is free to download from the App Store, with any optional premium features handled through Apple if offered.",
+      },
+    ],
+    competitors: [],
   },
   "dmv-practice-test": {
     seoCategory: "education",
-    primary_keyword: "dmv practice test 2026 app",
+    primary_keyword: "US DMV practice test 2026 app",
     secondary_keywords: [
       "dmv permit test app",
       "cdl practice test app",
       "driver license written exam practice",
+      "US driver license exam app",
       "dmv practice test spanish learners",
       "examen de manejo DMV practica",
       "prueba de manejo estados unidos",
       "examen de manejo en espanol estados unidos",
+      "examen de manejo en USA",
+      "licencia de conducir Estados Unidos",
+      "preguntas para licencia de conducir USA",
       "road signs practice test",
+      "señales de transito DMV",
       "all 50 states DMV practice",
       "CA DMV TX DPS FL DMV practice test",
+      "Mexico learners studying US driving test",
     ],
     features: [
       {
@@ -621,7 +1012,12 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         title: "Spanish-search friendly",
         description:
-          "Helpful for Spanish-speaking learners searching for examen de manejo, prueba de manejo, and U.S. DMV written test practice.",
+          "Helpful for Spanish-speaking learners in the United States or Mexico who search for examen de manejo, prueba de manejo, licencia de conducir, and U.S. DMV written test practice.",
+      },
+      {
+        title: "Independent study tool",
+        description:
+          "The app is not affiliated with any DMV or government agency; learners should verify official documents, fees, appointments, and rules with their state agency.",
       },
     ],
     faq: [
@@ -638,7 +1034,12 @@ const SEO_APP_DATA: Record<string, AppSeoData> = {
       {
         question: "Can Spanish-speaking learners use it for examen de manejo practice?",
         answer:
-          "Yes. The app page is useful for people searching for examen de manejo DMV, prueba de manejo, and U.S. driver license practice. The App Store listing is in English, so learners should check the app before relying on it for Spanish-language study.",
+          "Yes. The page is useful for Spanish-speaking learners in the U.S. and Mexico searching for examen de manejo DMV, prueba de manejo, licencia de conducir Estados Unidos, and U.S. driver license practice. The App Store listing is in English, so learners should check the app before relying on it for Spanish-language study.",
+      },
+      {
+        question: "Is this for Mexico driver license exams?",
+        answer:
+          "No. DMV Practice Test 2026 focuses on U.S. DMV, DPS, BMV, MVA, MVC, RMV, DOT, DOL, and related state-agency written exams. Mexico targeting is for Spanish-speaking learners researching U.S. driver license practice.",
       },
       {
         question: "Which DMV exams does the app focus on?",
@@ -1218,6 +1619,8 @@ const REMOTE_APPS: AppSeed[] = [
     subtitle: "DVSA Mock Test & Hazard Clips",
     packageId: "ios.appx.lgvhgv",
     appStoreId: "6765661241",
+    appStoreSlug: "lgv-theory-test-4-in-1-kit-uk",
+    appStoreCountry: "gb",
     platform: "ios",
     category: "Education",
     iconUrl: "/app-icons/ios.appx.lgvhgv.jpg",
@@ -1282,6 +1685,23 @@ const REMOTE_APPS: AppSeed[] = [
     gradientTo: "#1d4ed8",
   },
   {
+    id: "pokewert",
+    name: "PokeWert · Karten Wert Scanner",
+    subtitle: "Cardmarket EUR card scanner",
+    packageId: "ios.appx.karten.wert.scanner",
+    appStoreId: "6768062606",
+    appStoreSlug: "pokewert-karten-wert-scanner",
+    appStoreCountry: "de",
+    platform: "ios",
+    category: "Utilities",
+    iconUrl: "/app-icons/ios.appx.karten.wert.scanner.jpg",
+    bannerUrl: "/app-icons/ios.appx.karten.wert.scanner.jpg",
+    gradientFrom: "#ef4444",
+    gradientTo: "#0f172a",
+    featured: true,
+    release_date: "2026-06-03",
+  },
+  {
     id: "hair-cut",
     name: "Hair Cut - Color Changer",
     subtitle: "AI hairstyle try-on",
@@ -1311,7 +1731,7 @@ const REMOTE_APPS: AppSeed[] = [
   {
     id: "gimin",
     name: "Gimin - AI Photo Editor",
-    subtitle: "Create polaroid-style images",
+    subtitle: "Create Gimin-style AI images",
     packageId: "ios.appx.nano.banana.image",
     appStoreId: "6751965282",
     platform: "ios",

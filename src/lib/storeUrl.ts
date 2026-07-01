@@ -4,7 +4,7 @@ export type StoreSource = "homepage" | "category" | "app-page" | "how-to" | "com
 export type StorePosition = "hero" | "mid" | "footer" | "entry";
 
 const PLAY_STORE_BASE = "https://play.google.com/store/apps/details";
-const APP_STORE_BASE = "https://apps.apple.com/us/app";
+const APP_STORE_BASE = "https://apps.apple.com";
 
 export function getStoreUrl(
   app: App,
@@ -16,8 +16,9 @@ export function getStoreUrl(
   if (app.platform === "ios") {
     const name = app.appStoreSlug ?? app.id;
     const id = app.appStoreId ?? "";
+    const country = app.appStoreCountry ?? "us";
     const ct = encodeURIComponent(content);
-    return `${APP_STORE_BASE}/${name}/id${id}?pt=ISTACK&ct=${ct}`;
+    return `${APP_STORE_BASE}/${country}/app/${name}/id${id}?pt=ISTACK&ct=${ct}`;
   }
 
   // android or both
@@ -55,5 +56,6 @@ export function getAppStoreUrl(
   if (!app.appStoreId) return "";
   const content = `${app.id}-${source}-${position}`;
   const ct = encodeURIComponent(content);
-  return `${APP_STORE_BASE}/${app.appStoreSlug ?? app.id}/id${app.appStoreId}?pt=ISTACK&ct=${ct}`;
+  const country = app.appStoreCountry ?? "us";
+  return `${APP_STORE_BASE}/${country}/app/${app.appStoreSlug ?? app.id}/id${app.appStoreId}?pt=ISTACK&ct=${ct}`;
 }

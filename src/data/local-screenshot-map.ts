@@ -306,6 +306,14 @@ export const LOCAL_SCREENSHOT_MAP: Record<string, string[]> = {
     "/app-screenshots/ios.appx.tcg.card.value.scanner/2.webp",
     "/app-screenshots/ios.appx.tcg.card.value.scanner/3.webp"
   ],
+  "ios.appx.karten.wert.scanner": [
+    "/app-screenshots/ios.appx.karten.wert.scanner/1.webp",
+    "/app-screenshots/ios.appx.karten.wert.scanner/2.webp",
+    "/app-screenshots/ios.appx.karten.wert.scanner/3.webp",
+    "/app-screenshots/ios.appx.karten.wert.scanner/4.webp",
+    "/app-screenshots/ios.appx.karten.wert.scanner/5.webp",
+    "/app-screenshots/ios.appx.karten.wert.scanner/6.webp"
+  ],
   "ios.hair.color.changer.appx": [
     "/app-screenshots/ios.hair.color.changer.appx/1.webp",
     "/app-screenshots/ios.hair.color.changer.appx/2.webp",
