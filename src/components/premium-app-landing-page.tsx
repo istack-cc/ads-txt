@@ -84,11 +84,21 @@ function platformLabel(app: App) {
 }
 
 function storeCtaLabel(app: App) {
+  if (app.id === "lgv-theory-test") return "Practice on iPhone";
   if (app.platform === "both") return "Get free app";
   return "Free download";
 }
 
 function getProofStats(app: App, category: CategoryLike) {
+  if (app.id === "lgv-theory-test") {
+    return [
+      { value: "85/100", label: "Multiple choice" },
+      { value: "67/100", label: "Hazard pass mark" },
+      { value: "2 parts", label: "Theory test" },
+      { value: "UK", label: "Learner focus" },
+    ];
+  }
+
   return [
     { value: app.rating ? app.rating.toFixed(1) : "4.6", label: "Rating" },
     { value: formatInstalls(app.playStoreInstalls), label: "Reach" },
@@ -129,6 +139,128 @@ function getLifestyleAssets(app: App): LifestyleAsset[] {
     {
       src: "/generated/ai-tanning-beach-lounge.png",
       alt: "Adult women relaxing on a beach with the ocean behind them",
+    },
+  ];
+}
+
+function getDescriptionSectionLimit(app: App) {
+  if (
+    app.id === "ai-tanning" ||
+    app.id === "dmv-practice-test" ||
+    app.id === "hair-cut" ||
+    app.id === "gimin" ||
+    app.id === "lgv-theory-test" ||
+    app.id === "pokewert"
+  ) {
+    return 6;
+  }
+
+  return 3;
+}
+
+function getScreensIntro(app: App) {
+  if (app.id === "pokewert") {
+    return {
+      eyebrow: "Kartenwert im Blick",
+      title: "Scannen, Wert sehen, Sammlung ordnen.",
+      body:
+        "PokeWert zeigt Karten, EUR-Werte, Scan-Ergebnisse und Sammlungsaktionen direkt im Produktkontext. Die Screenshots spiegeln den dunklen violetten Scanner-Look der App.",
+    };
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return {
+      eyebrow: "UK LGV revision",
+      title: "Move from lorry theory search to App Store practice.",
+      body:
+        "The page now treats screenshots as part of a conversion path: UK learner query, DVSA-style study context, real app screens, and a direct iPhone install action.",
+    };
+  }
+
+  return {
+    eyebrow: "Screens",
+    title: "The product stays visible.",
+    body:
+      "A cleaner page should make the app easier to judge. Real screens, compact proof, and direct store actions do the work without extra decoration.",
+  };
+}
+
+function getHowToIntro(app: App) {
+  if (app.id === "pokewert") {
+    return {
+      eyebrow: "So funktioniert es",
+      title: "Drei Schritte vom Scan zur Sammlung.",
+    };
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return {
+      eyebrow: "Revision funnel",
+      title: "Three steps from UK search to LGV practice.",
+    };
+  }
+
+  return {
+    eyebrow: "How it works",
+    title: "Three steps, no friction.",
+  };
+}
+
+function getLandingLabels(app: App, category: CategoryLike) {
+  const isGermanPokeWert = app.id === "pokewert" && category.name === "Dienstprogramme";
+
+  if (isGermanPokeWert) {
+    return {
+      about: "Über",
+      faq: "Häufige Fragen",
+      ready: `Bereit für ${app.name}?`,
+      readyBody: `Kostenlos im ${platformStore(app)}, mit direktem Einstieg in den Karten-Scanner.`,
+      more: `Mehr ${category.name}`,
+      seeAll: "Alle anzeigen",
+    };
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return {
+      about: "UK test prep",
+      faq: "LGV theory test questions",
+      ready: "Ready to revise for your LGV theory test?",
+      readyBody:
+        "Free to download on the App Store, with a direct iPhone path for UK lorry theory, hazard perception, and Driver CPC study sessions.",
+      more: `More ${category.name}`,
+      seeAll: "See all",
+    };
+  }
+
+  return {
+    about: "About",
+    faq: "Frequently asked questions",
+    ready: `Ready to try ${app.name}?`,
+    readyBody: `Free on ${platformStore(app)}, with a direct path into the core workflow.`,
+    more: `More ${category.name}`,
+    seeAll: "See all",
+  };
+}
+
+function getOfficialSourceLinks(app: App) {
+  if (app.id !== "lgv-theory-test") return [];
+
+  return [
+    {
+      label: "GOV.UK theory test guide",
+      href: "https://www.gov.uk/theory-test",
+    },
+    {
+      label: "Book a theory test",
+      href: "https://www.gov.uk/book-theory-test",
+    },
+    {
+      label: "The Highway Code",
+      href: "https://www.gov.uk/guidance/the-highway-code",
+    },
+    {
+      label: "nidirect driving tests",
+      href: "https://www.nidirect.gov.uk/information-and-services/motoring/driving-tests",
     },
   ];
 }
@@ -190,12 +322,17 @@ export function PremiumAppLandingPage({
 }: PremiumAppLandingPageProps) {
   const screenshots = app.screenshots ?? [];
   const primaryScreens = screenshots.slice(0, 3);
+  const galleryScreens = screenshots.slice(0, app.id === "lgv-theory-test" ? 4 : 3);
   const stats = getProofStats(app, category);
   const features = getFeatures(app);
   const lifestyleAssets = getLifestyleAssets(app);
+  const screensIntro = getScreensIntro(app);
+  const howToIntro = getHowToIntro(app);
+  const labels = getLandingLabels(app, category);
+  const officialSourceLinks = getOfficialSourceLinks(app);
   const sections = (descSections.length ? descSections : [{ body: app.description }]).slice(
     0,
-    app.id === "ai-tanning" ? 6 : 3
+    getDescriptionSectionLimit(app)
   );
   const accentStyle = {
     "--app-accent": app.gradientFrom,
@@ -310,22 +447,21 @@ export function PremiumAppLandingPage({
           <section id="screens" className="scroll-mt-24 border-t px-5 py-20 md:px-8 lg:px-10">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.72fr_1fr]">
               <div className="max-w-xl">
-                <p className="text-sm font-bold text-[var(--app-accent)]">Screens</p>
+                <p className="text-sm font-bold text-[var(--app-accent)]">{screensIntro.eyebrow}</p>
                 <h2 className="mt-3 text-balance text-4xl font-black leading-tight md:text-6xl">
-                  The product stays visible.
+                  {screensIntro.title}
                 </h2>
                 <p className="mt-5 text-pretty text-base leading-8 text-muted-foreground">
-                  A cleaner page should make the app easier to judge. Real screens, compact proof,
-                  and direct store actions do the work without extra decoration.
+                  {screensIntro.body}
                 </p>
               </div>
-              <div className="grid gap-4 sm:grid-cols-3">
-                {(primaryScreens.length ? primaryScreens : [app.iconUrl, app.bannerUrl, app.iconUrl]).map((src, index) => (
+              <div className={cn("grid gap-4 sm:grid-cols-2", galleryScreens.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3")}>
+                {(galleryScreens.length ? galleryScreens : [app.iconUrl, app.bannerUrl, app.iconUrl]).map((src, index) => (
                   <Card key={`${src}-${index}`} className="overflow-hidden rounded-lg">
                     <CardContent className="p-2">
                       <Image
                         src={src}
-                        alt={primaryScreens.length ? `${app.name} screenshot ${index + 1}` : ""}
+                        alt={`${app.name} screenshot ${index + 1}`}
                         width={320}
                         height={680}
                         className="aspect-[9/19] w-full rounded-md object-cover object-top"
@@ -397,9 +533,9 @@ export function PremiumAppLandingPage({
           <section className="border-y bg-muted/35 px-5 py-20 md:px-8 lg:px-10">
             <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.56fr_1fr]">
               <div>
-                <p className="text-sm font-bold text-[var(--app-accent)]">How it works</p>
+                <p className="text-sm font-bold text-[var(--app-accent)]">{howToIntro.eyebrow}</p>
                 <h2 className="mt-3 text-balance text-4xl font-black leading-tight md:text-5xl">
-                  Three steps, no friction.
+                  {howToIntro.title}
                 </h2>
               </div>
               <div className="grid gap-px overflow-hidden rounded-lg border bg-border">
@@ -421,7 +557,7 @@ export function PremiumAppLandingPage({
           <section className="px-5 py-20 md:px-8 lg:px-10">
             <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.58fr_1fr]">
               <div>
-                <p className="text-sm font-bold text-[var(--app-accent)]">About</p>
+                <p className="text-sm font-bold text-[var(--app-accent)]">{labels.about}</p>
                 <h2 className="mt-3 text-balance text-4xl font-black leading-tight md:text-5xl">
                   {app.name}
                 </h2>
@@ -444,6 +580,33 @@ export function PremiumAppLandingPage({
                     </CardHeader>
                   </Card>
                 ))}
+                {officialSourceLinks.length > 0 && (
+                  <Card className="rounded-lg">
+                    <CardHeader>
+                      <CardTitle>Official checks</CardTitle>
+                      <CardDescription className="text-base leading-8">
+                        Confirm current test rules, booking steps, fees, documents, and pass requirements with official UK sources before relying on any revision app.
+                      </CardDescription>
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {officialSourceLinks.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cn(
+                              buttonVariants({ variant: "outline", size: "sm" }),
+                              "rounded-full"
+                            )}
+                          >
+                            {link.label}
+                            <ExternalLink aria-hidden="true" className="ml-1 size-3.5" />
+                          </a>
+                        ))}
+                      </div>
+                    </CardHeader>
+                  </Card>
+                )}
               </div>
             </div>
           </section>
@@ -471,7 +634,7 @@ export function PremiumAppLandingPage({
           <section id="faq" className="scroll-mt-24 border-t px-5 py-20 md:px-8 lg:px-10">
             <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.55fr_1fr]">
               <h2 className="text-balance text-4xl font-black leading-tight md:text-5xl">
-                Frequently asked questions
+                {labels.faq}
               </h2>
               <dl className="grid gap-px overflow-hidden rounded-lg border bg-border">
                 {faqs.map((faq) => (
@@ -491,10 +654,10 @@ export function PremiumAppLandingPage({
             <div className="mx-auto grid max-w-7xl items-center gap-8 rounded-lg border bg-foreground p-6 text-background md:grid-cols-[1fr_auto] md:p-8">
               <div>
                 <h2 className="text-balance text-3xl font-black leading-tight md:text-5xl">
-                  Ready to try {app.name}?
+                  {labels.ready}
                 </h2>
                 <p className="mt-3 max-w-2xl text-sm leading-7 text-background/70">
-                  Free on {platformStore(app)}, with a direct path into the core workflow.
+                  {labels.readyBody}
                 </p>
               </div>
               <PremiumDownloadLink app={app} href={footerUrl} className="shadow-white/10 hover:shadow-white/20" />
@@ -505,9 +668,9 @@ export function PremiumAppLandingPage({
             <section className="border-t px-5 py-16 md:px-8 lg:px-10">
               <div className="mx-auto max-w-7xl">
                 <div className="flex items-end justify-between gap-6">
-                  <h2 className="text-3xl font-black tracking-normal">More {category.name}</h2>
+                  <h2 className="text-3xl font-black tracking-normal">{labels.more}</h2>
                   <Link href={`/category/${category.slug}/`} className="text-sm font-bold text-muted-foreground hover:text-foreground">
-                    See all
+                    {labels.seeAll}
                   </Link>
                 </div>
                 <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
@@ -543,7 +706,7 @@ function PremiumNav({ app }: { app: App }) {
         <Link href="/" className="flex min-w-0 items-center gap-3">
           <Image
             src={app.iconUrl}
-            alt=""
+            alt={`${app.name} icon`}
             width={36}
             height={36}
             className="size-9 rounded-md object-cover"

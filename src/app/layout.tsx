@@ -22,9 +22,10 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "iStack — Free Android & iOS Apps for Everyday Tasks",
+  applicationName: "iStack",
+  title: "iStack Free Apps - Android & iPhone Tools, No Account",
   description:
-    "iStack makes free Android and iOS apps for workouts, photo editing, documents, device utilities, and everyday phone tasks. Browse 46+ apps on Google Play and App Store.",
+    "Browse 52 free iStack Android and iPhone apps for photos, documents, utilities, fitness, education, and voice tools. No account required for core features.",
   alternates: { canonical: "/" },
   verification: {
     google: "K_nylkNpeneEp5GXz4IvWbnOoiqg9kmVOCWazEPBNKU",
@@ -57,9 +58,9 @@ export const metadata: Metadata = {
     "home workout app",
   ],
   openGraph: {
-    title: "iStack — Free Android & iOS Apps for Everyday Tasks",
+    title: "iStack Free Apps - Android & iPhone Tools, No Account",
     description:
-      "iStack makes free Android and iOS apps for workouts, photo editing, documents, device utilities, and everyday phone tasks. Browse 46+ apps on Google Play and App Store.",
+      "Browse 52 free iStack Android and iPhone apps for photos, documents, utilities, fitness, education, and voice tools.",
     type: "website",
     url: "/",
     siteName: "iStack",
@@ -67,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "iStack — Free Android & iOS Apps for Everyday Tasks",
+    title: "iStack Free Apps - Android & iPhone Tools, No Account",
     description:
-      "iStack makes free Android and iOS apps for workouts, photo editing, documents, utilities, and everyday phone tasks. 46+ apps on Google Play and App Store.",
+      "Browse 52 free iStack Android and iPhone apps for photos, documents, utilities, fitness, education, and voice tools.",
   },
 };
 

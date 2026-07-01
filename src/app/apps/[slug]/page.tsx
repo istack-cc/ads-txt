@@ -40,6 +40,54 @@ function toAbsoluteUrl(url: string) {
   return `${SITE_URL}${url.startsWith("/") ? url : `/${url}`}`;
 }
 
+function getAppLanguageAlternates(app: App, canonical: string) {
+  if (app.id !== "pokewert") return undefined;
+
+  const germanCanonical = "/de/apps/pokewert/";
+
+  return {
+    "en-US": canonical,
+    "de-DE": germanCanonical,
+    "de-AT": germanCanonical,
+    "de-CH": germanCanonical,
+    "de-LU": germanCanonical,
+    "de-LI": germanCanonical,
+    "x-default": canonical,
+  };
+}
+
+function getAppOpenGraphLocale(app: App) {
+  if (app.id === "pokewert") {
+    return {
+      locale: "de_DE",
+      alternateLocale: ["de_AT", "de_CH", "de_LU", "de_LI", "en_US"],
+    };
+  }
+
+  return {
+    locale: "en_US",
+    alternateLocale: undefined,
+  };
+}
+
+function getAppOpenGraphImage(app: App, alt: string) {
+  if (app.id === "pokewert") {
+    return {
+      url: toAbsoluteUrl("/generated/pokewert-og.jpg"),
+      width: 1200,
+      height: 675,
+      alt,
+    };
+  }
+
+  return {
+    url: toAbsoluteUrl(app.bannerUrl),
+    width: 1200,
+    height: 675,
+    alt,
+  };
+}
+
 function cleanText(value: string) {
   return value.replace(/\s+/g, " ").trim();
 }
@@ -61,11 +109,39 @@ function getPlatformLabel(app: App) {
 
 function buildAppTitle(app: App) {
   if (app.id === "dmv-practice-test") {
-    return "DMV Practice Test 2026 & CDL Prep App | iStack";
+    return "US DMV Practice Test 2026 - Examen de Manejo | iStack";
   }
 
   if (app.id === "ai-tanning") {
-    return "UV Index Tanning Timer & SPF Reminder App | iStack";
+    return "UV Index Tanning Timer & SPF Reminder | iStack";
+  }
+
+  if (app.id === "time-warp-scan") {
+    return "Time Warp Scan App - Warp Scanner & Effect | iStack";
+  }
+
+  if (app.id === "gps-photo") {
+    return "GPS Photo Stamp App - Location Stamp Camera | iStack";
+  }
+
+  if (app.id === "color-picker") {
+    return "Color Detector App - Color Code Scanner | iStack";
+  }
+
+  if (app.id === "gimin") {
+    return "Gimin App - Create Gimin Style Images | iStack";
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return "LGV Theory Test App UK - HGV DVSA Prep | iStack";
+  }
+
+  if (app.id === "hair-cut") {
+    return "Hairstyle Try-On & Hair Color Changer | iStack";
+  }
+
+  if (app.id === "pokewert") {
+    return "PokeWert Karten Wert Scanner Deutschland | iStack";
   }
 
   const cleanedKeyword = cleanText(
@@ -88,11 +164,39 @@ function buildAppTitle(app: App) {
 
 function buildAppDescription(app: App) {
   if (app.id === "dmv-practice-test") {
-    return "Prepare for U.S. DMV permit tests, CDL practice, road signs, and driver license written exams. Includes Spanish-search support for examen de manejo learners.";
+    return "Prepare for U.S. DMV permit tests, CDL, road signs, and written exams. Spanish-search support for examen de manejo learners in the US and Mexico.";
   }
 
   if (app.id === "ai-tanning") {
-    return "Plan sun exposure with live UV index, Fitzpatrick skin type, SPF reminders, sunburn timer, vitamin D estimates, and 7-day forecasts.";
+    return "Use live UV index, SPF reminders, sunburn timing, vitamin D estimates, and Mexico beach forecasts to plan safer sun sessions.";
+  }
+
+  if (app.id === "time-warp-scan") {
+    return "Create scan warp videos, time warp effects, and viral freeze-frame distortions on Android. Free warp scanner camera app from iStack.";
+  }
+
+  if (app.id === "gps-photo") {
+    return "Add GPS coordinates, address, date, and digital photo location stamps on Android. Free location stamp camera app from iStack.";
+  }
+
+  if (app.id === "color-picker") {
+    return "Identify colors from camera input and images on Android. Free color detector, color checker, and color code scanner from iStack.";
+  }
+
+  if (app.id === "gimin") {
+    return "Download Gimin for iPhone and create Gimin-style AI images, face swaps, object removal edits, polaroid looks, cartoons, and headshots.";
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return "Prepare for the UK LGV and HGV theory test on iPhone with DVSA-style multiple choice, hazard perception, mock tests, and Driver CPC revision.";
+  }
+
+  if (app.id === "hair-cut") {
+    return "Try hairstyles, hair colors, highlights, ombre, balayage, and haircut ideas on iPhone before a salon visit in the US or Canada.";
+  }
+
+  if (app.id === "pokewert") {
+    return "Scan trading cards on iPhone, check Cardmarket-style EUR values, and track collections for Germany, Austria, Switzerland, and German speakers.";
   }
 
   const base = cleanText(app.short_description || app.description);
@@ -235,6 +339,57 @@ function getHowToSteps(app: App) {
     ];
   }
 
+  if (app.id === "gimin") {
+    return [
+      {
+        name: "Download Gimin for iPhone",
+        text: "Open the Gimin App Store listing from iStack and install the AI photo and face editor on iPhone.",
+      },
+      {
+        name: "Choose a Gimin style image workflow",
+        text: "Start with a selfie, portrait, product photo, room image, or creative prompt depending on whether you want a polaroid look, cartoon portrait, headshot, tattoo preview, or cleanup edit.",
+      },
+      {
+        name: "Create, review, and export",
+        text: "Use Gimin's AI photo tools for face swap, object removal, image generation, and enhancement, then save or share the finished Gimin-style image.",
+      },
+    ];
+  }
+
+  if (app.id === "pokewert") {
+    return [
+      {
+        name: "Download PokeWert from the German App Store",
+        text: "Install PokeWert on iPhone from the German App Store and open it before checking cards at home, at a shop, or at a local collecting event.",
+      },
+      {
+        name: "Scan a card and review EUR value",
+        text: "Use the camera scanner to identify a card and review German-market value context such as Cardmarket-style euro pricing, trend, low-price, and recent average signals when available.",
+      },
+      {
+        name: "Track your collection and wishlist",
+        text: "Save cards into your collection or wishlist so German-speaking collectors can monitor estimated portfolio value and missing cards in one workflow.",
+      },
+    ];
+  }
+
+  if (app.id === "lgv-theory-test") {
+    return [
+      {
+        name: "Download the UK LGV theory app",
+        text: "Open the GB App Store listing from this page and install LGV Theory Test: 4 in 1 Kit UK on iPhone before your next lorry theory revision session.",
+      },
+      {
+        name: "Practise multiple choice and hazard perception",
+        text: "Use short sessions for LGV/HGV multiple-choice topics, road signs, safe driving rules, and hazard perception timing before booking or retaking the official test.",
+      },
+      {
+        name: "Confirm official rules before booking",
+        text: "Treat the app as revision support, then check GOV.UK or nidirect for current booking rules, fees, documents, eligibility, pass marks, and Driver CPC requirements.",
+      },
+    ];
+  }
+
   // Derive a verb phrase from short_description's first sentence
   const firstSentence = app.short_description.split(/[.!?]/)[0].trim().toLowerCase();
 
@@ -295,6 +450,41 @@ function getRelatedSeoLinks(app: App) {
         description: "Compare free bodyweight training apps for home workouts.",
       },
     ],
+    "time-warp-scan": [
+      {
+        title: "How to make a time warp camera effect",
+        href: "/how-to/how-to-make-a-time-warp-camera-effect/",
+        description: "Use the warp scanner workflow to create scan warp videos and freeze-frame effects.",
+      },
+    ],
+    "color-picker": [
+      {
+        title: "How to identify colors from your camera",
+        href: "/how-to/how-to-identify-colors-from-camera/",
+        description: "Use Color Picker as a color detector, color checker, and color code scanner.",
+      },
+    ],
+    "gps-photo": [
+      {
+        title: "How to add a digital photo location stamp",
+        href: "/how-to/how-to-add-location-stamps-to-digital-photos/",
+        description: "Add GPS coordinates, address, date, and time directly onto Android photos.",
+      },
+    ],
+    "gimin": [
+      {
+        title: "How to create a Gimin style image",
+        href: "/how-to/how-to-create-a-gimin-style-image/",
+        description: "Follow the step-by-step iPhone guide for Gimin style images, AI photo edits, and image style workflows.",
+      },
+    ],
+    "lgv-theory-test": [
+      {
+        title: "How to prepare for the LGV theory test in the UK",
+        href: "/how-to/how-to-prepare-for-the-lgv-theory-test-uk/",
+        description: "Use the web-to-app revision path for LGV multiple choice, hazard perception, and Driver CPC study.",
+      },
+    ],
   };
 
   return linksByApp[app.id] ?? [];
@@ -328,6 +518,8 @@ export async function generateMetadata({
   const pageTitle = buildAppTitle(app);
   const pageDescription = buildAppDescription(app);
   const canonical = `/apps/${app.id}/`;
+  const openGraphLocale = getAppOpenGraphLocale(app);
+  const openGraphImage = getAppOpenGraphImage(app, titleH1);
 
   return {
     title: pageTitle,
@@ -338,26 +530,24 @@ export async function generateMetadata({
       app.primary_keyword,
       ...app.secondary_keywords,
     ],
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: getAppLanguageAlternates(app, canonical),
+    },
     openGraph: {
       title: pageTitle,
       description: pageDescription,
       type: "website",
       url: canonical,
-      images: [
-        {
-          url: toAbsoluteUrl(app.bannerUrl),
-          width: 1200,
-          height: 675,
-          alt: titleH1,
-        },
-      ],
+      locale: openGraphLocale.locale,
+      alternateLocale: openGraphLocale.alternateLocale,
+      images: [openGraphImage],
     },
     twitter: {
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [toAbsoluteUrl(app.bannerUrl)],
+      images: [openGraphImage.url],
     },
     other: {
       "article:section": category.name,

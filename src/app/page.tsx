@@ -32,6 +32,7 @@ import { CATEGORIES_LIST } from "@/data/categories";
 import { ORGANIZATION } from "@/data/organization";
 import {
   generateGraph,
+  generateHomePageSchema,
   generateItemListSchema,
   generateOrganizationSchema,
   generateWebSiteSchema,
@@ -110,6 +111,7 @@ const PRINCIPLES = [
 const jsonLd = generateGraph([
   generateOrganizationSchema(),
   generateWebSiteSchema(),
+  generateHomePageSchema(),
   generateItemListSchema(FEATURED, "iStack Featured Apps"),
 ]);
 

@@ -174,19 +174,19 @@ export function DmvPracticeLandingPage({
                 Formal study. Fun momentum.
               </p>
               <h2 className="mx-auto mt-4 max-w-4xl text-4xl font-black leading-tight tracking-[-1px] md:text-6xl">
-                Practice that feels credible, clear, and surprisingly light.
+                U.S. DMV practice for permit, CDL, and written-test prep.
               </h2>
               <DmvAnimatedText
-                text="The page now uses a bright trust palette, visible proof elements, and real app screens without leaning into a government look or cartoon style."
+                text="DMV Practice Test 2026 helps learners review state-style questions, road signs, Class C topics, CDL practice, and motorcycle permit material before a real U.S. DMV or motor vehicle appointment."
                 className="mx-auto mt-5 max-w-2xl text-base font-medium leading-8 text-[#5b7288]"
               />
             </MotionReveal>
 
             <div className="mt-14 grid gap-5 md:grid-cols-3">
               {[
-                ["State-style focus", "Practice signs, rules, and written-exam recall without heavy manuals."],
-                ["Mock-test rhythm", "Short sessions make progress feel measurable instead of vague."],
-                ["Proof-forward prep", "Attestations, rating cues, and readiness cards reinforce confidence."],
+                ["All 50 U.S. states", "Review DMV, DPS, BMV, MVA, MVC, RMV, DOT, DOL, and related state-agency written-test topics."],
+                ["Spanish-search friendly", "Written for learners in the United States and Mexico searching for examen de manejo, prueba de manejo, and licencia de conducir Estados Unidos."],
+                ["Independent study tool", "Not affiliated with, endorsed by, or connected to any DMV, state motor vehicle agency, or government office."],
               ].map(([title, description], index) => (
                 <MotionReveal key={title} delay={index * 90}>
                   <article className="h-full rounded-[16px] border border-[#dbe8f5] bg-white p-7 text-left shadow-[0_24px_80px_-64px_rgba(15,60,130,0.38)]">
@@ -224,11 +224,16 @@ export function DmvPracticeLandingPage({
                 Proof points that make prep feel real.
               </h2>
               <p className="mt-5 text-base leading-8 text-[#5b7288]">
-                A formal landing page still needs human reassurance. Rating cues, pass-score cards,
-                testimonial panels, and real app UI give visitors reasons to believe before they tap.
+                Learners can use quick practice, mock-test rhythm, road-sign review, and state-style
+                question categories to build recall before checking official requirements with their
+                state agency.
               </p>
               <div className="mt-7 grid gap-3">
-                {["Score-style readiness cards", "Five-star attestation cues", "Real app screenshot evidence"].map((item) => (
+                {[
+                  "U.S. permit test and written exam review",
+                  "CDL, Class C, motorcycle, road signs, and traffic rules",
+                  "Spanish-search support for U.S. driving test practice",
+                ].map((item) => (
                   <div key={item} className="flex items-center gap-3 text-sm font-bold text-[#245078]">
                     <Check className="h-5 w-5 rounded-full bg-[#e8f8ef] p-1 text-[#08a852]" />
                     {item}
@@ -333,7 +338,8 @@ export function DmvPracticeLandingPage({
                   Study with structure and a little momentum.
                 </h2>
                 <p className="mt-5 text-base leading-8 text-white/68">
-                  Keep the page formal enough to earn trust and fun enough to feel approachable.
+                  Practice independently, then confirm current documents, fees, appointment rules,
+                  and testing requirements with your official DMV or state motor vehicle agency.
                 </p>
                 <StoreBadgeGroup
                   app={app}
@@ -381,7 +387,7 @@ export function DmvPracticeLandingPage({
               </a>
             </MotionReveal>
             <div className="space-y-5">
-              {descSections.slice(0, 4).map((section, index) => (
+              {descSections.slice(0, 6).map((section, index) => (
                 <MotionReveal key={index} delay={index * 70}>
                   <article className="rounded-[18px] border border-[#dbe8f5] bg-white p-5">
                     {section.heading && <h3 className="mb-2 font-black">{section.heading}</h3>}

@@ -18,6 +18,21 @@ export function generateOrganizationSchema() {
       url: ORGANIZATION.logo,
     },
     sameAs: ORGANIZATION.sameAs,
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: ORGANIZATION.contact_email,
+      contactType: "customer support",
+      availableLanguage: ["English"],
+    },
+    knowsAbout: [
+      "free Android apps",
+      "iPhone apps",
+      "mobile productivity apps",
+      "AI photo editing apps",
+      "phone utility apps",
+      "health and fitness apps",
+      "app store optimization",
+    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: ORGANIZATION.aggregate_stats.avg_rating,
@@ -34,6 +49,31 @@ export function generateWebSiteSchema() {
     url: SITE_URL,
     name: ORGANIZATION.name,
     publisher: { "@id": ORG_ID },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE_URL}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function generateHomePageSchema() {
+  return {
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/#homepage`,
+    url: SITE_URL,
+    name: "iStack Free Android and iPhone Apps",
+    description:
+      "iStack is an independent mobile app publisher with free Android and iPhone apps for photos, documents, utilities, fitness, education, personalization, and voice workflows.",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: { "@id": ORG_ID },
+    about: [
+      "free mobile apps",
+      "Android utility apps",
+      "iPhone apps",
+      "AI photo apps",
+      "productivity apps",
+    ],
   };
 }
 
@@ -43,6 +83,7 @@ function schemaCategory(app: App): string {
     case "Photography": return "MultimediaApplication";
     case "Productivity": return "BusinessApplication";
     case "Personalization": return "PersonalizationApplication";
+    case "Education": return "EducationalApplication";
     default: return "UtilitiesApplication";
   }
 }
@@ -54,7 +95,7 @@ export function generateSoftwareApplicationSchema(app: App) {
     ? `https://play.google.com/store/apps/details?id=${app.packageId}`
     : undefined;
   const iosUrl = app.appStoreId
-    ? `https://apps.apple.com/us/app/${app.appStoreSlug ?? app.id}/id${app.appStoreId}`
+    ? `https://apps.apple.com/${app.appStoreCountry ?? "us"}/app/${app.appStoreSlug ?? app.id}/id${app.appStoreId}`
     : undefined;
   const downloadUrl = [playUrl, iosUrl].filter((url): url is string => Boolean(url));
 
@@ -75,7 +116,7 @@ export function generateSoftwareApplicationSchema(app: App) {
     offers: {
       "@type": "Offer",
       price: "0",
-      priceCurrency: "USD",
+      priceCurrency: app.id === "pokewert" ? "EUR" : app.id === "lgv-theory-test" ? "GBP" : "USD",
     },
     author: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
@@ -85,16 +126,20 @@ export function generateSoftwareApplicationSchema(app: App) {
   if (app.playStoreContentRating) schema.contentRating = app.playStoreContentRating;
   if (app.id === "ai-tanning") {
     schema.applicationSubCategory = "Weather";
-    schema.contentRating = "4+";
+    schema.contentRating = "9+";
     schema.softwareRequirements = "Requires iOS 18.0 or later";
     schema.softwareVersion = "1.0.1";
     schema.keywords = [
       app.primary_keyword,
       ...app.secondary_keywords,
       "Fitzpatrick skin type",
+      "UV index tanning timer",
       "UV index forecast",
+      "SPF reminder beach app",
       "sunscreen reapplication reminder",
       "Mexico beach UV planning",
+      "indice UV Mexico",
+      "protector solar reminder",
     ].join(", ");
     schema.featureList = [
       "Live UV index planning",
@@ -104,6 +149,117 @@ export function generateSoftwareApplicationSchema(app: App) {
       "Vitamin D exposure estimates",
       "7-day UV forecast",
       "Session history",
+      "U.S. and Mexico UV planning",
+    ];
+  }
+
+  if (app.id === "hair-cut") {
+    schema.applicationSubCategory = "AI Hairstyle Editor";
+    schema.contentRating = "4+";
+    schema.softwareRequirements = "Requires iOS 16.6 or later";
+    schema.softwareVersion = "1.1.1";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "US hairstyle try-on",
+      "Canada hair color changer",
+      "salon preview app",
+    ].join(", ");
+    schema.featureList = [
+      "AI hairstyle try-on",
+      "Hair color changer",
+      "Highlights and ombre preview",
+      "Balayage color preview",
+      "U.S. and Canada salon decision support",
+    ];
+  }
+
+  if (app.id === "time-warp-scan") {
+    schema.applicationSubCategory = "Photo and Video";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "warp scanner app",
+      "scan warp video",
+      "time warp effect camera",
+    ].join(", ");
+    schema.featureList = [
+      "Warp scanner camera",
+      "Scan warp photo and video effects",
+      "Time warp effect capture",
+      "Freeze-frame distortion camera",
+      "Fast save and share workflow",
+    ];
+  }
+
+  if (app.id === "gps-photo") {
+    schema.applicationSubCategory = "Photography Utility";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "digital photos location stamp",
+      "GPS stamp camera",
+      "latitude longitude photo stamp",
+    ].join(", ");
+    schema.featureList = [
+      "Digital photo location stamp",
+      "GPS coordinates on photos",
+      "Address, date, and time stamp",
+      "Geotag photo workflow",
+      "Free Android location camera",
+    ];
+  }
+
+  if (app.id === "color-picker") {
+    schema.applicationSubCategory = "Color Utility";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "colour detector",
+      "color code scanner app",
+      "camera color checker",
+    ].join(", ");
+    schema.featureList = [
+      "Camera color detector",
+      "Color code scanner",
+      "Color checker for Android",
+      "Identify colors from camera input",
+      "Capture color values from images",
+    ];
+  }
+
+  if (app.id === "gimin") {
+    schema.applicationSubCategory = "AI Photo Editor";
+    schema.contentRating = "4+";
+    schema.softwareRequirements = "Requires iOS";
+    schema.softwareVersion = "2.2.1";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "Gimin app",
+      "download Gimin iPhone",
+      "Gimin style AI image",
+      "Gimin image style",
+      "Gimin style image creator",
+      "Gimin style photo edit",
+      "Gimin photo style",
+      "AI polaroid image generator",
+      "iPhone AI photo editor",
+      "face swap photo editor",
+      "object removal photo editor",
+    ].join(", ");
+    schema.featureList = [
+      "Gimin iPhone app download",
+      "AI photo and face editing",
+      "Face swap",
+      "Object removal",
+      "AI image generation",
+      "Polaroid-style image creation",
+      "Cartoon filter portraits",
+      "Professional headshot generation",
+      "Tattoo try-on previews",
+      "Interior design visualization",
+      "One-tap photo enhancement",
     ];
   }
 
@@ -123,6 +279,8 @@ export function generateSoftwareApplicationSchema(app: App) {
       "Class C driver license",
       "examen de manejo",
       "prueba de manejo",
+      "licencia de conducir Estados Unidos",
+      "preguntas para licencia de conducir USA",
     ].join(", ");
     schema.featureList = [
       "DMV permit test practice",
@@ -132,6 +290,54 @@ export function generateSoftwareApplicationSchema(app: App) {
       "Class C written exam prep",
       "Road signs and traffic rules",
       "Independent, non-government study app",
+      "Spanish-search support for U.S. DMV learners",
+    ];
+  }
+
+  if (app.id === "lgv-theory-test") {
+    schema.applicationSubCategory = "Driver Education";
+    schema.contentRating = "4+";
+    schema.softwareRequirements = "Requires iOS";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "LGV theory test UK",
+      "HGV theory test UK",
+      "DVSA lorry theory test",
+      "Driver CPC part 1",
+      "LGV hazard perception",
+      "lorry multiple choice questions",
+      "UK lorry driver revision",
+    ].join(", ");
+    schema.featureList = [
+      "UK LGV theory test revision",
+      "HGV theory test practice",
+      "DVSA-style multiple choice study",
+      "LGV hazard perception practice",
+      "Driver CPC revision support",
+      "GB App Store install path",
+      "Independent, non-government study app",
+    ];
+  }
+
+  if (app.id === "pokewert") {
+    schema.applicationSubCategory = "Trading Card Utility";
+    schema.contentRating = "4+";
+    schema.softwareRequirements = "Requires iOS";
+    schema.keywords = [
+      app.primary_keyword,
+      ...app.secondary_keywords,
+      "Kartenwert Scanner",
+      "Pokemon Karten Preise Euro",
+      "DACH TCG collector app",
+    ].join(", ");
+    schema.featureList = [
+      "Karten Wert Scanner",
+      "Cardmarket-style EUR price context",
+      "Trading card collection tracker",
+      "Wishlist tracking",
+      "Germany, Austria, and Switzerland collector workflow",
+      "Independent TCG utility",
     ];
   }
   if (app.rating) {
@@ -142,23 +348,54 @@ export function generateSoftwareApplicationSchema(app: App) {
     };
   }
 
+  if (!schema.keywords) {
+    schema.keywords = [app.primary_keyword, ...app.secondary_keywords].join(", ");
+  }
+
+  if (!schema.featureList && app.features.length > 0) {
+    schema.featureList = app.features.map((feature) => feature.title);
+  }
+
   Object.assign(schema, {
     downloadUrl: downloadUrl.length === 1 ? downloadUrl[0] : downloadUrl,
     sameAs: downloadUrl,
-    inLanguage: "en-US",
+    inLanguage: app.id === "pokewert" ? ["de-DE", "en-US"] : app.id === "lgv-theory-test" ? "en-GB" : "en-US",
     audience: {
       "@type": "Audience",
       audienceType: app.id === "dmv-practice-test"
-        ? "U.S. learner drivers, CDL learners, permit test learners, and Spanish-speaking driver exam learners"
+        ? "U.S. learner drivers, CDL learners, permit test learners, and Spanish-speaking U.S. driver exam learners in the United States and Mexico"
+        : app.id === "lgv-theory-test"
+          ? "United Kingdom learner lorry drivers preparing for LGV, HGV, DVSA theory, hazard perception, and Driver CPC revision"
         : app.id === "ai-tanning"
           ? "U.S. and Mexico beachgoers, vacation travelers, summer skincare users, and Spanish-speaking UV safety learners"
-          : `${app.category} app users`,
+          : app.id === "hair-cut"
+            ? "United States and Canada iPhone users comparing hairstyles, hair colors, highlights, ombre, balayage, and salon looks"
+            : app.id === "pokewert"
+              ? "German-speaking trading card collectors in Germany, Austria, Switzerland, Luxembourg, and Liechtenstein"
+              : `${app.category} app users`,
       geographicArea: app.id === "dmv-practice-test" || app.id === "ai-tanning"
         ? [
             { "@type": "Country", name: "United States" },
             { "@type": "Country", name: "Mexico" },
           ]
-        : undefined,
+        : app.id === "lgv-theory-test"
+          ? [
+              { "@type": "Country", name: "United Kingdom" },
+            ]
+        : app.id === "hair-cut"
+          ? [
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "Canada" },
+            ]
+          : app.id === "pokewert"
+            ? [
+                { "@type": "Country", name: "Germany" },
+                { "@type": "Country", name: "Austria" },
+                { "@type": "Country", name: "Switzerland" },
+                { "@type": "Country", name: "Luxembourg" },
+                { "@type": "Country", name: "Liechtenstein" },
+              ]
+            : undefined,
     },
   });
 

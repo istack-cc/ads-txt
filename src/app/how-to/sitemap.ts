@@ -10,6 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/how-to/${article.slug}/`,
     lastModified: new Date(article.last_updated),
     changeFrequency: "monthly" as const,
-    priority: 0.7,
+    priority: article.app_id === "gimin" || article.app_id === "lgv-theory-test" ? 0.8 : 0.7,
   }));
 }

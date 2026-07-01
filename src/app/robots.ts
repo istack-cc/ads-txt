@@ -28,7 +28,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/" },
       ...AI_CRAWLERS.map((bot) => ({ userAgent: bot, allow: "/" })),
     ],
-    // Single sitemap index — Google follows it to discover all child sitemaps.
+    // Single flat sitemap entrypoint for Google Search Console.
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

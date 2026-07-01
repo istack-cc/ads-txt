@@ -221,6 +221,138 @@ export const HOW_TO_ARTICLES: HowToArticle[] = [
   },
 
   {
+    slug: "how-to-make-a-time-warp-camera-effect",
+    title: "How to make a time warp camera effect on Android",
+    description:
+      "Time Warp Scan creates scan warp videos and freeze-frame distortions with a moving scan line. Use this guide to make a time warp camera effect on Android without a separate video editor.",
+    app_id: "time-warp-scan",
+    steps: [
+      {
+        name: "Install Time Warp Scan",
+        text: "Download Time Warp Scan from Google Play and open the app. The warp scanner workflow is free to start and does not require an account.",
+      },
+      {
+        name: "Choose the scan direction",
+        text: "Pick the scan line direction that fits the effect you want. A vertical line works well for face stretch effects, while a horizontal line works well for motion and pose distortions.",
+      },
+      {
+        name: "Hold still or move with the scan line",
+        text: "Start recording and time your movement with the scan line. Hold one part of the frame still, then move another part as the line passes to create a scan warp or time warp effect.",
+      },
+      {
+        name: "Save and share the result",
+        text: "Preview the result, save the scan warp video or photo to your phone, and share it to your preferred social app.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a time warp camera effect?",
+        answer:
+          "A time warp camera effect captures different parts of the frame at different moments. The result can stretch motion, bend faces, freeze objects, or create a scan warp video.",
+      },
+      {
+        question: "Can I make a scan warp video on Android?",
+        answer:
+          "Yes. Time Warp Scan is an Android warp scanner app for creating scan warp videos, time warp effects, and freeze-frame camera distortions.",
+      },
+      {
+        question: "Do I need a video editor for a warp scanner effect?",
+        answer:
+          "No. Time Warp Scan creates the moving scan line effect inside the app, so you can capture, save, and share the result without a separate editing tool.",
+      },
+    ],
+    last_updated: "June 9, 2026",
+  },
+
+  {
+    slug: "how-to-identify-colors-from-camera",
+    title: "How to identify colors from your camera on Android",
+    description:
+      "Color Picker works as a camera color detector, color checker, and color code scanner for Android. Use it to identify colors from objects, images, and surfaces.",
+    app_id: "color-picker",
+    steps: [
+      {
+        name: "Install Color Picker",
+        text: "Download Color Picker from Google Play and open the app. You can start checking colors without creating an account.",
+      },
+      {
+        name: "Point the camera at the color",
+        text: "Aim your phone camera at the object, surface, screen, or sample you want to check. Use stable lighting for a cleaner color reading.",
+      },
+      {
+        name: "Capture the color value",
+        text: "Use the color detector view to identify the visible color and capture practical color code details for notes, design work, decor matching, or creative projects.",
+      },
+      {
+        name: "Save or reuse the result",
+        text: "Copy or record the color value, then reuse it in your design file, reference note, or project brief.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the difference between a color detector and a color checker?",
+        answer:
+          "A color detector identifies a color from camera input or an image. A color checker is a practical workflow for confirming that a color sample, object, or surface matches the value you need.",
+      },
+      {
+        question: "Can I scan a color code from a real object?",
+        answer:
+          "Yes. Color Picker can help identify colors from real objects through the Android camera, though lighting and camera quality can affect the final reading.",
+      },
+      {
+        question: "Is Color Picker useful for hex color values?",
+        answer:
+          "Yes. Color Picker is designed for users who need reusable color code details such as hex-style color references from camera input or images.",
+      },
+    ],
+    last_updated: "June 9, 2026",
+  },
+
+  {
+    slug: "how-to-add-location-stamps-to-digital-photos",
+    title: "How to add location stamps to digital photos on Android",
+    description:
+      "GPS Photo adds GPS coordinates, address, date, and time directly onto Android photos. Use this guide to create a visible digital photo location stamp for travel, field work, or records.",
+    app_id: "gps-photo",
+    steps: [
+      {
+        name: "Install GPS Photo",
+        text: "Download GPS Photo from Google Play and open the app. Allow location access when you want the app to add accurate GPS details to a photo stamp.",
+      },
+      {
+        name: "Confirm your location details",
+        text: "Check that the app has the correct GPS coordinates, address context, date, and time before taking the photo.",
+      },
+      {
+        name: "Capture the stamped photo",
+        text: "Take the photo with the location stamp enabled. GPS Photo adds visible location details directly onto the image export.",
+      },
+      {
+        name: "Save the photo for documentation",
+        text: "Save the stamped image to your device so the location evidence remains visible when the photo is shared outside the gallery.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a digital photo location stamp?",
+        answer:
+          "A digital photo location stamp is visible text or an overlay on an image that shows where and when the photo was taken, such as GPS coordinates, address, date, and time.",
+      },
+      {
+        question: "Can GPS Photo show latitude and longitude on a photo?",
+        answer:
+          "Yes. GPS Photo is designed to place GPS coordinates, including latitude and longitude, directly on Android photos.",
+      },
+      {
+        question: "Why add a visible location stamp instead of relying on metadata?",
+        answer:
+          "A visible stamp stays readable when the photo is shared, copied, or uploaded somewhere that might remove metadata from the file.",
+      },
+    ],
+    last_updated: "June 9, 2026",
+  },
+
+  {
     slug: "how-to-sign-a-pdf-on-android-with-signature-maker",
     title: "How to sign a PDF on Android with Signature Maker",
     description:
@@ -341,6 +473,108 @@ export const HOW_TO_ARTICLES: HowToArticle[] = [
       },
     ],
     last_updated: "April 19, 2026",
+  },
+
+  {
+    slug: "how-to-create-a-gimin-style-image",
+    title: "How to create a Gimin style image with the Gimin app",
+    description:
+      "Use the Gimin iPhone app to create a Gimin-style image: choose a photo, apply AI edits, try polaroid looks, face swap, object removal, and export it.",
+    app_id: "gimin",
+    steps: [
+      {
+        name: "Install Gimin on iPhone",
+        text: "Download Gimin from the App Store and open the AI photo editor. The app is free to download, with optional premium features available through Apple in-app purchase.",
+      },
+      {
+        name: "Choose the photo or image workflow",
+        text: "Start with a selfie, portrait, product image, room photo, or creative prompt depending on the Gimin image style you want to create.",
+      },
+      {
+        name: "Apply the Gimin style image edit",
+        text: "Use the AI editing tools for polaroid-style images, cartoon filters, face swap, object removal, headshot looks, tattoo previews, interior ideas, or product-photo style edits.",
+      },
+      {
+        name: "Review and export the final image",
+        text: "Check the generated image for face details, background cleanup, and overall style. Save the result to your iPhone or share it to your preferred social, design, or messaging app.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is a Gimin style image?",
+        answer:
+          "A Gimin style image is an AI-edited image made with Gimin on iPhone. It can include polaroid-style looks, cartoon portraits, face swap edits, object removal, business headshots, tattoo previews, product photos, or other stylized AI photo effects.",
+      },
+      {
+        question: "How do I create a Gimin image style?",
+        answer:
+          "Open Gimin, choose a photo or image workflow, select the AI edit that matches the result you want, review the generated image, then save or share the final version from your iPhone.",
+      },
+      {
+        question: "Is Gimin only for selfies?",
+        answer:
+          "No. Gimin can be used for selfies, social profile images, business headshots, product photos, tattoo previews, interior visualization, object cleanup, and creative AI image generation.",
+      },
+      {
+        question: "Does Gimin work as an AI photo editor?",
+        answer:
+          "Yes. Gimin is positioned as an AI photo and face editor for iPhone, with tools such as face swap, object removal, AI image generation, photo enhancement, and stylized image effects.",
+      },
+    ],
+    last_updated: "June 19, 2026",
+  },
+
+  {
+    slug: "how-to-prepare-for-the-lgv-theory-test-uk",
+    title: "How to prepare for the LGV theory test in the UK",
+    description:
+      "Prepare for the UK LGV and HGV theory test on iPhone: revise multiple choice, practise hazard perception, understand Driver CPC parts, and confirm official GOV.UK booking rules.",
+    app_id: "lgv-theory-test",
+    steps: [
+      {
+        name: "Confirm which lorry test parts you need",
+        text: "Start with the official GOV.UK or nidirect guidance for your licence path. GOV.UK describes Driver CPC part 1 theory as multiple-choice questions and hazard perception, booked separately but possible to take on the same day.",
+      },
+      {
+        name: "Install the LGV theory test app",
+        text: "Download LGV Theory Test: 4 in 1 Kit UK on iPhone from the App Store. Use it as a revision companion for LGV/HGV theory topics before your official test appointment.",
+      },
+      {
+        name: "Practise multiple-choice topics",
+        text: "Work through lorry theory questions in short sessions. Focus on safe driving rules, road signs, vehicle loading, stopping distances, professional driving responsibilities, and weak areas you miss repeatedly.",
+      },
+      {
+        name: "Practise hazard perception timing",
+        text: "Use hazard perception practice to train earlier recognition of developing hazards. GOV.UK says LGV hazard perception clips feature everyday road scenes and developing hazards, with scoring based on spotting hazards as they start to happen.",
+      },
+      {
+        name: "Book only when your mock scores are steady",
+        text: "Treat mock-test performance as a readiness signal, not a guarantee. Before booking or retaking the official test, confirm current fees, documents, eligibility, pass marks, and waiting periods on the official government website.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the LGV theory test pass mark?",
+        answer:
+          "GOV.UK states that the Driver CPC part 1 multiple-choice pass mark is 85 out of 100 questions and the hazard perception pass mark is 67 out of 100. Always check the official page before your test in case rules change.",
+      },
+      {
+        question: "Are LGV and HGV the same for search and revision?",
+        answer:
+          "In everyday UK search behaviour, learners often use LGV and HGV together when looking for lorry theory revision. The app page targets both terms, but learners should confirm the exact licence category they need through official guidance.",
+      },
+      {
+        question: "Is this an official DVSA app?",
+        answer:
+          "No. LGV Theory Test: 4 in 1 Kit UK is an independent iStack revision app. It is not affiliated with DVSA, GOV.UK, nidirect, or any government agency.",
+      },
+      {
+        question: "Can an app replace official revision materials?",
+        answer:
+          "No single app should replace official guidance. Use app practice for repetition and confidence, then verify current official requirements, fees, and booking steps through GOV.UK or nidirect.",
+      },
+    ],
+    last_updated: "June 22, 2026",
   },
 ];
 
